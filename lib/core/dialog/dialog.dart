@@ -1,0 +1,132 @@
+import 'package:fitness_app/core/extensions/project_extensions.dart';
+import 'package:flutter/material.dart';
+import '../theme/app_colors.dart';
+
+class DialogUtils {
+  static showLoading({
+    required BuildContext context,
+    required String loadingMessage,
+    bool isDismissible = false,
+  }) {
+    showDialog(
+      barrierDismissible: isDismissible,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+            side: const BorderSide(color: AppColors.primary, width: 2),
+          ),
+          elevation: 0,
+          content: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              const CircularProgressIndicator(
+                color: AppColors.primary,
+                strokeWidth: 5,
+              ),
+              10.widthBox,
+              Text(
+                loadingMessage,
+                style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  color: AppColors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  static hideLoading(BuildContext context) {
+    Navigator.pop(context);
+  }
+
+  static showMessage({
+    required BuildContext context,
+    String? title,
+    bool isDismissible = true,
+    required String content,
+    String? posActions,
+    Function(BuildContext)? posFunction,
+    String? negActions,
+    Function(BuildContext)? negFunction,
+  }) {
+    List<Widget> actions = [];
+    if (posActions != null) {
+      actions.add(
+        TextButton(
+          onPressed: () {
+            if (posFunction != null) {
+              posFunction.call(context);
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
+          child: Text(
+            posActions,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: AppColors.green,
+            ),
+          ),
+        ),
+      );
+    }
+
+    if (negActions != null) {
+      actions.add(
+        TextButton(
+          onPressed: () {
+            if (negFunction != null) {
+              negFunction.call(context);
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
+          child: Text(
+            negActions,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.bold,
+              color: AppColors.primary[800],
+            ),
+          ),
+        ),
+      );
+    }
+
+    showDialog(
+      barrierDismissible: isDismissible,
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(40),
+            side: const BorderSide(color: AppColors.primary, width: 2),
+          ),
+          elevation: 0,
+          title: title != null
+              ? Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                    color: AppColors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              : null,
+          content: Text(
+            content,
+            textAlign: TextAlign.center,
+            style: Theme.of(
+              context,
+            ).textTheme.titleLarge?.copyWith(color: AppColors.black),
+          ),
+          actions: actions.isEmpty ? null : actions,
+        );
+      },
+    );
+  }
+}
