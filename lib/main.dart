@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'core/route/routes.dart';
-import 'core/theme/app_theme.dart';
+//import 'core/theme/app_theme.dart';
 import 'core/utils/caching/caching_helper.dart';
 // import 'core/utils/language_cubit.dart';
 
@@ -32,9 +32,9 @@ class MyApp extends StatelessWidget {
       builder: (context, child) => MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "Fitness App",
-        theme: AppTheme.lightTheme,
+        theme: ThemeData.dark(),
         onGenerateRoute: Routes.generateRoute,
-        initialRoute: AppRoutes.homeScreen,
+        initialRoute: AppRoutes.navBar,
       ),
     );
   }
