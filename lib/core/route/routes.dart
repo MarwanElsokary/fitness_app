@@ -1,6 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:fitness_app/core/extensions/project_extensions.dart';
-import 'package:fitness_app/core/gen/assets.gen.dart';
+//import 'package:fitness_app/core/gen/assets.gen.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
 import 'package:fitness_app/features/home.dart';
@@ -33,11 +33,7 @@ class NotFoundScreen extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Assets.image.noRoutes.image(
-                  width: context.width,
-                  height: context.height,
-                  fit: BoxFit.cover,
-                ),
+                Text('404'),
                 Positioned(
                   bottom: 50,
                   child: AnimatedTextKit(
