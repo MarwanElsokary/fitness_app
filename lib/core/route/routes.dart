@@ -1,9 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:fitness_app/core/extensions/project_extensions.dart';
-import 'package:fitness_app/core/gen/assets.gen.dart';
+//import 'package:fitness_app/core/gen/assets.gen.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
-import 'package:fitness_app/features/home.dart';
+import 'package:fitness_app/features/home/presentation/pages/home.dart';
+import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
 import 'package:flutter/material.dart';
 
 abstract class Routes {
@@ -12,6 +13,8 @@ abstract class Routes {
     switch (url.path) {
       case AppRoutes.homeScreen:
         return MaterialPageRoute(builder: (context) => const Home());
+      case AppRoutes.navBar:
+        return MaterialPageRoute(builder: (context) => NavBarLayout());
 
       default:
         return MaterialPageRoute(builder: (context) => const NotFoundScreen());
@@ -33,11 +36,7 @@ class NotFoundScreen extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Assets.image.noRoutes.image(
-                  width: context.width,
-                  height: context.height,
-                  fit: BoxFit.cover,
-                ),
+                Text('404'),
                 Positioned(
                   bottom: 50,
                   child: AnimatedTextKit(
