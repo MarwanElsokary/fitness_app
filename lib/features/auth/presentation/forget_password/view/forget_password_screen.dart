@@ -52,7 +52,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.deepOrange,
-                content: Text("Success Send OTP to your email"),
+                content: Text((state.baseState as BaseErrorState).errorMessage),
               ),
             );
           }

@@ -30,12 +30,12 @@ class AuthRepoImpl implements AuthRepo {
             ForgetPasswordRequestDto.fromDomain(request),
           );
 
-      if (forgetPasswordResponseDto.message != "success") {
+      if (forgetPasswordResponseDto.message == "success") {
+        return ApiSuccessResult(forgetPasswordResponseDto.toEntity());
+      } else {
         return ApiErrorResult(
           forgetPasswordResponseDto.error ?? "Unknown error",
         );
-      } else {
-        return ApiSuccessResult(forgetPasswordResponseDto.toEntity());
       }
     } on DioException catch (e) {
       return ApiErrorResult(e.message ?? "Unknown Dio error");
