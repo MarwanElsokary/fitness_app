@@ -49,6 +49,11 @@ class OtpVerificationForm extends StatelessWidget {
                   onPressed: () {
                     viewModel.doIntent(OtpVerificationSendAction());
                   },
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: state.isValid == true
+                          ? Colors.deepOrange
+                          : Colors.grey,
+                    ),
                   child: state.baseState is BaseLoadingState
                       ? const SizedBox(
                           width: 10,
@@ -59,7 +64,7 @@ class OtpVerificationForm extends StatelessWidget {
                             ),
                           ),
                         )
-                      : Text("Verify"),
+                      : Text("Verify",style: TextStyle(color: Colors.white),),
                 );
               },
             ),

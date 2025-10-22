@@ -25,6 +25,27 @@ class ResetPasswordForm extends StatelessWidget {
                   validator: (value) =>
                       viewModel.validator.validatePassword(value ?? ''),
                   decoration: InputDecoration(
+                    
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 13,
+                    vertical: 8,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(33.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(33.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(33.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -52,6 +73,27 @@ class ResetPasswordForm extends StatelessWidget {
                         viewModel.newPasswordController.text,
                       ),
                   decoration: InputDecoration(
+                    
+                  contentPadding: EdgeInsets.symmetric(
+                    horizontal: 13,
+                    vertical: 8,
+                  ),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(33.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(33.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(33.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(12.0),
+                  ),
                     prefixIcon: const Icon(Icons.lock),
                     suffixIcon: IconButton(
                       icon: Icon(
@@ -74,6 +116,11 @@ class ResetPasswordForm extends StatelessWidget {
                   onPressed: () {
                     viewModel.doIntent(ResetPasswordSendAction());
                   },
+                   style: ElevatedButton.styleFrom(
+                      backgroundColor: state.isValid == true
+                          ? Colors.deepOrange
+                          : Colors.grey,
+                    ),
                   child: state.baseState is BaseLoadingState
                       ? const SizedBox(
                           width: 10,
@@ -84,7 +131,7 @@ class ResetPasswordForm extends StatelessWidget {
                             ),
                           ),
                         )
-                      : Text("Done"),
+                      : Text("Done",style: TextStyle(color: Colors.white),),
                 );
               },
             ),

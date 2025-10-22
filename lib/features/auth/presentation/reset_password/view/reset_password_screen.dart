@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/base/base_state.dart';
 import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../view_model/cubit/reset_password_cubit.dart';
@@ -41,7 +42,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 content: Text("Reset Password Successfully"),
               ),
             );
-            // Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
+           Navigator.pushReplacementNamed(context, AppRoutes.navBar);
           }
           if (state.baseState is BaseErrorState) {
             // showToast(
