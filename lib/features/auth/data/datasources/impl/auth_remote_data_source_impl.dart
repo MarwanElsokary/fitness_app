@@ -1,5 +1,7 @@
 import 'package:fitness_app/core/api_layer/api_client/api_client.dart';
 import 'package:fitness_app/features/auth/data/datasources/intract/auth_remote_data_source.dart';
+import 'package:fitness_app/features/auth/data/models/register/request/register_request_dto.dart';
+import 'package:fitness_app/features/auth/data/models/register/response/register_response_dto.dart';
 import 'package:injectable/injectable.dart';
 import '../../models/forget_password/request/forget_password_request_dto.dart';
 import '../../models/forget_password/response/forget_password_response_dto.dart';
@@ -40,6 +42,12 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     ResetPasswordRequestDto request,
   ) async {
     var response = await _authRetrofitClient.resetPassword(request);
+    return response;
+  }
+
+  @override
+  Future<RegisterResponseDto> register(RegisterRequestDto request) async {
+    var response = await _authRetrofitClient.register(request);
     return response;
   }
 }

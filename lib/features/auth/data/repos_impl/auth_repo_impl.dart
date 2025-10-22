@@ -2,10 +2,13 @@ import 'package:dio/dio.dart';
 import 'package:fitness_app/core/api_layer/api_result/api_result.dart';
 import 'package:fitness_app/features/auth/data/datasources/intract/auth_remote_data_source.dart';
 import 'package:fitness_app/features/auth/data/models/forget_password/response/forget_password_response_dto.dart';
+import 'package:fitness_app/features/auth/data/models/register/request/register_request_dto.dart';
 import 'package:fitness_app/features/auth/domain/entities/forget_password/forget_password_request_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/forget_password/forget_password_response_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/otp_verification/request/otp_verification_request_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/otp_verification/response/otp_verification_response_entity.dart';
+import 'package:fitness_app/features/auth/domain/entities/register/register_request_entity.dart';
+import 'package:fitness_app/features/auth/domain/entities/register/register_response_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/reset_password/request/reset_password_request_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/reset_password/response/reset_password_response_entity.dart';
 import 'package:fitness_app/features/auth/domain/repositories/auth_repo.dart';
@@ -74,6 +77,24 @@ class AuthRepoImpl implements AuthRepo {
         return ApiSuccessResult(response.toEntity());
       } else {
         return ApiErrorResult(response.error ?? "Unknown error");
+      }
+    } catch (e) {
+      return ApiErrorResult(e.toString());
+    }
+  }
+
+  @override
+  Future<ApiResult<RegisterResponseEntity>> register(
+    RegisterRequestEntity request,
+  ) async {
+    try {
+      var response = await _authRemoteDataSource.register(
+        RegisterRequestDto.fromDomain(request),
+      );
+      if (response.message == "Success" || response.message == "success") {
+        return ApiSuccessResult(response.toEntity());
+      } else {
+        return ApiErrorResult(response.message ?? "Unknown error");
       }
     } catch (e) {
       return ApiErrorResult(e.toString());

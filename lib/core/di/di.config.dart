@@ -25,6 +25,7 @@ import '../../features/auth/domain/usecases/forget_password_use_case.dart'
     as _i591;
 import '../../features/auth/domain/usecases/otp_verification_use_case.dart'
     as _i793;
+import '../../features/auth/domain/usecases/register_use_case.dart' as _i97;
 import '../../features/auth/domain/usecases/reset_password_use_case.dart'
     as _i825;
 import '../../features/auth/presentation/forget_password/view_model/cubit/forget_password_cubit.dart'
@@ -83,6 +84,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i793.OtpVerificationUseCase>(
       () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
+    );
+    gh.factory<_i97.RegisterUseCase>(
+      () => _i97.RegisterUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i467.ForgetPasswordCubit>(
       () => _i467.ForgetPasswordCubit(
