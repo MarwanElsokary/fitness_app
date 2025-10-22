@@ -8,6 +8,7 @@ class ResetPasswordBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SharedAuthLayout(
+      setBackButton: false,
       title: "Make sure it's 8 or more characters",
       subtitle: "create a new password",
       reverseOrder: true,

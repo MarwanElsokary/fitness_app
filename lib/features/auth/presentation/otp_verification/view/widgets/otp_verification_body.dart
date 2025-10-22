@@ -9,6 +9,7 @@ class OtpVerificationBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SharedAuthLayout(
+      setBackButton: false,
       title: "OTP Verification",
       subtitle: "Enter the OTP sent to your email",
       child: const OtpVerificationForm(),

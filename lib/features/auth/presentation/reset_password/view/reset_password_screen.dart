@@ -51,7 +51,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.deepOrange,
-                content: Text("Reset Password Successfully"),
+                content: Text((state.baseState as BaseErrorState).errorMessage),
               ),
             );
           }

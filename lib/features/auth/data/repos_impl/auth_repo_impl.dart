@@ -52,7 +52,11 @@ class AuthRepoImpl implements AuthRepo {
       var response = await _authRemoteDataSource.resetPassword(
         ResetPasswordRequestDto.fromDomain(request),
       );
-      return ApiSuccessResult(response.toEntity());
+      if (response.message == "Success" || response.message == "success") {
+        return ApiSuccessResult(response.toEntity());
+      } else {
+        return ApiErrorResult(response.error ?? "Unknown error");
+      }
     } catch (e) {
       return ApiErrorResult(e.toString());
     }
@@ -66,7 +70,11 @@ class AuthRepoImpl implements AuthRepo {
       var response = await _authRemoteDataSource.verifyOtp(
         OtpVerificationRequestDto.fromDomain(request),
       );
-      return ApiSuccessResult(response.toEntity());
+      if (response.status == "Success" || response.status == "success") {
+        return ApiSuccessResult(response.toEntity());
+      } else {
+        return ApiErrorResult(response.error ?? "Unknown error");
+      }
     } catch (e) {
       return ApiErrorResult(e.toString());
     }

@@ -56,7 +56,7 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: Colors.deepOrange,
-                content: Text("Otp Verification Successfully"),
+                content: Text((state.baseState as BaseErrorState).errorMessage),
               ),
             );
           }

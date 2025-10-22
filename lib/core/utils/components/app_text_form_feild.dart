@@ -18,6 +18,7 @@ class AppTextFormField extends StatefulWidget {
   final String? Function(String?)? validator;
   final bool initialObscureText;
   final TextInputType? keyboardType;
+  final Widget? prefIcon;
 
   const AppTextFormField({
     super.key,
@@ -36,6 +37,7 @@ class AppTextFormField extends StatefulWidget {
     this.controller,
     this.validator,
     this.keyboardType,
+    this.prefIcon,
   });
 
   @override
@@ -58,6 +60,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
       controller: widget.controller,
       keyboardType: widget.keyboardType ?? TextInputType.text,
       decoration: InputDecoration(
+        prefixIcon: widget.prefIcon,
         labelText: widget.labelText,
         hintText: widget.hintText,
         hintStyle:
