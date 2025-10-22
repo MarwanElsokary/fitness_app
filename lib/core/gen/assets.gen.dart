@@ -63,12 +63,55 @@ class $AssetsIconsGen {
 class $AssetsImageGen {
   const $AssetsImageGen();
 
+  /// File path: assets/image/Frame 6.png
+  AssetGenImage get frame6 => const AssetGenImage('assets/image/Frame 6.png');
+
+  /// File path: assets/image/Group 1.png
+  AssetGenImage get group1 => const AssetGenImage('assets/image/Group 1.png');
+
+  /// File path: assets/image/app_logo.png
+  AssetGenImage get appLogo => const AssetGenImage('assets/image/app_logo.png');
+
+  /// File path: assets/image/background_1.png
+  AssetGenImage get background1 =>
+      const AssetGenImage('assets/image/background_1.png');
+
+  /// File path: assets/image/background_2.png
+  AssetGenImage get background2 =>
+      const AssetGenImage('assets/image/background_2.png');
+
+  /// File path: assets/image/background_3.png
+  AssetGenImage get background3 =>
+      const AssetGenImage('assets/image/background_3.png');
+
+  /// File path: assets/image/background_4.png
+  AssetGenImage get background4 =>
+      const AssetGenImage('assets/image/background_4.png');
+
+  /// File path: assets/image/background_5.png
+  AssetGenImage get background5 =>
+      const AssetGenImage('assets/image/background_5.png');
+
+  /// File path: assets/image/fit 1.png
+  AssetGenImage get fit1 => const AssetGenImage('assets/image/fit 1.png');
+
   /// File path: assets/image/no_routes.png
   AssetGenImage get noRoutes =>
       const AssetGenImage('assets/image/no_routes.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [noRoutes];
+  List<AssetGenImage> get values => [
+    frame6,
+    group1,
+    appLogo,
+    background1,
+    background2,
+    background3,
+    background4,
+    background5,
+    fit1,
+    noRoutes,
+  ];
 }
 
 class Assets {
