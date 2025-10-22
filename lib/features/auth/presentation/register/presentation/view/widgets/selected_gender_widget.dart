@@ -41,14 +41,14 @@ class SelectedGenderWidget extends StatelessWidget {
           builder: (context, value, child) {
             return ElevatedButton(
               onPressed: value && selectedGender != null ? onNext : null,
-              style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-                backgroundColor: WidgetStateProperty.all(
-                  value && selectedGender != null
+              style: ElevatedButton.styleFrom(backgroundColor:  value && selectedGender != null
                       ? Colors.deepOrange
-                      : Colors.white,
-                ),
-              ),
-              child: Text("Next"),
+                      : Colors.white,),
+              child: Text("Next",style: TextStyle(
+                color: value && selectedGender != null
+                    ? Colors.white
+                    : Colors.deepOrange,
+              ),),
             );
           },
         ),

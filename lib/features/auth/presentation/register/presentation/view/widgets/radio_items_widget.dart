@@ -35,11 +35,11 @@ class RadioItemsWidget extends StatelessWidget {
         ),
         const SizedBox(height: 24),
         ElevatedButton(
-          style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-            backgroundColor: WidgetStateProperty.all(buttonColor),
-          ),
+          style: ElevatedButton.styleFrom(backgroundColor: buttonColor),
           onPressed: selectedValue != null ? onSubmit : null,
-          child: Text(buttonLabel),
+          child: Text(buttonLabel,style: TextStyle(
+            color: buttonColor == Colors.white ? Colors.deepOrange : Colors.white
+          ),),
         ),
       ],
     );

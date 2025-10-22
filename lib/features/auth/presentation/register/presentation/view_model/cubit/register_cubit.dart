@@ -134,10 +134,10 @@ class RegisterCubit extends Cubit<RegisterState> {
       goal: goalsMap[goalNotifier.value],
       activityLevel: activityLevelMap[activityNotifier.value],
     );
-    final result = await _registerUseCase((request));
+    final result = await _registerUseCase.call((request));
 
     switch (result) {
-      case ApiSuccessResult<void>():
+      case ApiSuccessResult<RegisterResponseEntity>():
         {
           emit(
             state.copyWith(
@@ -145,11 +145,11 @@ class RegisterCubit extends Cubit<RegisterState> {
             ),
           );
         }
-      case ApiErrorResult<void>():
+      case ApiErrorResult<RegisterResponseEntity>():
         {
           emit(
             state.copyWith(
-              registerState: BaseErrorState(errorMessage: result.toString()),
+              registerState: BaseErrorState(errorMessage: result.errorMessage),
             ),
           );
         }

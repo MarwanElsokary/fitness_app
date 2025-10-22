@@ -23,7 +23,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
       child: BlocListener<RegisterCubit, RegisterState>(
         listener: (context, state) {
           if (state.registerState is BaseLoadingState) {
-            Center(child: CircularProgressIndicator.adaptive());
+            SizedBox(
+              width: 10,
+              height: 10,
+              child: Center(
+                child: CircularProgressIndicator(color: Colors.white),
+              ),
+            );
           }
           if (state.registerState is BaseSuccessState) {
             Center(child: CircularProgressIndicator.adaptive());

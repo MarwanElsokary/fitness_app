@@ -20,9 +20,9 @@ class RadioTileItem extends StatelessWidget {
       height: 36,
       margin: const EdgeInsets.only(bottom: 16),
       decoration: ShapeDecoration(
-        color: Colors.white,
+        color: Colors.grey.shade800,
         shape: RoundedRectangleBorder(
-          side: BorderSide(width: 1, color: Colors.white),
+          side: BorderSide(width: 1, color: Colors.grey.shade300),
           borderRadius: BorderRadius.circular(20),
         ),
       ),
@@ -42,7 +42,9 @@ class RadioTileItem extends StatelessWidget {
             ),
             Radio<String>(
               value: value,
+              // ignore: deprecated_member_use
               groupValue: selectedValue,
+              // ignore: deprecated_member_use
               onChanged: (value) {
                 onChanged(value!);
               },

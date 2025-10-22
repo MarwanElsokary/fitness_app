@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/base/base_state.dart';
 import 'package:fitness_app/core/utils/shared_auth_layout.dart';
 import 'package:fitness_app/core/utils/shared_blured_container.dart';
 import 'package:flutter/material.dart';
@@ -27,7 +28,7 @@ class ActivitySelectionScreen extends StatelessWidget {
               selectedValue: value,
               onChanged: (value) => viewModel.activityNotifier.value = value,
               onSubmit: () => viewModel.doIntent(UserRegistrationAction()),
-              buttonLabel: "Register",
+              buttonLabel:  viewModel.state.registerState is BaseLoadingState ? 'Registering....' : "Register",
               buttonColor: value != null ? Colors.deepOrange : Colors.white,
             );
           },

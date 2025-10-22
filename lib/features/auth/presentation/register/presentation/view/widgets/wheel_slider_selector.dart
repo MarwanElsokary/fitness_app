@@ -75,10 +75,8 @@ class WheelSliderSelector extends StatelessWidget {
         const SizedBox(height: 24),
         ElevatedButton(
           onPressed: onButtonPressed,
-          style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
-            backgroundColor: WidgetStateProperty.all(buttonColor),
-          ),
-          child: Text(buttonText),
+          style: ElevatedButton.styleFrom(backgroundColor: buttonColor),
+          child: Text(buttonText,style: const TextStyle(color: Colors.white),),
         ),
       ],
     );
