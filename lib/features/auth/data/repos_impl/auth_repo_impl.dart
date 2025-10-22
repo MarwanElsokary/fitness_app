@@ -1,5 +1,7 @@
+import 'package:dio/dio.dart';
 import 'package:fitness_app/core/api_layer/api_result/api_result.dart';
 import 'package:fitness_app/features/auth/data/datasources/intract/auth_remote_data_source.dart';
+import 'package:fitness_app/features/auth/data/models/forget_password/response/forget_password_response_dto.dart';
 import 'package:fitness_app/features/auth/domain/entities/forget_password/forget_password_request_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/forget_password/forget_password_response_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/otp_verification/request/otp_verification_request_entity.dart';
@@ -23,12 +25,22 @@ class AuthRepoImpl implements AuthRepo {
     ForgetPasswordRequestEntity request,
   ) async {
     try {
-      var response = await _authRemoteDataSource.forgetPassword(
-        ForgetPasswordRequestDto.fromDomain(request),
-      );
-      return ApiSuccessResult(response.toEntity());
+      ForgetPasswordResponseDto forgetPasswordResponseDto =
+          await _authRemoteDataSource.forgetPassword(
+            ForgetPasswordRequestDto.fromDomain(request),
+          );
+
+      if (forgetPasswordResponseDto.message != "success") {
+        return ApiErrorResult(
+          forgetPasswordResponseDto.error ?? "Unknown error",
+        );
+      } else {
+        return ApiSuccessResult(forgetPasswordResponseDto.toEntity());
+      }
+    } on DioException catch (e) {
+      return ApiErrorResult(e.message ?? "Unknown Dio error");
     } catch (e) {
-      return ApiErrorResult(e.toString());
+      throw Exception("Unexpected error: $e");
     }
   }
 

@@ -23,14 +23,13 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 813),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) =>
-          MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: "Fitness App",
-            theme: ThemeData.dark(),
-            onGenerateRoute: Routes.generateRoute,
-            initialRoute: AppRoutes.navBar,
-          ),
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Fitness App",
+        theme: ThemeData.dark(),
+        onGenerateRoute: Routes.generateRoute,
+        initialRoute: AppRoutes.forgetPassword,
+      ),
     );
   }
 }
