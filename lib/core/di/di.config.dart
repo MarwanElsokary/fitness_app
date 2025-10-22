@@ -32,7 +32,7 @@ import '../../features/auth/presentation/forget_password/view_model/cubit/forget
     as _i467;
 import '../../features/auth/presentation/otp_verification/cubit/otp_verification_cubit.dart'
     as _i621;
-import '../../features/auth/presentation/register/presentation/view_model/cubit/register_cubit.dart'
+import '../../features/auth/presentation/register/view_model/cubit/register_cubit.dart'
     as _i11;
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;

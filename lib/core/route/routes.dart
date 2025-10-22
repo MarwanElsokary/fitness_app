@@ -5,7 +5,7 @@ import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
 import 'package:fitness_app/features/auth/presentation/forget_password/view/forget_password_screen.dart';
 import 'package:fitness_app/features/auth/presentation/otp_verification/view/otp_verification_screen.dart';
-import 'package:fitness_app/features/auth/presentation/register/presentation/view/register_screen.dart';
+import 'package:fitness_app/features/auth/presentation/register/view/register_screen.dart';
 import 'package:fitness_app/features/auth/presentation/reset_password/view/reset_password_screen.dart';
 import 'package:fitness_app/features/home/presentation/pages/home.dart';
 import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
