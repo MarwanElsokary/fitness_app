@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/gen/assets.gen.dart';
 import 'package:fitness_app/core/utils/shared_auth_layout.dart';
 import 'package:fitness_app/core/utils/shared_blured_container.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -43,7 +44,7 @@ class RegisterForm extends StatelessWidget {
                   return viewModel.validator.validateName(value ?? "");
                 },
                 decoration: InputDecoration(
-                     contentPadding: EdgeInsets.symmetric(
+                  contentPadding: EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 8,
                   ),
@@ -78,7 +79,7 @@ class RegisterForm extends StatelessWidget {
                   return viewModel.validator.validateName(value ?? "");
                 },
                 decoration: InputDecoration(
-                     contentPadding: EdgeInsets.symmetric(
+                  contentPadding: EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 8,
                   ),
@@ -113,7 +114,7 @@ class RegisterForm extends StatelessWidget {
                   return viewModel.validator.validateEmail(value ?? "");
                 },
                 decoration: InputDecoration(
-                     contentPadding: EdgeInsets.symmetric(
+                  contentPadding: EdgeInsets.symmetric(
                     horizontal: 10,
                     vertical: 8,
                   ),
@@ -134,7 +135,7 @@ class RegisterForm extends StatelessWidget {
                     borderRadius: BorderRadius.circular(12.0),
                   ),
                   hintText: "Email",
-                  prefixIcon: Icon(Icons.email),
+                  prefixIcon: Icon(CupertinoIcons.mail),
                 ),
               ),
               const SizedBox(height: 16),
@@ -149,28 +150,28 @@ class RegisterForm extends StatelessWidget {
                     },
                     obscureText: !value,
                     decoration: InputDecoration(
-                         contentPadding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 8,
-                  ),
-                  border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(33.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(33.0),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                    borderRadius: BorderRadius.circular(33.0),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.red),
-                    borderRadius: BorderRadius.circular(12.0),
-                  ),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 8,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(33.0),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(33.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(33.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.red),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
                       hintText: "Password",
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: Icon(CupertinoIcons.lock),
                       suffixIcon: IconButton(
                         onPressed: () {
                           viewModel.isPasswordVisible.value =

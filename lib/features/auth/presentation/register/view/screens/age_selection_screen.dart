@@ -23,6 +23,7 @@ class AgeSelectionScreen extends StatelessWidget {
           valueListenable: viewModel.ageNotifier,
           builder: (BuildContext context, int? value, Widget? child) {
             return WheelSliderSelector(
+              totalCount: 100,
               label: "Year",
               initialValue: value ?? 25,
               onValueChanged: (value) => viewModel.ageNotifier.value = value,
