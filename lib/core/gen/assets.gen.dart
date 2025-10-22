@@ -63,12 +63,21 @@ class $AssetsIconsGen {
 class $AssetsImageGen {
   const $AssetsImageGen();
 
+  /// File path: assets/image/Frame 6.png
+  AssetGenImage get frame6 => const AssetGenImage('assets/image/Frame 6.png');
+
+  /// File path: assets/image/Group 1.png
+  AssetGenImage get group1 => const AssetGenImage('assets/image/Group 1.png');
+
+  /// File path: assets/image/fit 1.png
+  AssetGenImage get fit1 => const AssetGenImage('assets/image/fit 1.png');
+
   /// File path: assets/image/no_routes.png
   AssetGenImage get noRoutes =>
       const AssetGenImage('assets/image/no_routes.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [noRoutes];
+  List<AssetGenImage> get values => [frame6, group1, fit1, noRoutes];
 }
 
 class Assets {
