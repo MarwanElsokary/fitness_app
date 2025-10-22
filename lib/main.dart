@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         title: "Fitness App",
         theme: ThemeData.dark(),
         onGenerateRoute: Routes.generateRoute,
-        initialRoute: AppRoutes.forgetPassword,
+        initialRoute: AppRoutes.register,
       ),
     );
   }
