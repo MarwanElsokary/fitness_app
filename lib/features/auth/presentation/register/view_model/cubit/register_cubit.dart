@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:fitness_app/core/api_layer/api_result/api_result.dart';
 import 'package:fitness_app/core/base/base_state.dart';
 import 'package:fitness_app/core/resources/app_constants.dart';
-import 'package:fitness_app/core/resources/locale_keys.g.dart';
 import 'package:fitness_app/core/utils/validator.dart';
 import 'package:fitness_app/features/auth/domain/entities/register/register_request_entity.dart';
 import 'package:fitness_app/features/auth/domain/entities/register/register_response_entity.dart';
@@ -10,7 +9,6 @@ import 'package:fitness_app/features/auth/domain/usecases/register_use_case.dart
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-
 import '../../view/screens/activity_selection_screen.dart';
 import '../../view/screens/age_selection_screen.dart';
 import '../../view/screens/gender_selection_screen.dart';
@@ -59,21 +57,21 @@ class RegisterCubit extends Cubit<RegisterState> {
   ];
 
   final Map<String, String> goalsMap = {
-    LocaleKeys.GainWeight: AppConstants.gainWeight,
-    LocaleKeys.LoseWeight: AppConstants.loseWeight,
-    LocaleKeys.GetFitter: AppConstants.getFitter,
-    LocaleKeys.GainMoreFlexible: AppConstants.gainMoreFlexible,
-    LocaleKeys.LearnTheBasic: AppConstants.learnTheBasic,
+    AppConstants.GainWeight: AppConstants.gainWeight,
+    AppConstants.LoseWeight: AppConstants.loseWeight,
+    AppConstants.GetFitter: AppConstants.getFitter,
+    AppConstants.GainMoreFlexible: AppConstants.gainMoreFlexible,
+    AppConstants.LearnTheBasic: AppConstants.learnTheBasic,
   };
 
   List<String> get goals => goalsMap.keys.toList();
 
   final Map<String, String> activityLevelMap = {
-    LocaleKeys.Rookie: AppConstants.rookieLevel,
-    LocaleKeys.Beginner: AppConstants.beginnerLevel,
-    LocaleKeys.Intermediate: AppConstants.intermediateLevel,
-    LocaleKeys.Advanced: AppConstants.advancedLevel,
-    LocaleKeys.TrueBeast: AppConstants.trueBeastLevel,
+    AppConstants.Rookie: AppConstants.rookieLevel,
+    AppConstants.Beginner: AppConstants.beginnerLevel,
+    AppConstants.Intermediate: AppConstants.intermediateLevel,
+    AppConstants.Advanced: AppConstants.advancedLevel,
+    AppConstants.TrueBeast: AppConstants.trueBeastLevel,
   };
 
   List<String> get activityLevels => activityLevelMap.keys.toList();
