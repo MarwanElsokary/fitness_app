@@ -95,7 +95,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: Container(
-                      height: 275.h,
+                      height: 290.h,
                       width: double.infinity,
                       decoration: const BoxDecoration(
                         color: Color.fromRGBO(36, 36, 36, 0.8),
