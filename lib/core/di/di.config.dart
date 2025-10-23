@@ -32,6 +32,8 @@ import '../../features/auth/presentation/forget_password/view_model/cubit/forget
     as _i467;
 import '../../features/auth/presentation/otp_verification/cubit/otp_verification_cubit.dart'
     as _i621;
+import '../../features/auth/presentation/register/view_model/cubit/register_cubit.dart'
+    as _i103;
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;
 import '../api_layer/api_client/api_client.dart' as _i225;
@@ -79,14 +81,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i591.ForgetPasswordUseCase>(
       () => _i591.ForgetPasswordUseCase(gh<_i723.AuthRepo>()),
     );
-    gh.factory<_i825.ResetPasswordUseCase>(
-      () => _i825.ResetPasswordUseCase(gh<_i723.AuthRepo>()),
-    );
     gh.factory<_i793.OtpVerificationUseCase>(
       () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i97.RegisterUseCase>(
       () => _i97.RegisterUseCase(gh<_i723.AuthRepo>()),
+    );
+    gh.factory<_i825.ResetPasswordUseCase>(
+      () => _i825.ResetPasswordUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i467.ForgetPasswordCubit>(
       () => _i467.ForgetPasswordCubit(
@@ -97,6 +99,12 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i1064.ResetPasswordCubit>(
       () => _i1064.ResetPasswordCubit(
         gh<_i825.ResetPasswordUseCase>(),
+        gh<_i449.Validator>(),
+      ),
+    );
+    gh.factory<_i103.RegisterCubit>(
+      () => _i103.RegisterCubit(
+        gh<_i97.RegisterUseCase>(),
         gh<_i449.Validator>(),
       ),
     );

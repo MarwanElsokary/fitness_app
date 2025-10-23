@@ -39,11 +39,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         locale: const Locale('ar'),
         onGenerateRoute: Routes.generateRoute,
-
-        initialRoute: seenOnboarding
-            ? AppRoutes.onBoardingScreen
-            : AppRoutes.onBoardingScreen,
-
+        initialRoute: AppRoutes.register,
       ),
     );
   }
