@@ -6,7 +6,7 @@ extension StringValidation on String? {
   //Non_empty validator
   String? validateNonEmpty(BuildContext context) {
     if (this == null || this!.isEmpty) {
-      return context.l10n.pleaseEnterValue;
+      return context.l10n.pleaseEnterYourEmail;
     }
     return null;
   }
