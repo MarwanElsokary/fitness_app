@@ -69,28 +69,18 @@ class $AssetsImageGen {
   /// File path: assets/image/Group 1.png
   AssetGenImage get group1 => const AssetGenImage('assets/image/Group 1.png');
 
-  /// File path: assets/image/app_logo.png
-  AssetGenImage get appLogo => const AssetGenImage('assets/image/app_logo.png');
+  /// File path: assets/image/O15_29.png
+  AssetGenImage get o1529 => const AssetGenImage('assets/image/O15_29.png');
 
-  /// File path: assets/image/background_1.png
-  AssetGenImage get background1 =>
-      const AssetGenImage('assets/image/background_1.png');
+  /// File path: assets/image/O15_30.png
+  AssetGenImage get o1530 => const AssetGenImage('assets/image/O15_30.png');
 
-  /// File path: assets/image/background_2.png
-  AssetGenImage get background2 =>
-      const AssetGenImage('assets/image/background_2.png');
+  /// File path: assets/image/O15_31.png
+  AssetGenImage get o1531 => const AssetGenImage('assets/image/O15_31.png');
 
-  /// File path: assets/image/background_3.png
-  AssetGenImage get background3 =>
-      const AssetGenImage('assets/image/background_3.png');
-
-  /// File path: assets/image/background_4.png
-  AssetGenImage get background4 =>
-      const AssetGenImage('assets/image/background_4.png');
-
-  /// File path: assets/image/background_5.png
-  AssetGenImage get background5 =>
-      const AssetGenImage('assets/image/background_5.png');
+  /// File path: assets/image/Rectangle 1.png
+  AssetGenImage get rectangle1 =>
+      const AssetGenImage('assets/image/Rectangle 1.png');
 
   /// File path: assets/image/fit 1.png
   AssetGenImage get fit1 => const AssetGenImage('assets/image/fit 1.png');
@@ -103,12 +93,10 @@ class $AssetsImageGen {
   List<AssetGenImage> get values => [
     frame6,
     group1,
-    appLogo,
-    background1,
-    background2,
-    background3,
-    background4,
-    background5,
+    o1529,
+    o1530,
+    o1531,
+    rectangle1,
     fit1,
     noRoutes,
   ];

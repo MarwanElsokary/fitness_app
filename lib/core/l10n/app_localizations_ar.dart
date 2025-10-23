@@ -1,473 +1,214 @@
-// ignore: unused_import
-import 'package:intl/intl.dart' as intl;
 import 'app_localizations.dart';
 
-// ignore_for_file: type=lint
-
-/// The translations for Arabic (`ar`).
 class AppLocalizationsAr extends AppLocalizations {
-  AppLocalizationsAr([String locale = 'ar'])
-    : super(locale);
+  AppLocalizationsAr() : super('ar');
 
   @override
-  String get appName => 'تتبع الطلبات';
-
+  String get appName => 'تطبيق الجيم';
   @override
   String get appVersion => '1.0.0';
-
   @override
   String get pleaseEnterValue => 'ادخل قيمة';
-
   @override
   String get pleaseEnterName => 'من فضلك ادخل الاسم';
-
   @override
-  String get nameMustBeMoreThan3Characters =>
-      'الاسم يجب ان يكون اكبر من 3 حروف';
-
+  String get nameMustBeMoreThan3Characters => 'الاسم يجب ان يكون اكبر من 3 حروف';
   @override
-  String
-  get passwordMustContainUpperLowerAndSpecialCharacter =>
+  String get passwordMustContainUpperLowerAndSpecialCharacter =>
       'يحب ان يحتوي علي حرف كبير و حرف صغير ورمز مميز';
-
   @override
-  String get passwordsDoNotMatch =>
-      'كلمة المرور غير متطابقه';
-
+  String get passwordsDoNotMatch => 'كلمة المرور غير متطابقه';
   @override
-  String get pleaseEnterYourPassword =>
-      'ادخل كلمة المرور';
-
+  String get pleaseEnterYourPassword => 'ادخل كلمة المرور';
   @override
-  String get pleaseEnterYourEmail =>
-      'ادخل البريد الالكتروني';
-
+  String get pleaseEnterYourEmail => 'ادخل البريد الالكتروني';
   @override
   String get emailMustBeLikeThisExampleGmailCom =>
       'البريد الالكتروني يجب ان يكون  \nexample@gmail.com';
-
   @override
-  String get pleaseEnterYourPhoneNumber =>
-      'ادخل رقم الهاتف ';
-
+  String get pleaseEnterYourPhoneNumber => 'ادخل رقم الهاتف';
   @override
   String get enterAValidEgyptianPhoneNumber =>
-      'ادخل رفم هاتف مصري  (e.g., 201xxxxxxxxx)';
-
+      'ادخل رقم هاتف مصري  (e.g., 201xxxxxxxxx)';
   @override
   String get home => 'الرئيسية';
-
-  @override
-  String get orders => 'الطلبات';
-
   @override
   String get profile => 'الملف الشخصي';
-
   @override
-  String get welcome_to_flowery_rider_app =>
-      'مرحباً بك \n في تطبيق فلاوري للسائق ';
-
+  String get firstName => 'الإسم الأول';
   @override
-  String get login => 'تسجيل الدخول';
-
+  String get lastName => 'الإسم الأخير';
   @override
-  String get apply_now => 'التقديم الان';
-
+  String get enterFirstName => 'ادخل الاسم القانوني الاول';
   @override
-  String get version => 'v 1.0.0-beta.1';
-
-  @override
-  String get enter_your_email =>
-      'ادخل العنوان الالكتروني';
-
-  @override
-  String get email => 'العنوان الالكتروني';
-
-  @override
-  String get password => 'كلمة المرور';
-
-  @override
-  String get enter_your_password => 'ادخل كلمة المرور';
-
-  @override
-  String get remember_me => 'تذكرني';
-
-  @override
-  String get forgot_password => 'نسيت كلمة المرور؟';
-
-  @override
-  String get continue_btn => 'الاستمرار';
-
-  @override
-  String get ok => 'حسناً';
-
-  @override
-  String get notAvailableForDelivery => 'غير متاح لليصول';
-
-  @override
-  String get flower_order => 'طلب الزهور';
-
-  @override
-  String get distance_to_deliver =>
-      '24 كم - 30 دقائق لليصول';
-
-  @override
-  String get store_address => 'Store Address';
-
-  @override
-  String get user_address => 'User Address';
-
-  @override
-  String get reject => 'رفض';
-
-  @override
-  String get accepted => 'مقبول';
-
-  @override
-  String get accept => 'قبول';
-
-  @override
-  String get no_orders => 'لا يوجد طلبات';
-
-  @override
-  String get thank_you => 'شكرا لكم!!';
-
-  @override
-  String get order_delivered => 'تم تسليم الطلب';
-
+  String get enterLastName => 'ادخل الاسم القانوني الاخير';
   @override
   String get successfully => 'ناجح';
-
   @override
   String get done => 'تم';
-
   @override
   String get status => 'الحالة';
-
-  @override
-  String get order_id => 'رقم الطلب';
-
-  @override
-  String get pickup_address => 'عنوان استلام';
-
-  @override
-  String get order_details => 'تفاصيل الطلب';
-
-  @override
-  String get total => 'المجموع';
-
-  @override
-  String get payment_method => 'طريقة الدفع';
-
-  @override
-  String get loading => 'جاري التحميل...';
-
-  @override
-  String get success => 'تم بنجاح';
-
-  @override
-  String get reset_password => 'إعادة تعيين كلمة المرور';
-
-  @override
-  String
-  get please_enter_your_email_to_receive_a_verification_code =>
-      'Please enter your email to receive a verification code to create a new password via email';
-
-  @override
-  String get send => 'Send';
-
-  @override
-  String get verification_code_sent_to_your_email =>
-      'Verification code sent to your email';
-
-  @override
-  String get email_not_found => 'Email Not Found';
-
-  @override
-  String get try_again => 'Try Again';
-
-  @override
-  String get email_verification => 'Email Verification';
-
-  @override
-  String
-  get please_enter_the_6_digit_code_sent_to_your_email =>
-      'Please enter the 6-digit code sent to your email';
-
-  @override
-  String get didnt_receive_the_code =>
-      'Didn\'t receive the code? ';
-
-  @override
-  String get resend => 'Resend';
-
-  @override
-  String get please_enter_your_new_password =>
-      'Please enter your new password';
-
-  @override
-  String get new_password => 'كلمة المرور الجديدة';
-
-  @override
-  String get enter_your_new_password =>
-      'Enter your new password';
-
-  @override
-  String get confirm_your_password =>
-      'Confirm your password';
-
-  @override
-  String get confirm_password => 'Confirm Password';
-
-  @override
-  String
-  get password_reset_success_please_login_again_with_your_new_password =>
-      'Password reset successfully! Please login again with your new password.';
-
-  @override
-  String get error => 'Error';
-
-  @override
-  String get forget_password => 'Forget Password';
-
-  @override
-  String get apply_submitted_successfully =>
-      'Your application has been submitted!';
-
-  @override
-  String get apply_submitted_description =>
-      'Thank you for providing your application,\nwe will review your application and will\nget back to you soon.';
-
-  @override
-  String get apply => 'تقديم';
-
   @override
-  String get country => 'الدولة';
-
-  @override
-  String get first_name => 'الإسم الأول';
-
-  @override
-  String get last_name => 'الإسم الأخير';
-
-  @override
-  String get enter_first_name =>
-      'ادخل الاسم القانوني الاول';
-
-  @override
-  String get enter_last_name =>
-      'ادخل الاسم القانوني الاخير';
-
-  @override
-  String get nID => 'الرقم القومي';
-
-  @override
-  String get n_iD_img => 'صورة البطاقة';
-
-  @override
-  String get vehicle_license => 'رخصة السيارة';
-
-  @override
-  String get vehicle_number => 'رقم السيارة';
-
-  @override
-  String get vehicle_type => 'نوع السيارة';
-
-  @override
-  String get welcome => 'أهلا وسهلا!!';
-
-  @override
-  String get descriptionApplyPage =>
-      'هل تريد أن تكون سائق توصيل؟\nانضم إلى فريقنا';
-
-  @override
-  String get descriptionCountry => 'الرجاء تحديد بلدك';
-
-  @override
-  String get descriptionFirstName =>
-      'الرجاء إدخال اسمك الأول';
-
-  @override
-  String get descriptionLastName =>
-      'الرجاء إدخال اسمك الأخير';
-
-  @override
-  String get vehicleType => 'نوع المركبة';
-
-  @override
-  String get vehicleNumber => 'رقم المركبة';
-
-  @override
-  String get vehicleLicense => 'رخصة المركبة';
-
-  @override
-  String get enterEmail => 'ادخل البريد الإلكتروني';
-
-  @override
-  String get descriptionEmail =>
-      'من فضلك ادخل بريد إلكتروني صحيح';
-
-  @override
-  String get phoneNumber => 'رقم الهاتف';
-
-  @override
-  String get descriptionPhoneNumber =>
-      'من فضلك ادخل رقم هاتف صحيح';
-
-  @override
-  String get descriptionVehicleNumber =>
-      'من فضلك ادخل رقم رخصة صحيح';
-
-  @override
-  String get nId => 'الرقم القومي';
-
-  @override
-  String get descriptionNId =>
-      'من فضلك ادخل الرقم القومي';
-
+  String get next => 'التالي';
   @override
-  String get nIdImg => 'صورة البطاقة';
-
+  String get back => 'رجوع';
   @override
-  String get passwordError =>
-      'يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل، حرف كبير، رقم ورمز.';
-
+  String get doIt => 'افعلها';
   @override
-  String get confirmPasswordError =>
-      'كلمتا المرور غير متطابقتين';
-
+  String get skip => 'تخطي';
   @override
-  String get uploadVehicleLicenseError =>
-      'من فضلك قم برفع صورة رخصة المركبة';
-
+  String get title1oOnBarding => 'السعر الحقيقي للتميّز هو الانضباط';
   @override
-  String get uploadIdError =>
-      'من فضلك قم برفع صورة البطاقة';
-
+  String get title2oOnBarding => 'اللياقة لم تكن يومًا بهذا القدر من المتعة';
   @override
-  String get nationalIdError =>
-      'يجب أن يتكون رقم الهوية الوطنية من 14 رقمًا بالضبط';
-
+  String get title3oOnBarding => 'لا مزيد من الأعذار — ابدأ الآن';
   @override
-  String get enter_vehicle_number => 'ادخل رقم المركبة';
-
+  String get subtitle1OnBarding =>
+      'الانضباط هو الجسر بين الأهداف والنجاح. حافظ على الاستمرار والتركيز لتصل إلى أفضل نسخة منك.';
   @override
-  String get enter_phone => 'ادخل رقم الهاتف';
-
+  String get subtitle2OnBarding =>
+      'اجعل كل تمرين رحلة مليئة بالمتعة. تحدَّ نفسك واستمتع بكل خطوة نحو جسد أقوى.';
   @override
-  String get enter_mail => 'ادخل البريد الإلكتروني';
+  String get subtitle3OnBarding =>
+      'توقّف عن انتظار الوقت المناسب — الوقت هو الآن. ابدأ رحلتك نحو اللياقة وحقق أهدافك.';
 
   @override
-  String get enter_national_id => 'ادخل الرقم القومي';
+  // TODO: implement accept
+  String get accept => throw UnimplementedError();
 
   @override
-  String get choose_vehicle_license_img =>
-      'choose vehicle license image';
+  // TODO: implement accepted
+  String get accepted => throw UnimplementedError();
 
   @override
-  String get choose_national_id_img =>
-      'choose national ID image';
+  // TODO: implement applyNow
+  String get applyNow => throw UnimplementedError();
 
   @override
-  String get areYouSureYouWantToLogOut =>
-      'هل أنت متأكد أنك تريد تسجيل الخروج؟';
+  // TODO: implement confirmPassword
+  String get confirmPassword => throw UnimplementedError();
 
   @override
-  String get logout => 'تسجيل الخروج';
+  // TODO: implement confirmYourPassword
+  String get confirmYourPassword => throw UnimplementedError();
 
   @override
-  String get confirmLogout => 'تأكيد تسجيل الخروج';
+  // TODO: implement continueBtn
+  String get continueBtn => throw UnimplementedError();
 
   @override
-  String get cancel => 'إلغاء';
+  // TODO: implement didntReceiveTheCode
+  String get didntReceiveTheCode => throw UnimplementedError();
 
   @override
-  String get editProfile => 'تعديل الملف الشخصي';
+  // TODO: implement email
+  String get email => throw UnimplementedError();
 
   @override
-  String get changePassword => 'تغيير كلمة المرور';
+  // TODO: implement emailNotFound
+  String get emailNotFound => throw UnimplementedError();
 
   @override
-  String get oldPassword => 'كلمة المرور القديمة';
+  // TODO: implement emailVerification
+  String get emailVerification => throw UnimplementedError();
 
   @override
-  String get newPassword => 'كلمة المرور الجديدة';
+  // TODO: implement enterYourEmail
+  String get enterYourEmail => throw UnimplementedError();
 
   @override
-  String get enterOldPassword =>
-      'ادخل كلمة المرور القديمة';
+  // TODO: implement enterYourNewPassword
+  String get enterYourNewPassword => throw UnimplementedError();
 
   @override
-  String get enterNewPassword =>
-      'ادخل كلمة المرور الجديدة';
+  // TODO: implement enterYourPassword
+  String get enterYourPassword => throw UnimplementedError();
 
   @override
-  String get save => 'حفظ';
+  // TODO: implement error
+  String get error => throw UnimplementedError();
 
   @override
-  String get profileUpdatedSuccessfully =>
-      'تم تحديث الملف الشخصي بنجاح';
+  // TODO: implement forgetPassword
+  String get forgetPassword => throw UnimplementedError();
 
   @override
-  String get passwordChangedSuccessfully =>
-      'تم تغيير كلمة المرور بنجاح';
+  // TODO: implement forgotPassword
+  String get forgotPassword => throw UnimplementedError();
 
   @override
-  String get currentOrders => 'الطلبات الحالية';
+  // TODO: implement loading
+  String get loading => throw UnimplementedError();
 
   @override
-  String get pastOrders => 'الطلبات السابقة';
+  // TODO: implement login
+  String get login => throw UnimplementedError();
 
   @override
-  String get orderDetails => 'تفاصيل الطلب';
+  // TODO: implement newPassword
+  String get newPassword => throw UnimplementedError();
 
   @override
-  String get orderId => 'رقم الطلب';
+  // TODO: implement ok
+  String get ok => throw UnimplementedError();
 
   @override
-  String get customerName => 'اسم العميل';
+  // TODO: implement orders
+  String get orders => throw UnimplementedError();
 
   @override
-  String get customerPhone => 'هاتف العميل';
+  // TODO: implement password
+  String get password => throw UnimplementedError();
 
   @override
-  String get deliveryAddress => 'عنوان التوصيل';
+  // TODO: implement passwordResetSuccessPleaseLoginAgainWithYourNewPassword
+  String get passwordResetSuccessPleaseLoginAgainWithYourNewPassword => throw UnimplementedError();
 
   @override
-  String get orderStatus => 'حالة الطلب';
+  // TODO: implement pleaseEnterThe6DigitCodeSentToYourEmail
+  String get pleaseEnterThe6DigitCodeSentToYourEmail => throw UnimplementedError();
 
   @override
-  String get totalAmount => 'المبلغ الإجمالي';
+  // TODO: implement pleaseEnterYourEmailToReceiveAVerificationCode
+  String get pleaseEnterYourEmailToReceiveAVerificationCode => throw UnimplementedError();
 
   @override
-  String get items => 'العناصر';
+  // TODO: implement pleaseEnterYourNewPassword
+  String get pleaseEnterYourNewPassword => throw UnimplementedError();
 
   @override
-  String get photo_updated_successfully =>
-      'تم تحديث الصورة بنجاح';
+  // TODO: implement rememberMe
+  String get rememberMe => throw UnimplementedError();
 
   @override
-  String get changePhoto => 'Change Photo';
+  // TODO: implement resend
+  String get resend => throw UnimplementedError();
 
   @override
-  String get change => 'تغيير';
+  // TODO: implement resetPassword
+  String get resetPassword => throw UnimplementedError();
 
   @override
-  String get update => 'تحديث';
+  // TODO: implement send
+  String get send => throw UnimplementedError();
 
   @override
-  String get gender => 'الجنس';
+  // TODO: implement success
+  String get success => throw UnimplementedError();
 
   @override
-  String get male => 'ذكر';
+  // TODO: implement thankYou
+  String get thankYou => throw UnimplementedError();
 
   @override
-  String get female => 'أنثى';
+  // TODO: implement tryAgain
+  String get tryAgain => throw UnimplementedError();
 
   @override
-  String get confirm_new_password =>
-      'تأكيد كلمة المرور الجديدة';
+  // TODO: implement verificationCodeSentToYourEmail
+  String get verificationCodeSentToYourEmail => throw UnimplementedError();
 
   @override
-  String get edit_vehical_info => 'تعديل معلومات المركبة';
+  // TODO: implement version
+  String get version => throw UnimplementedError();
 }

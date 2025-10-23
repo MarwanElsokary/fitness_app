@@ -25,10 +25,10 @@
   "forgot_password": "Forgot password?",
   "continue_btn": "Continue",
   "ok": "Ok",
-  "accepted":"Accepted",
-  "accept":"Accept",
+  "accepted": "Accepted",
+  "accept": "Accept",
   "thank_you": "Thank you!!",
-  "successfully":"successfully",
+  "successfully": "successfully",
   "done": "Done",
   "status": "Status",
   "loading": "Loading...",
@@ -54,6 +54,16 @@
   "first_name": "First Legal Name",
   "last_name": "Last Legal Name",
   "enter_first_name": "Enter First Legal Name",
-  "enter_last_name": "Enter Last Legal Name"
+  "enter_last_name": "Enter Last Legal Name",
+  "next": "Next",
+  "back": "Back",
+  "doIt": "Do It",
+  "skip": "Skip",
+  "title1oOnBarding": "The Price Of Excellence\nIs Discipline",
+  "title2oOnBarding": "Fitness Has Never Been So\nMuch Fun",
+  "title3oOnBarding": "NO MORE EXCUSES\nDo It Now",
+  "subtitle1OnBarding": "Discipline is the bridge between goals and success. Stay consistent, stay focused, and become your best version.",
+  "subtitle2OnBarding": "Make every workout a joyful journey. Push your limits and enjoy every step towards a stronger you.",
+  "subtitle3OnBarding": "Stop waiting for the right time — the time is now. Start your fitness journey and make it happen."
 
 }
