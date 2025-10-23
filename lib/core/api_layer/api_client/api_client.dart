@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:fitness_app/core/api_layer/models/responses/login_response_dto.dart';
 import 'package:fitness_app/features/auth/data/models/forget_password/request/forget_password_request_dto.dart';
 import 'package:fitness_app/features/auth/data/models/forget_password/response/forget_password_response_dto.dart';
 import 'package:fitness_app/features/auth/data/models/otp_verification/request/otp_verification_request_dto.dart';
@@ -10,6 +11,7 @@ import 'package:fitness_app/features/auth/data/models/reset_password/response/re
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../models/requests/login_request_dto.dart';
 import 'endpoints.dart';
 
 part 'api_client.g.dart';
@@ -19,6 +21,7 @@ part 'api_client.g.dart';
 abstract class ApiClient {
   @factoryMethod
   factory ApiClient(Dio dio) = _ApiClient;
+
   @GET(Endpoints.sampleEndpoint)
   Future<String> getSampleData();
 
@@ -39,4 +42,9 @@ abstract class ApiClient {
   Future<ResetPasswordResponseDto> resetPassword(
     @Body() ResetPasswordRequestDto request,
   );
+
+  @POST(Endpoints.login)
+  Future<HttpResponse<LoginResponseDto>> login({
+    @Body() required LoginRequestDto loginRequestDto,
+  });
 }

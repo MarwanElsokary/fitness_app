@@ -131,6 +131,10 @@ abstract class AppLocalizations {
   String get subtitle2OnBarding;
 
   String get subtitle3OnBarding;
+  String get hetThere;
+  String get welcomBack;
+  String get dontHaveAnAccountYet;
+  String get register;
 
   AppLocalizations(String locale)
     : localeName = intl.Intl.canonicalizedLocale(locale.toString());

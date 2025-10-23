@@ -28,6 +28,13 @@ import '../../features/auth/domain/usecases/otp_verification_use_case.dart'
 import '../../features/auth/domain/usecases/register_use_case.dart' as _i97;
 import '../../features/auth/domain/usecases/reset_password_use_case.dart'
     as _i825;
+import '../../features/auth/login/data/data_source/login_data_source.dart'
+    as _i665;
+import '../../features/auth/login/data/repo_impl/login_repo_impl.dart' as _i216;
+import '../../features/auth/login/domain/repo/login_repo.dart' as _i632;
+import '../../features/auth/login/domain/use_case/login_use_case.dart' as _i630;
+import '../../features/auth/login/presentation/cubit/login_view_model.dart'
+    as _i465;
 import '../../features/auth/presentation/forget_password/view_model/cubit/forget_password_cubit.dart'
     as _i467;
 import '../../features/auth/presentation/otp_verification/cubit/otp_verification_cubit.dart'
@@ -37,6 +44,8 @@ import '../../features/auth/presentation/register/view_model/cubit/register_cubi
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;
 import '../api_layer/api_client/api_client.dart' as _i225;
+import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
+    as _i100;
 import '../modules/dio_module.dart' as _i948;
 import '../modules/shared_preferences_module.dart' as _i744;
 import '../utils/language_cubit.dart' as _i344;
@@ -72,11 +81,26 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.singleton<_i225.ApiClient>(() => _i225.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i665.LoginRemoteDataSource>(
+      () => _i100.LoginRemoteDataSourceImpl(gh<_i225.ApiClient>()),
+    );
     gh.factory<_i725.AuthRemoteDataSource>(
       () => _i257.AuthRemoteDataSourceImpl(gh<_i225.ApiClient>()),
     );
+    gh.factory<_i632.LoginRepo>(
+      () => _i216.LoginRepoImpl(gh<_i665.LoginRemoteDataSource>()),
+    );
+    gh.factory<_i630.LoginUseCase>(
+      () => _i630.LoginUseCase(gh<_i632.LoginRepo>()),
+    );
     gh.factory<_i723.AuthRepo>(
       () => _i704.AuthRepoImpl(gh<_i725.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i465.LoginViewModel>(
+      () => _i465.LoginViewModel(
+        loginUseCase: gh<_i630.LoginUseCase>(),
+        sharedPrefHelper: gh<_i744.SharedPrefHelper>(),
+      ),
     );
     gh.factory<_i591.ForgetPasswordUseCase>(
       () => _i591.ForgetPasswordUseCase(gh<_i723.AuthRepo>()),

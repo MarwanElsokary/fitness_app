@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:fitness_app/core/extensions/project_extensions.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
+import 'package:fitness_app/features/auth/login/presentation/cubit/login_view.dart';
 import 'package:fitness_app/features/auth/presentation/forget_password/view/forget_password_screen.dart';
 import 'package:fitness_app/features/auth/presentation/otp_verification/view/otp_verification_screen.dart';
 import 'package:fitness_app/features/auth/presentation/register/view/register_screen.dart';
@@ -21,15 +22,12 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => NavBarLayout());
       case AppRoutes.onBoardingScreen:
         return MaterialPageRoute(builder: (context) => OnBoardingScreen());
+      case AppRoutes.loginView:
+        return MaterialPageRoute(builder: (context) => LoginView());
 
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
-        );
-      case AppRoutes.otpverification:
-        String email = settings.arguments as String;
-        return MaterialPageRoute(
-          builder: (context) => OtpVerificationScreen(email: email),
         );
       case AppRoutes.resetPassword:
         String email = settings.arguments as String;

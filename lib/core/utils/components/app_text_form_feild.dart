@@ -68,7 +68,7 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
             TextStyle(color: AppColors.grey, fontSize: 13.sp),
         isDense: true,
         labelStyle: TextStyle(
-          color: AppColors.grey,
+          color: AppColors.white,
           fontSize: 14.sp,
           fontWeight: FontWeight.w500,
         ),
@@ -76,23 +76,23 @@ class _AppTextFormFieldState extends State<AppTextFormField> {
             widget.contentPadding ??
             const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         filled: true,
-        fillColor: widget.backgroundColor ?? Colors.grey.shade50,
+        fillColor: widget.backgroundColor ?? Colors.transparent,
 
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
+          borderRadius: BorderRadius.circular(20.r),
           borderSide: BorderSide(color: Colors.grey.shade300, width: 1.2),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
-          borderSide: const BorderSide(color: AppColors.primary, width: 1.8),
+          borderRadius: BorderRadius.circular(20.r),
+          borderSide: const BorderSide(color: AppColors.orange, width: 1.8),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
-          borderSide: const BorderSide(color: Colors.redAccent, width: 1.4),
+          borderRadius: BorderRadius.circular(20.r),
+          borderSide: const BorderSide(color: AppColors.orange, width: 1.4),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10.r),
-          borderSide: const BorderSide(color: Colors.redAccent, width: 1.4),
+          borderRadius: BorderRadius.circular(20.r),
+          borderSide: const BorderSide(color: AppColors.orange, width: 1.4),
         ),
         suffixIcon: widget.isPassword
             ? IconButton(
