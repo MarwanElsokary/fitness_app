@@ -22,7 +22,7 @@ class DialogUtils {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const CircularProgressIndicator(
-                color: AppColors.primary,
+                color: AppColors.orange,
                 strokeWidth: 5,
               ),
               10.widthBox,
@@ -90,7 +90,7 @@ class DialogUtils {
             negActions,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.bold,
-              color: AppColors.primary[800],
+              color: AppColors.orange,
             ),
           ),
         ),
@@ -104,7 +104,7 @@ class DialogUtils {
         return AlertDialog(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40),
-            side: const BorderSide(color: AppColors.primary, width: 2),
+            side: const BorderSide(color: AppColors.orange, width: 2),
           ),
           elevation: 0,
           title: title != null

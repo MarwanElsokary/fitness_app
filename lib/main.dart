@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: Routes.generateRoute,
 
         initialRoute: seenOnboarding
-            ? AppRoutes.onBoardingScreen
+            ? AppRoutes.loginView
             : AppRoutes.onBoardingScreen,
 
       ),

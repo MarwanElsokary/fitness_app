@@ -82,8 +82,38 @@ class $AssetsImageGen {
   AssetGenImage get rectangle1 =>
       const AssetGenImage('assets/image/Rectangle 1.png');
 
+  /// File path: assets/image/app_logo.png
+  AssetGenImage get appLogo => const AssetGenImage('assets/image/app_logo.png');
+
+  /// File path: assets/image/auth_background.png
+  AssetGenImage get authBackground =>
+      const AssetGenImage('assets/image/auth_background.png');
+
+  /// File path: assets/image/background_1.png
+  AssetGenImage get background1 =>
+      const AssetGenImage('assets/image/background_1.png');
+
+  /// File path: assets/image/background_2.png
+  AssetGenImage get background2 =>
+      const AssetGenImage('assets/image/background_2.png');
+
+  /// File path: assets/image/background_3.png
+  AssetGenImage get background3 =>
+      const AssetGenImage('assets/image/background_3.png');
+
+  /// File path: assets/image/background_4.png
+  AssetGenImage get background4 =>
+      const AssetGenImage('assets/image/background_4.png');
+
+  /// File path: assets/image/background_5.png
+  AssetGenImage get background5 =>
+      const AssetGenImage('assets/image/background_5.png');
+
   /// File path: assets/image/fit 1.png
-  AssetGenImage get fit1 => const AssetGenImage('assets/image/fit 1.png');
+  AssetGenImage get fit1Png => const AssetGenImage('assets/image/fit 1.png');
+
+  /// File path: assets/image/fit1.png
+  AssetGenImage get fit1Png_ => const AssetGenImage('assets/image/fit1.png');
 
   /// File path: assets/image/no_routes.png
   AssetGenImage get noRoutes =>
@@ -97,7 +127,15 @@ class $AssetsImageGen {
     o1530,
     o1531,
     rectangle1,
-    fit1,
+    appLogo,
+    authBackground,
+    background1,
+    background2,
+    background3,
+    background4,
+    background5,
+    fit1Png,
+    fit1Png_,
     noRoutes,
   ];
 }

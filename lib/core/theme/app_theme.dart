@@ -17,7 +17,7 @@ abstract class AppTheme {
         elevation: 0,
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedItemColor: AppColors.primary,
+        selectedItemColor: AppColors.orange,
         unselectedItemColor: AppColors.grey,
         elevation: 0,
       ),
@@ -25,7 +25,7 @@ abstract class AppTheme {
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(18),
-          backgroundColor: AppColors.primary,
+          backgroundColor: AppColors.orange,
           foregroundColor: AppColors.white,
           disabledBackgroundColor: AppColors.grey,
           disabledForegroundColor: AppColors.white,
@@ -93,7 +93,7 @@ abstract class AppTheme {
   static ThemeData lightTheme = getTheme(
     colorScheme: const ColorScheme(
       brightness: Brightness.light,
-      primary: AppColors.primary,
+      primary: AppColors.orange,
       onPrimary: AppColors.white,
       secondary: AppColors.black,
       onSecondary: AppColors.white,

@@ -5,210 +5,207 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appName => 'تطبيق الجيم';
+
   @override
   String get appVersion => '1.0.0';
-  @override
-  String get pleaseEnterValue => 'ادخل قيمة';
+
   @override
   String get pleaseEnterName => 'من فضلك ادخل الاسم';
+
   @override
-  String get nameMustBeMoreThan3Characters => 'الاسم يجب ان يكون اكبر من 3 حروف';
+  String get nameMustBeMoreThan3Characters =>
+      'الاسم يجب ان يكون اكبر من 3 حروف';
+
   @override
   String get passwordMustContainUpperLowerAndSpecialCharacter =>
       'يحب ان يحتوي علي حرف كبير و حرف صغير ورمز مميز';
+
   @override
   String get passwordsDoNotMatch => 'كلمة المرور غير متطابقه';
+
   @override
   String get pleaseEnterYourPassword => 'ادخل كلمة المرور';
+
   @override
   String get pleaseEnterYourEmail => 'ادخل البريد الالكتروني';
+
   @override
   String get emailMustBeLikeThisExampleGmailCom =>
       'البريد الالكتروني يجب ان يكون  \nexample@gmail.com';
+
   @override
   String get pleaseEnterYourPhoneNumber => 'ادخل رقم الهاتف';
+
   @override
   String get enterAValidEgyptianPhoneNumber =>
       'ادخل رقم هاتف مصري  (e.g., 201xxxxxxxxx)';
+
   @override
   String get home => 'الرئيسية';
+
   @override
   String get profile => 'الملف الشخصي';
+
   @override
   String get firstName => 'الإسم الأول';
+
   @override
   String get lastName => 'الإسم الأخير';
+
   @override
   String get enterFirstName => 'ادخل الاسم القانوني الاول';
+
   @override
   String get enterLastName => 'ادخل الاسم القانوني الاخير';
+
   @override
   String get successfully => 'ناجح';
+
   @override
   String get done => 'تم';
+
   @override
   String get status => 'الحالة';
+
   @override
   String get next => 'التالي';
+
   @override
   String get back => 'رجوع';
+
   @override
   String get doIt => 'افعلها';
+
   @override
   String get skip => 'تخطي';
+
   @override
   String get title1oOnBarding => 'السعر الحقيقي للتميّز هو الانضباط';
+
   @override
   String get title2oOnBarding => 'اللياقة لم تكن يومًا بهذا القدر من المتعة';
+
   @override
   String get title3oOnBarding => 'لا مزيد من الأعذار — ابدأ الآن';
+
   @override
   String get subtitle1OnBarding =>
       'الانضباط هو الجسر بين الأهداف والنجاح. حافظ على الاستمرار والتركيز لتصل إلى أفضل نسخة منك.';
+
   @override
   String get subtitle2OnBarding =>
       'اجعل كل تمرين رحلة مليئة بالمتعة. تحدَّ نفسك واستمتع بكل خطوة نحو جسد أقوى.';
+
   @override
   String get subtitle3OnBarding =>
       'توقّف عن انتظار الوقت المناسب — الوقت هو الآن. ابدأ رحلتك نحو اللياقة وحقق أهدافك.';
 
   @override
-  // TODO: implement accept
-  String get accept => throw UnimplementedError();
+  String get confirmPassword => "تأكيد كلمة المرور";
 
   @override
-  // TODO: implement accepted
-  String get accepted => throw UnimplementedError();
+  String get confirmYourPassword => "قم بتأكيد كلمة المرور الخاصة بك";
 
   @override
-  // TODO: implement applyNow
-  String get applyNow => throw UnimplementedError();
+  String get continueBtn => "متابعة";
 
   @override
-  // TODO: implement confirmPassword
-  String get confirmPassword => throw UnimplementedError();
+  String get didntReceiveTheCode => "لم تستلم الرمز؟";
 
   @override
-  // TODO: implement confirmYourPassword
-  String get confirmYourPassword => throw UnimplementedError();
+  String get email => "البريد الإلكتروني";
 
   @override
-  // TODO: implement continueBtn
-  String get continueBtn => throw UnimplementedError();
+  String get emailNotFound => "البريد الإلكتروني غير موجود";
 
   @override
-  // TODO: implement didntReceiveTheCode
-  String get didntReceiveTheCode => throw UnimplementedError();
+  String get emailVerification => "تأكيد البريد الإلكتروني";
 
   @override
-  // TODO: implement email
-  String get email => throw UnimplementedError();
+  String get enterYourEmail => "أدخل بريدك الإلكتروني";
 
   @override
-  // TODO: implement emailNotFound
-  String get emailNotFound => throw UnimplementedError();
+  String get enterYourNewPassword => "أدخل كلمة المرور الجديدة";
 
   @override
-  // TODO: implement emailVerification
-  String get emailVerification => throw UnimplementedError();
+  String get enterYourPassword => "أدخل كلمة المرور";
 
   @override
-  // TODO: implement enterYourEmail
-  String get enterYourEmail => throw UnimplementedError();
+  String get error => "خطأ";
 
   @override
-  // TODO: implement enterYourNewPassword
-  String get enterYourNewPassword => throw UnimplementedError();
+  String get forgetPassword => "نسيت كلمة المرور";
 
   @override
-  // TODO: implement enterYourPassword
-  String get enterYourPassword => throw UnimplementedError();
+  String get forgotPassword => "هل نسيت كلمة المرور؟";
 
   @override
-  // TODO: implement error
-  String get error => throw UnimplementedError();
+  String get loading => "جارٍ التحميل...";
 
   @override
-  // TODO: implement forgetPassword
-  String get forgetPassword => throw UnimplementedError();
+  String get login => "تسجيل الدخول";
 
   @override
-  // TODO: implement forgotPassword
-  String get forgotPassword => throw UnimplementedError();
+  String get newPassword => "كلمة المرور الجديدة";
 
   @override
-  // TODO: implement loading
-  String get loading => throw UnimplementedError();
+  String get ok => "حسناً";
 
   @override
-  // TODO: implement login
-  String get login => throw UnimplementedError();
+  String get password => "كلمة المرور";
 
   @override
-  // TODO: implement newPassword
-  String get newPassword => throw UnimplementedError();
+  String get passwordResetSuccessPleaseLoginAgainWithYourNewPassword =>
+      "تمت إعادة تعيين كلمة المرور بنجاح، يرجى تسجيل الدخول مجددًا بكلمة المرور الجديدة.";
 
   @override
-  // TODO: implement ok
-  String get ok => throw UnimplementedError();
+  String get pleaseEnterThe6DigitCodeSentToYourEmail =>
+      "الرجاء إدخال الرمز المكون من 6 أرقام المرسل إلى بريدك الإلكتروني.";
 
   @override
-  // TODO: implement orders
-  String get orders => throw UnimplementedError();
+  String get pleaseEnterYourEmailToReceiveAVerificationCode =>
+      "الرجاء إدخال بريدك الإلكتروني لتلقي رمز التحقق.";
 
   @override
-  // TODO: implement password
-  String get password => throw UnimplementedError();
+  String get pleaseEnterYourNewPassword => "الرجاء إدخال كلمة المرور الجديدة.";
 
   @override
-  // TODO: implement passwordResetSuccessPleaseLoginAgainWithYourNewPassword
-  String get passwordResetSuccessPleaseLoginAgainWithYourNewPassword => throw UnimplementedError();
+  String get rememberMe => "تذكرني";
 
   @override
-  // TODO: implement pleaseEnterThe6DigitCodeSentToYourEmail
-  String get pleaseEnterThe6DigitCodeSentToYourEmail => throw UnimplementedError();
+  String get resend => "إعادة الإرسال";
 
   @override
-  // TODO: implement pleaseEnterYourEmailToReceiveAVerificationCode
-  String get pleaseEnterYourEmailToReceiveAVerificationCode => throw UnimplementedError();
+  String get resetPassword => "إعادة تعيين كلمة المرور";
 
   @override
-  // TODO: implement pleaseEnterYourNewPassword
-  String get pleaseEnterYourNewPassword => throw UnimplementedError();
+  String get send => "إرسال";
 
   @override
-  // TODO: implement rememberMe
-  String get rememberMe => throw UnimplementedError();
+  String get success => "تم بنجاح";
 
   @override
-  // TODO: implement resend
-  String get resend => throw UnimplementedError();
+  String get thankYou => "شكرًا لك";
 
   @override
-  // TODO: implement resetPassword
-  String get resetPassword => throw UnimplementedError();
+  String get tryAgain => "حاول مرة أخرى";
 
   @override
-  // TODO: implement send
-  String get send => throw UnimplementedError();
+  String get verificationCodeSentToYourEmail =>
+      "تم إرسال رمز التحقق إلى بريدك الإلكتروني.";
 
   @override
-  // TODO: implement success
-  String get success => throw UnimplementedError();
+  String get version => "الإصدار";
 
   @override
-  // TODO: implement thankYou
-  String get thankYou => throw UnimplementedError();
+  String get hetThere => "أهلاً";
 
   @override
-  // TODO: implement tryAgain
-  String get tryAgain => throw UnimplementedError();
+  String get welcomBack => "مرحباً بعودتك";
 
   @override
-  // TODO: implement verificationCodeSentToYourEmail
-  String get verificationCodeSentToYourEmail => throw UnimplementedError();
+  String get dontHaveAnAccountYet => "ليس لديك حساب بعد";
 
   @override
-  // TODO: implement version
-  String get version => throw UnimplementedError();
+  String get register => " سجل الآن";
 }
