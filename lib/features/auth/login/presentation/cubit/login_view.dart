@@ -7,6 +7,7 @@ import 'package:fitness_app/core/theme/app_colors.dart';
 import 'package:fitness_app/core/theme/app_styles.dart';
 import 'package:fitness_app/core/utils/components/app_text_form_feild.dart';
 import 'package:fitness_app/core/utils/components/custom_button.dart';
+import 'package:fitness_app/core/utils/shared_blured_container.dart';
 import 'package:fitness_app/features/auth/login/presentation/cubit/login_state.dart';
 import 'package:fitness_app/features/auth/login/presentation/cubit/login_view_model.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class LoginView extends StatelessWidget {
                 Navigator.of(context).popUntil((route) => route.isFirst);
                 Navigator.of(
                   context,
-                ).pushReplacementNamed(AppRoutes.homeScreen);
+                ).pushReplacementNamed(AppRoutes.navBar);
               },
             );
           }
@@ -83,95 +84,108 @@ class LoginView extends StatelessWidget {
                             style: AppStyles.bold20white,
                           ),
                           SizedBox(height: 8.h),
-                          Text(
-                            context.l10n.login,
-                            style: AppStyles.bold24white,
-                            textAlign: TextAlign.center,
-                          ),
-                          14.heightBox,
-                          AppTextFormField(
-                            prefIcon: Icon(Icons.email_outlined),
-
-                            hintText: context.l10n.enterYourEmail,
-                            labelText: context.l10n.email,
-                            isPassword: false,
-                            validator: (value) => value.validateEmail(context),
-                            controller: context
-                                .read<LoginViewModel>()
-                                .emailController,
-                          ),
-                          24.heightBox,
-                          AppTextFormField(
-                            prefIcon: Icon(Icons.lock_open),
-                            isPassword: true,
-                            hintText: context.l10n.enterYourNewPassword,
-                            labelText: context.l10n.password,
-                            validator: (value) =>
-                                value.validatePassword(context),
-                            suffixIcon: const Icon(Icons.visibility_off),
-                            controller: context
-                                .read<LoginViewModel>()
-                                .passwordController,
-                          ),
-                          11.heightBox,
-
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.pushNamed(
-                                context,
-                                AppRoutes.forgetPassword,
-                              );
-                            },
-                            child: Text(
-                              textAlign: TextAlign.end,
-                              "${context.l10n.forgetPassword}?",
-                              style: const TextStyle(
-                                color: AppColors.orange,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                          22.heightBox,
-                          CustomButton(
-                            backgroundColorButton: AppColors.orange,
-                            onPressed: () {
-                              if (context
-                                  .read<LoginViewModel>()
-                                  .formKey
-                                  .currentState!
-                                  .validate()) {
-                                context.read<LoginViewModel>().login();
-                              }
-                            },
-                            borderRadius: 100,
-                            child: Text(
-                              context.l10n.login,
-                              style: AppStyles.w80014white,
-                            ),
-                          ),
-                          8.heightBox,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                context.l10n.dontHaveAnAccountYet,
-                                textAlign: TextAlign.center,
-                                style: AppStyles.font13WhiteW500,
-                              ),
-                              GestureDetector(
-                                // onTap: () {
-                                //   Navigator.pushNamed(
-                                //     context,
-                                //     AppRoutes.register,
-                                //   );
-                                // },
-                                child: Text(
-                                  textAlign: TextAlign.end,
-                                  context.l10n.register,
-                                  style: AppStyles.w80014orange,
+                          SharedBluredContainer(
+                            child: Column(
+                              children: [
+                                Text(
+                                  context.l10n.login,
+                                  style: AppStyles.bold24white,
+                                  textAlign: TextAlign.center,
                                 ),
-                              ),
-                            ],
+                                14.heightBox,
+                                AppTextFormField(
+                                  prefIcon: Icon(Icons.email_outlined),
+                                
+                                  hintText: context.l10n.enterYourEmail,
+                                  labelText: context.l10n.email,
+                                  isPassword: false,
+                                  validator: (value) => value.validateEmail(context),
+                                  controller: context
+                                      .read<LoginViewModel>()
+                                      .emailController,
+                                ),
+                                24.heightBox,
+                                AppTextFormField(
+                                  prefIcon: Icon(Icons.lock_open),
+                                  isPassword: true,
+                                  hintText: context.l10n.enterYourNewPassword,
+                                  labelText: context.l10n.password,
+                                  validator: (value) =>
+                                      value.validatePassword(context),
+                                  suffixIcon: const Icon(Icons.visibility_off),
+                                  controller: context
+                                      .read<LoginViewModel>()
+                                      .passwordController,
+                                ),
+                                11.heightBox,
+                                
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      AppRoutes.forgetPassword,
+                                    );
+                                  },
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      textAlign: TextAlign.end,
+                                      "${context.l10n.forgetPassword}?",
+                                      style: const TextStyle(
+                                        color: AppColors.orange,
+                                        decoration: TextDecoration.underline,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                22.heightBox,
+                                CustomButton(
+                              size: Size(double.infinity, 46),
+                                  backgroundColorButton: AppColors.orange,
+                                  onPressed: () {
+                                    if (context
+                                        .read<LoginViewModel>()
+                                        .formKey
+                                        .currentState!
+                                        .validate()) {
+                                      context.read<LoginViewModel>().login();
+                                    }
+                                  },
+                                  borderRadius: 100,
+                                  child: Text(
+                                    context.l10n.login,
+                                    style: AppStyles.w80014white,
+                                  ),
+                                ),
+                                8.heightBox,
+                                FittedBox(
+                                  fit: BoxFit.scaleDown,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        context.l10n.dontHaveAnAccountYet,
+                                        textAlign: TextAlign.center,
+                                        style: AppStyles.font13WhiteW500,
+                                      ),
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.pushNamed(
+                                            context,
+                                            AppRoutes.register,
+                                          );
+                                        },
+                                        child: Text(
+                                          textAlign: TextAlign.end,
+                                          context.l10n.register,
+                                          style: AppStyles.w80014orange,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),

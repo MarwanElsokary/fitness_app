@@ -33,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           }
           if (state.registerState is BaseSuccessState) {
             Center(child: CircularProgressIndicator.adaptive());
-            Navigator.pushReplacementNamed(context, AppRoutes.navBar);
+            Navigator.pushReplacementNamed(context, AppRoutes.loginView);
           }
           if (state.registerState is BaseErrorState) {
             Center(child: CircularProgressIndicator.adaptive());

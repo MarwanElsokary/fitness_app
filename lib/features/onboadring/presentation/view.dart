@@ -230,7 +230,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                           onboardingData.length - 1) {
                                         Navigator.pushReplacementNamed(
                                           context,
-                                          AppRoutes.navBar,
+                                          AppRoutes.loginView,
                                         );
                                       } else {
                                         nextPage();
@@ -267,7 +267,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 final sharedPref = getIt<SharedPrefHelper>();
                 await sharedPref.setValue('seenOnboarding', true);
 
-                Navigator.pushReplacementNamed(context, AppRoutes.navBar);
+                Navigator.pushReplacementNamed(context, AppRoutes.loginView);
               },
 
               child: Text(

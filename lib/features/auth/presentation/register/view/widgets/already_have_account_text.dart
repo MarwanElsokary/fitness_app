@@ -15,7 +15,7 @@ class AlreadyHaveAccountText extends StatelessWidget {
             text: "Login",
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                //Navigator.pushReplacementNamed(context, AppRoutes.loginRoute);
+                Navigator.pop(context);
               },
             style: const TextStyle(
               color: Colors.deepOrange,

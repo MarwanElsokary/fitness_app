@@ -29,6 +29,11 @@ abstract class Routes {
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
         );
+       case AppRoutes.otpverification:
+        String email = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (context) => OtpVerificationScreen(email: email),
+        );
       case AppRoutes.resetPassword:
         String email = settings.arguments as String;
         return MaterialPageRoute(
