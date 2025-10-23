@@ -54,6 +54,31 @@ abstract class AppStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.white,
   );
+  static TextStyle w80014white = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w800,
+    color: AppColors.white,
+  );
+  static TextStyle w80014orange = GoogleFonts.inter(
+    fontSize: 14,
+    fontWeight: FontWeight.w800,
+    color: AppColors.orange,
+  );
+  static TextStyle medium18whiteW400 = GoogleFonts.inter(
+    fontSize: 18,
+    fontWeight: FontWeight.w400,
+    color: AppColors.white,
+  );
+  static TextStyle bold20white = GoogleFonts.inter(
+    fontSize: 20,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white,
+  );
+  static TextStyle bold24white = GoogleFonts.inter(
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+    color: AppColors.white,
+  );
   static TextStyle regular14grey = GoogleFonts.inter(
     fontSize: 14,
     fontWeight: FontWeight.w400,

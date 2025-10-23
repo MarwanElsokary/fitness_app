@@ -1,4 +1,3 @@
-import 'package:fitness_app/core/gen/assets.gen.dart';
 import 'package:fitness_app/core/utils/circular_indicator_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -29,11 +28,11 @@ class SharedAuthLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(Assets.image.background2.path),
-          fit: BoxFit.cover,
-        ),
+       decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     image: AssetImage(Assets.image.background2.path),
+      //     fit: BoxFit.cover,
+      //   ),
       ),
       child: CustomScrollView(
         slivers: [
@@ -66,7 +65,7 @@ class SharedAuthLayout extends StatelessWidget {
                             )
                           : const SizedBox.shrink(),
                       const Spacer(),
-                      Image.asset(Assets.image.appLogo.path, height: 65.0),
+                      // Image.asset(Assets.image.appLogo.path, height: 65.0),
                       const Spacer(),
                     ],
                   ),
