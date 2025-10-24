@@ -22,6 +22,10 @@ abstract class AppStyles {
     fontSize: 13,
     fontWeight: FontWeight.w500,
     color: AppColors.white,
+  );  static TextStyle font16WhiteW400 = GoogleFonts.inter(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    color: AppColors.white,
   );
   static TextStyle font12grayW500LineThrough = GoogleFonts.inter(
     fontSize: 12,

@@ -4,6 +4,8 @@ import 'package:fitness_app/core/modules/shared_preferences_module.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_assets.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
+import 'package:fitness_app/core/theme/app_styles.dart';
+import 'package:fitness_app/core/utils/shared_blured_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -87,137 +89,72 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       padding: const EdgeInsets.only(top: 80),
                       child: Image.asset(
                         onboardingData[index]["image"]!,
-                        height: 596,
+                        height: 600,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
-                    child: Container(
-                      height: 290.h,
-                      width: double.infinity,
-                      decoration: const BoxDecoration(
-                        color: Color.fromRGBO(36, 36, 36, 0.8),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(40),
-                          topRight: Radius.circular(40),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 24,
-                          vertical: 30,
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Column(
-                              children: [
-                                Text(
-                                  onboardingData[index]["title"]!,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                    child: SharedBluredContainer(
+                      child: Container(
+                        height: 230.h,
+                        width: double.infinity,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 2),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Column(
+                                children: [
+                                  Text(
+                                    onboardingData[index]["title"]!,
+                                    textAlign: TextAlign.center,
+                                    style: AppStyles.bold24white,
                                   ),
-                                ),
-                                const SizedBox(height: 12),
-                                Text(
-                                  onboardingData[index]["subtitle"]!,
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    color: AppColors.white,
-                                    height: 1.5,
+                                  12.heightBox,
+                                  Text(
+                                    onboardingData[index]["subtitle"]!,
+                                    textAlign: TextAlign.center,
+                                    style: AppStyles.font16WhiteW400,
                                   ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: 12),
+                                ],
+                              ),
+                              18.heightBox,
 
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: List.generate(
-                                onboardingData.length,
-                                (dotIndex) => Container(
-                                  margin: const EdgeInsets.symmetric(
-                                    horizontal: 4,
-                                  ),
-                                  height: 8,
-                                  width: _currentPage == dotIndex ? 20 : 8,
-                                  decoration: BoxDecoration(
-                                    color: _currentPage == dotIndex
-                                        ? AppColors.orange
-                                        : AppColors.white,
-                                    borderRadius: BorderRadius.circular(8),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: List.generate(
+                                  onboardingData.length,
+                                  (dotIndex) => Container(
+                                    margin: const EdgeInsets.symmetric(
+                                      horizontal: 4,
+                                    ),
+                                    height: 8,
+                                    width: _currentPage == dotIndex ? 20 : 8,
+                                    decoration: BoxDecoration(
+                                      color: _currentPage == dotIndex
+                                          ? AppColors.orange
+                                          : AppColors.white,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            SizedBox(height: 24),
-                            if (_currentPage == 0)
-                              SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: AppColors.orange,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    minimumSize: const Size(
-                                      double.infinity,
-                                      50,
-                                    ),
-                                  ),
-                                  onPressed: () async {
-                                    final sharedPref =
-                                        getIt<SharedPrefHelper>();
-                                    await sharedPref.setValue(
-                                      'seenOnboarding',
-                                      true,
-                                    );
-                                    nextPage();
-                                  },
-                                  child: Text(
-                                    context.l10n.next,
-                                    style: TextStyle(
-                                      color: AppColors.white,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                ),
-                              )
-                            else
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.transparent,
-                                      side: const BorderSide(
-                                        color: AppColors.white,
-                                      ),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      minimumSize: const Size(90, 45),
-                                    ),
-                                    onPressed: previousPage,
-                                    child: Text(
-                                      context.l10n.back,
-                                      style: TextStyle(color: AppColors.white),
-                                    ),
-                                  ),
-                                  ElevatedButton(
+                              SizedBox(height: 24),
+                              if (_currentPage == 0)
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColors.orange,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(30),
                                       ),
-                                      minimumSize: const Size(90, 45),
+                                      minimumSize: const Size(
+                                        double.infinity,
+                                        50,
+                                      ),
                                     ),
                                     onPressed: () async {
                                       final sharedPref =
@@ -226,29 +163,85 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                         'seenOnboarding',
                                         true,
                                       );
-                                      if (_currentPage ==
-                                          onboardingData.length - 1) {
-                                        Navigator.pushReplacementNamed(
-                                          context,
-                                          AppRoutes.loginView,
-                                        );
-                                      } else {
-                                        nextPage();
-                                      }
+                                      nextPage();
                                     },
                                     child: Text(
-                                      _currentPage == onboardingData.length - 1
-                                          ? context.l10n.doIt
-                                          : context.l10n.next,
-                                      style: const TextStyle(
+                                      context.l10n.next,
+                                      style: TextStyle(
                                         color: AppColors.white,
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
-                          ],
+                                )
+                              else
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Colors.transparent,
+                                        side: const BorderSide(
+                                          color: AppColors.white,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            30,
+                                          ),
+                                        ),
+                                        minimumSize: const Size(90, 45),
+                                      ),
+                                      onPressed: previousPage,
+                                      child: Text(
+                                        context.l10n.back,
+                                        style: TextStyle(
+                                          color: AppColors.white,
+                                        ),
+                                      ),
+                                    ),
+                                    ElevatedButton(
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: AppColors.orange,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            30,
+                                          ),
+                                        ),
+                                        minimumSize: const Size(90, 45),
+                                      ),
+                                      onPressed: () async {
+                                        final sharedPref =
+                                            getIt<SharedPrefHelper>();
+                                        await sharedPref.setValue(
+                                          'seenOnboarding',
+                                          true,
+                                        );
+                                        if (_currentPage ==
+                                            onboardingData.length - 1) {
+                                          Navigator.pushReplacementNamed(
+                                            context,
+                                            AppRoutes.loginView,
+                                          );
+                                        } else {
+                                          nextPage();
+                                        }
+                                      },
+                                      child: Text(
+                                        _currentPage ==
+                                                onboardingData.length - 1
+                                            ? context.l10n.doIt
+                                            : context.l10n.next,
+                                        style: const TextStyle(
+                                          color: AppColors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
