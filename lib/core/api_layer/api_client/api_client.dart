@@ -8,6 +8,10 @@ import 'package:fitness_app/features/auth/data/models/register/request/register_
 import 'package:fitness_app/features/auth/data/models/register/response/register_response_dto.dart';
 import 'package:fitness_app/features/auth/data/models/reset_password/request/reset_password_request_dto.dart';
 import 'package:fitness_app/features/auth/data/models/reset_password/response/reset_password_response_dto.dart';
+import 'package:fitness_app/features/home/data/models/daily_recommendation_exercise_dto.dart';
+import 'package:fitness_app/features/home/data/models/muscles_by_group_response.dart';
+import 'package:fitness_app/features/home/data/models/muscles_group_dto.dart';
+import 'package:fitness_app/features/home/data/models/recommendation_meals_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -47,4 +51,20 @@ abstract class ApiClient {
   Future<HttpResponse<LoginResponseDto>> login({
     @Body() required LoginRequestDto loginRequestDto,
   });
+  //Home
+  @GET(Endpoints.exercisesByRandom)
+  Future<DailyRecommendationExerciseDto> getDailyRecommendationExercise(
+    @Query('limit') int limit,
+    @Query('targetMuscleGroupId') String targetMuscleGroupId,
+    @Query('difficultyLevelId') String difficultyLevelId,
+  );
+
+  @GET(Endpoints.mealsCategories)
+  Future<RecommendationMealsDto> getFoodRecommendation();
+
+  @GET(Endpoints.allMuscles)
+  Future<MusclesGroupDto> getAllMuscles();
+
+  @GET("${Endpoints.allMusclesGroup}/{id}")
+  Future<MusclesByGroupResponse> getMusclesByGroup(@Path("id") String id);
 }

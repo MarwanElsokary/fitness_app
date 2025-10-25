@@ -43,6 +43,20 @@ import '../../features/auth/presentation/register/view_model/cubit/register_cubi
     as _i103;
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;
+import '../../features/home/data/datasources/contract/home_remote_data_source.dart'
+    as _i146;
+import '../../features/home/data/datasources/impl/home_remote_data_source_impl.dart'
+    as _i1004;
+import '../../features/home/data/repos_impl/home_repo_impl.dart' as _i386;
+import '../../features/home/domain/repositories/home_repo.dart' as _i1021;
+import '../../features/home/domain/usecases/get_all_muscles_use_case.dart'
+    as _i205;
+import '../../features/home/domain/usecases/get_daily_recommendation_exercise_use_case.dart'
+    as _i535;
+import '../../features/home/domain/usecases/get_food_recommendation_use_case.dart'
+    as _i283;
+import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
+    as _i399;
 import '../api_layer/api_client/api_client.dart' as _i225;
 import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
     as _i100;
@@ -81,6 +95,9 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.singleton<_i225.ApiClient>(() => _i225.ApiClient.new(gh<_i361.Dio>()));
+    gh.singleton<_i146.HomeRemoteDataSource>(
+      () => _i1004.HomeRemoteDataSourceImpl(gh<_i225.ApiClient>()),
+    );
     gh.factory<_i665.LoginRemoteDataSource>(
       () => _i100.LoginRemoteDataSourceImpl(gh<_i225.ApiClient>()),
     );
@@ -95,6 +112,21 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i723.AuthRepo>(
       () => _i704.AuthRepoImpl(gh<_i725.AuthRemoteDataSource>()),
+    );
+    gh.factory<_i1021.HomeRepo>(
+      () => _i386.HomeRepoImpl(gh<_i146.HomeRemoteDataSource>()),
+    );
+    gh.factory<_i205.GetAllMusclesUseCase>(
+      () => _i205.GetAllMusclesUseCase(gh<_i1021.HomeRepo>()),
+    );
+    gh.factory<_i535.GetDailyRecommendationExerciseUseCase>(
+      () => _i535.GetDailyRecommendationExerciseUseCase(gh<_i1021.HomeRepo>()),
+    );
+    gh.factory<_i283.GetFoodRecommendationUseCase>(
+      () => _i283.GetFoodRecommendationUseCase(gh<_i1021.HomeRepo>()),
+    );
+    gh.factory<_i399.GetMusclesByGroupUseCase>(
+      () => _i399.GetMusclesByGroupUseCase(gh<_i1021.HomeRepo>()),
     );
     gh.factory<_i465.LoginViewModel>(
       () => _i465.LoginViewModel(
