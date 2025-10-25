@@ -105,14 +105,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i591.ForgetPasswordUseCase>(
       () => _i591.ForgetPasswordUseCase(gh<_i723.AuthRepo>()),
     );
-    gh.factory<_i793.OtpVerificationUseCase>(
-      () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
-    );
     gh.factory<_i97.RegisterUseCase>(
       () => _i97.RegisterUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i825.ResetPasswordUseCase>(
       () => _i825.ResetPasswordUseCase(gh<_i723.AuthRepo>()),
+    );
+    gh.factory<_i793.OtpVerificationUseCase>(
+      () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i467.ForgetPasswordCubit>(
       () => _i467.ForgetPasswordCubit(
