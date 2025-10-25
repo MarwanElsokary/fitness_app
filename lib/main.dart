@@ -1,5 +1,6 @@
 import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/core/l10n/app_localizations.dart';
+import 'package:fitness_app/core/resources/app_constants.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,15 +17,14 @@ void main() async {
 
   final seenOnboarding = sharedPref.getValue('seenOnboarding');
   final isSeen = (seenOnboarding is bool) ? seenOnboarding : false;
-
-  runApp(MyApp(seenOnboarding: isSeen));
+  final token = sharedPref.getValue(AppConstants.tokenKey);
+  runApp(MyApp(seenOnboarding: isSeen, token: token));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key, required this.seenOnboarding});
-
+  const MyApp({super.key, required this.seenOnboarding, this.token});
   final bool seenOnboarding;
-
+  final String? token;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -39,9 +39,7 @@ class MyApp extends StatelessWidget {
         supportedLocales: AppLocalizations.supportedLocales,
         locale: const Locale('en'),
         onGenerateRoute: Routes.generateRoute,
-        initialRoute: seenOnboarding
-            ? AppRoutes.loginView
-            : AppRoutes.onBoardingScreen,
+        initialRoute: token != null ? AppRoutes.navBar : AppRoutes.loginView,
       ),
     );
   }
