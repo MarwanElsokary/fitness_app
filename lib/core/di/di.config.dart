@@ -57,7 +57,10 @@ import '../../features/home/domain/usecases/get_food_recommendation_use_case.dar
     as _i283;
 import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
     as _i399;
+import '../../features/home/presentation/home/presentation/view_model/cubit/home_cubit.dart'
+    as _i499;
 import '../api_layer/api_client/api_client.dart' as _i225;
+import '../api_layer/api_client/meals_retrofit_client.dart' as _i450;
 import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
     as _i100;
 import '../modules/dio_module.dart' as _i948;
@@ -95,8 +98,14 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.singleton<_i225.ApiClient>(() => _i225.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i450.MealsRetrofitClient>(
+      () => _i450.MealsRetrofitClient.new(gh<_i361.Dio>()),
+    );
     gh.singleton<_i146.HomeRemoteDataSource>(
-      () => _i1004.HomeRemoteDataSourceImpl(gh<_i225.ApiClient>()),
+      () => _i1004.HomeRemoteDataSourceImpl(
+        gh<_i225.ApiClient>(),
+        gh<_i450.MealsRetrofitClient>(),
+      ),
     );
     gh.factory<_i665.LoginRemoteDataSource>(
       () => _i100.LoginRemoteDataSourceImpl(gh<_i225.ApiClient>()),
@@ -145,6 +154,14 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i793.OtpVerificationUseCase>(
       () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
+    );
+    gh.factory<_i499.HomeCubit>(
+      () => _i499.HomeCubit(
+        gh<_i535.GetDailyRecommendationExerciseUseCase>(),
+        gh<_i283.GetFoodRecommendationUseCase>(),
+        gh<_i205.GetAllMusclesUseCase>(),
+        gh<_i399.GetMusclesByGroupUseCase>(),
+      ),
     );
     gh.factory<_i467.ForgetPasswordCubit>(
       () => _i467.ForgetPasswordCubit(

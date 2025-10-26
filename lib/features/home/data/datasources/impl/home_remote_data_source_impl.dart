@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/api_layer/api_client/api_client.dart';
+import 'package:fitness_app/core/api_layer/api_client/meals_retrofit_client.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../models/daily_recommendation_exercise_dto.dart';
@@ -10,8 +11,8 @@ import '../contract/home_remote_data_source.dart';
 @Singleton(as: HomeRemoteDataSource)
 class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   final ApiClient _homeRetrofitClient;
-
-  HomeRemoteDataSourceImpl(this._homeRetrofitClient);
+  final MealsRetrofitClient _mealsRetrofitClient;
+  HomeRemoteDataSourceImpl(this._homeRetrofitClient, this._mealsRetrofitClient);
 
   @override
   Future<DailyRecommendationExerciseDto> getDailyRecommendationExercise(
@@ -29,7 +30,7 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
 
   @override
   Future<RecommendationMealsDto> getFoodRecommendation() async {
-    var response = await _homeRetrofitClient.getFoodRecommendation();
+    var response = await _mealsRetrofitClient.getFoodRecommendation();
     return response;
   }
 

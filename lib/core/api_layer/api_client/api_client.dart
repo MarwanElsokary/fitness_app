@@ -59,9 +59,6 @@ abstract class ApiClient {
     @Query('difficultyLevelId') String difficultyLevelId,
   );
 
-  @GET(Endpoints.mealsCategories)
-  Future<RecommendationMealsDto> getFoodRecommendation();
-
   @GET(Endpoints.allMuscles)
   Future<MusclesGroupDto> getAllMuscles();
 

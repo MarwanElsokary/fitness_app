@@ -45,9 +45,13 @@ class HomeRepoImpl implements HomeRepo {
     try {
       var response = await _homeRemoteDataSource.getFoodRecommendation();
 
-      return ApiSuccessResult(
-        response.meals.map((meal) => meal.toEntity()).toList(),
-      );
+      if (response.meals.isEmpty) {
+        return ApiErrorResult('food not found');
+      } else {
+        return ApiSuccessResult(
+          response.meals.map((meal) => meal.toEntity()).toList(),
+        );
+      }
     } on DioException catch (e) {
       return ApiErrorResult(e.message ?? "Unknown Dio error");
     } catch (e) {

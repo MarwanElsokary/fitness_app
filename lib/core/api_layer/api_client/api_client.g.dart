@@ -215,7 +215,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'exercises/random',
+            '/exercises/random',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -233,33 +233,6 @@ class _ApiClient implements ApiClient {
   }
 
   @override
-  Future<RecommendationMealsDto> getFoodRecommendation() async {
-    final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<RecommendationMealsDto>(
-      Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '1/categories.php',
-            queryParameters: queryParameters,
-            data: _data,
-          )
-          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
-    );
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late RecommendationMealsDto _value;
-    try {
-      _value = RecommendationMealsDto.fromJson(_result.data!);
-    } on Object catch (e, s) {
-      errorLogger?.logError(e, s, _options);
-      rethrow;
-    }
-    return _value;
-  }
-
-  @override
   Future<MusclesGroupDto> getAllMuscles() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -269,7 +242,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'muscles',
+            '/muscles',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -296,7 +269,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'musclesGroup/${id}',
+            '/musclesGroup/${id}',
             queryParameters: queryParameters,
             data: _data,
           )

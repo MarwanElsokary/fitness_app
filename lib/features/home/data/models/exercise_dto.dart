@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/resources/app_constants.dart';
 import 'package:fitness_app/features/home/domain/entities/exercise_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -116,29 +117,29 @@ class ExerciseDto {
 
   Map<String, dynamic> toJson() => _$ExerciseDtoToJson(this);
 
-  // String get youTubeThumbnailUrl {
-  //   try {
-  //     if (shortYoutubeDemonstrationLink == null ||
-  //         shortYoutubeDemonstrationLink!.isEmpty) {
-  //       return Constants.fakeImage;
-  //     }
+  String get youTubeThumbnailUrl {
+    try {
+      if (shortYoutubeDemonstrationLink == null ||
+          shortYoutubeDemonstrationLink!.isEmpty) {
+        return AppConstants.fakeImage;
+      }
 
-  //     final RegExp regExp = RegExp(
-  //       Constants.regexForYoutubeVideo,
-  //       caseSensitive: false,
-  //     );
-  //     final match = regExp.firstMatch(shortYoutubeDemonstrationLink!);
-  //     final videoId = match?.group(1);
+      final RegExp regExp = RegExp(
+        AppConstants.regexForYoutubeVideo,
+        caseSensitive: false,
+      );
+      final match = regExp.firstMatch(shortYoutubeDemonstrationLink!);
+      final videoId = match?.group(1);
 
-  //     if (videoId == null || videoId.isEmpty) {
-  //       return Constants.fakeImage;
-  //     }
+      if (videoId == null || videoId.isEmpty) {
+        return AppConstants.fakeImage;
+      }
 
-  //     return '${Constants.youtubeThumbnailPath}$videoId/${Constants.youtubeThumbnailSize}';
-  //   } catch (e) {
-  //     return Constants.fakeImage;
-  //   }
-  // }
+      return '${AppConstants.youtubeThumbnailPath}$videoId/${AppConstants.youtubeThumbnailSize}';
+    } catch (e) {
+      return AppConstants.fakeImage;
+    }
+  }
 
   ExerciseEntity toEntity() {
     return ExerciseEntity(
@@ -176,7 +177,7 @@ class ExerciseDto {
       primaryExerciseClassification: primaryExerciseClassification,
       shortYoutubeDemonstrationLink: shortYoutubeDemonstrationLink,
       inDepthYoutubeExplanationLink: inDepthYoutubeExplanationLink,
-      imageUrl: shortYoutubeDemonstration,
+      imageUrl: youTubeThumbnailUrl,
     );
   }
 }
