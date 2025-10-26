@@ -27,7 +27,7 @@ class BuildNewItem<T> extends StatelessWidget {
           alignment: Alignment.bottomCenter,
           children: [
             Container(
-              color: Colors.grey.shade800,
+              color: Colors.grey.shade700,
               child: CachedNetworkImage(
                 imageUrl: _getImageUrl() ?? '',
                 fit: BoxFit.cover,
@@ -50,7 +50,10 @@ class BuildNewItem<T> extends StatelessWidget {
               child: Text(
                 _getName() ?? '',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodySmall,
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: AppColors.white,
+                  fontWeight: FontWeight.w500,
+                ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),

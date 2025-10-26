@@ -1,6 +1,5 @@
 import 'package:fitness_app/features/home/domain/entities/muscle_group_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BuildListOfButtonsItem extends StatelessWidget {
   const BuildListOfButtonsItem({super.key, required this.listOfMuscles});

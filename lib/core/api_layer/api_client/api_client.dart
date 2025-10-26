@@ -11,7 +11,6 @@ import 'package:fitness_app/features/auth/data/models/reset_password/response/re
 import 'package:fitness_app/features/home/data/models/daily_recommendation_exercise_dto.dart';
 import 'package:fitness_app/features/home/data/models/muscles_by_group_response.dart';
 import 'package:fitness_app/features/home/data/models/muscles_group_dto.dart';
-import 'package:fitness_app/features/home/data/models/recommendation_meals_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 

@@ -10,9 +10,11 @@ class BuildNewListItems<T> extends StatelessWidget {
     required this.listOfItems,
     this.listOfMuscles,
     this.listOfButtons = false,
+    this.onSeeAllTap,
   });
 
   final String category;
+  final VoidCallback? onSeeAllTap;
   final List<T>? listOfItems;
   final List<MuscleGroupEntity>? listOfMuscles;
   final bool? listOfButtons;
@@ -25,11 +27,28 @@ class BuildNewListItems<T> extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              category,
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w600),
+            Row(
+              children: [
+                Text(
+                  category,
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(' (${listOfItems?.length})'),
+                const Spacer(),
+                TextButton(
+                  onPressed: onSeeAllTap,
+                  child: Text(
+                    'See all',
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: Colors.deepOrange,
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: 10.0),
             listOfButtons!

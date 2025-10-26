@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fitness_app/core/gen/assets.gen.dart';
 import 'package:fitness_app/features/home/domain/entities/muscle_group_entity.dart';
 import 'package:flutter/material.dart';
@@ -66,6 +65,10 @@ class HomeBody extends StatelessWidget {
                 current.getDailyRecommendationExerciseState,
             builder: (context, state) {
               return BuildNewListItems(
+                onSeeAllTap: () {
+                  // TODO
+                  // navigation the screen
+                },
                 category: "Recommendation Today",
                 listOfItems: viewModel.dailyRecommendation,
               );
@@ -78,6 +81,10 @@ class HomeBody extends StatelessWidget {
                     current.getMusclesByGroupState),
             builder: (context, state) {
               return BuildNewListItems(
+                onSeeAllTap: () {
+                  // TODO
+                  // navigation the screen
+                },
                 category: "Up coming Workouts",
                 listOfItems: viewModel.muscles,
                 listOfButtons: true,
@@ -92,6 +99,10 @@ class HomeBody extends StatelessWidget {
                 current.getFoodRecommendationState,
             builder: (context, state) {
               return BuildNewListItems(
+                onSeeAllTap: () {
+                  // TODO
+                  // navigation the screen
+                },
                 category: "Recommendation For You",
                 listOfItems: viewModel.foodRecommendation,
               );

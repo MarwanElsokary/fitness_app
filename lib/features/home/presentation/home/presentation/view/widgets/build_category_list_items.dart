@@ -53,16 +53,17 @@ class BuildCategoryListItems extends StatelessWidget {
           children: [
             Text(
               "Categories",
-              style: Theme.of(
-                context,
-              ).textTheme.titleMedium!.copyWith(fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.w600,
+                color: AppColors.white,
+              ),
             ),
             const SizedBox(height: 10.0),
             Container(
               height: 100.0,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Colors.grey.shade800,
+                color: Colors.grey.shade900,
               ),
               child:
                   viewModel.state.getExerciseCategoriesState is BaseErrorState
@@ -73,11 +74,11 @@ class BuildCategoryListItems extends StatelessWidget {
                           scrollDirection: Axis.horizontal,
                           physics: const BouncingScrollPhysics(),
                           itemBuilder: (context, index) {
-                            final category = categories?[index];
+                            final category = categories[index];
                             return CategoryItem(
-                              title: category?.titleEn ?? '',
+                              title: category.titleEn ?? '',
                               //  : category?.titleAr ?? '',
-                              imageUrl: category?.imageUrl ?? '',
+                              imageUrl: category.imageUrl ?? '',
                             );
                           },
                           separatorBuilder: (context, index) => VerticalDivider(
@@ -87,7 +88,7 @@ class BuildCategoryListItems extends StatelessWidget {
                             indent: 10.0,
                             endIndent: 15.0,
                           ),
-                          itemCount: categories?.length ?? 3,
+                          itemCount: categories.length,
                         );
                       },
                     ),

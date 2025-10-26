@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CategoryItem extends StatelessWidget {
   const CategoryItem({super.key, required this.title, required this.imageUrl});
@@ -15,9 +13,17 @@ class CategoryItem extends StatelessWidget {
       child: Column(
         children: [
           const SizedBox(height: 10.0),
-          SvgPicture.asset(imageUrl ?? '', height: 45.0, width: 45.0),
+          Image.asset(
+            imageUrl ?? '',
+            height: 50.0,
+            width: 60.0,
+            fit: BoxFit.cover,
+          ),
           const SizedBox(height: 10.0),
-          Text(title ?? '', style: Theme.of(context).textTheme.titleMedium),
+          Text(
+            title ?? '',
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(),
+          ),
         ],
       ),
     );
