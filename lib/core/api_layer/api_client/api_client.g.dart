@@ -199,11 +199,48 @@ class _ApiClient implements ApiClient {
 
   @override
   Future<WorkoutResponse> getWorkOuts() async {
+  Future<DailyRecommendationExerciseDto> getDailyRecommendationExercise(
+    int limit,
+    String targetMuscleGroupId,
+    String difficultyLevelId,
+  ) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{
+      r'limit': limit,
+      r'targetMuscleGroupId': targetMuscleGroupId,
+      r'difficultyLevelId': difficultyLevelId,
+    };
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<DailyRecommendationExerciseDto>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/exercises/random',
+            queryParameters: queryParameters,
+            data: _data,
+          )
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late DailyRecommendationExerciseDto _value;
+    try {
+      _value = DailyRecommendationExerciseDto.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    return _value;
+  }
+
+  @override
+  Future<MusclesGroupDto> getAllMuscles() async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<WorkoutResponse>(
+    final _options = _setStreamType<MusclesGroupDto>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
@@ -217,6 +254,9 @@ class _ApiClient implements ApiClient {
     late WorkoutResponse _value;
     try {
       _value = WorkoutResponse.fromJson(_result.data!);
+    late MusclesGroupDto _value;
+    try {
+      _value = MusclesGroupDto.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -236,6 +276,16 @@ class _ApiClient implements ApiClient {
           .compose(
             _dio.options,
             '/musclesGroup/by-muscle-group',
+  Future<MusclesByGroupResponse> getMusclesByGroup(String id) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<MusclesByGroupResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/musclesGroup/${id}',
             queryParameters: queryParameters,
             data: _data,
           )
@@ -245,6 +295,9 @@ class _ApiClient implements ApiClient {
     late MusclesResponse _value;
     try {
       _value = MusclesResponse.fromJson(_result.data!);
+    late MusclesByGroupResponse _value;
+    try {
+      _value = MusclesByGroupResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

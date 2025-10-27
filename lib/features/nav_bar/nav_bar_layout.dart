@@ -1,5 +1,4 @@
 import 'package:fitness_app/core/gen/assets.gen.dart';
-import 'package:fitness_app/features/home/presentation/pages/home.dart';
 import 'package:fitness_app/features/chat_with_ai/presentation/pages/chat_ai_page.dart';
 import 'package:fitness_app/features/profile/presentation/pages/profile_page.dart';
 import 'package:fitness_app/features/workouts/presentation/view/workout_screen.dart';
@@ -38,7 +37,6 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   Widget _buildFloatingNavBar() {
     return Container(
       margin: EdgeInsets.all(32.w),
-      // ✅ تعديل المارجن
       padding: EdgeInsets.symmetric(horizontal: 25.w),
       height: 80.h,
       decoration: BoxDecoration(
@@ -101,7 +99,8 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900],
+      // ignore: deprecated_member_use
+      backgroundColor: Colors.grey[900]?.withOpacity(0.70),
       body: Stack(
         children: [
           _pages[_selectedIndex],
