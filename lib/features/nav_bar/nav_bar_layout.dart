@@ -1,5 +1,5 @@
 import 'package:fitness_app/core/gen/assets.gen.dart';
-import 'package:fitness_app/features/home/presentation/home/presentation/view/home_screen.dart';
+import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/chat_with_ai/presentation/pages/chat_ai_page.dart';
 import 'package:fitness_app/features/gym/presentation/pages/gym_page.dart';
 import 'package:fitness_app/features/profile/presentation/pages/profile_page.dart';

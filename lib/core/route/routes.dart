@@ -7,7 +7,7 @@ import 'package:fitness_app/features/auth/presentation/forget_password/view/forg
 import 'package:fitness_app/features/auth/presentation/otp_verification/view/otp_verification_screen.dart';
 import 'package:fitness_app/features/auth/presentation/register/view/register_screen.dart';
 import 'package:fitness_app/features/auth/presentation/reset_password/view/reset_password_screen.dart';
-import 'package:fitness_app/features/home/presentation/home/presentation/view/home_screen.dart';
+import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
 import 'package:fitness_app/features/onboadring/presentation/view.dart';
 import 'package:flutter/material.dart';

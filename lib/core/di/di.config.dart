@@ -57,7 +57,7 @@ import '../../features/home/domain/usecases/get_food_recommendation_use_case.dar
     as _i283;
 import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
     as _i399;
-import '../../features/home/presentation/home/presentation/view_model/cubit/home_cubit.dart'
+import '../../features/home/presentation/view_model/cubit/home_cubit.dart'
     as _i499;
 import '../api_layer/api_client/api_client.dart' as _i225;
 import '../api_layer/api_client/meals_retrofit_client.dart' as _i450;
