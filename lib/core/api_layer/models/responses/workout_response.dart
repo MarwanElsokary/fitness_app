@@ -24,11 +24,11 @@ class WorkoutResponse {
 @JsonSerializable()
 class MusclesGroup {
   @JsonKey(name: "_id")
-  final String? Id;
+  final String? id;
   @JsonKey(name: "name")
   final String? name;
 
-  MusclesGroup({this.Id, this.name});
+  MusclesGroup({this.id, this.name});
 
   factory MusclesGroup.fromJson(Map<String, dynamic> json) {
     return _$MusclesGroupFromJson(json);
@@ -38,5 +38,5 @@ class MusclesGroup {
     return _$MusclesGroupToJson(this);
   }
 
-  WorkoutEntity toCategoryEntity() => WorkoutEntity(Id: Id, name: name);
+  WorkoutEntity toCategoryEntity() => WorkoutEntity(id: id, name: name);
 }

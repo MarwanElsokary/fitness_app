@@ -25,7 +25,7 @@ class WorkoutCubit extends Cubit<WorkOutState> {
         emit(WorkOutLoaded(workouts: result.data));
 
         if (result.data.isNotEmpty) {
-          getMuscles(result.data.first.Id);
+          getMuscles(result.data.first.id);
         }
       case ApiErrorResult<List<WorkoutEntity>>():
         emit(WorkOutError(message: result.errorMessage));

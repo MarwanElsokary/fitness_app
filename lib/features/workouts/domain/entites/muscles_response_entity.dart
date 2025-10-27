@@ -1,7 +1,7 @@
 class MusclesResponseEntity {
-  final String? Id;
+  final String? id;
   final String? name;
   final String? image;
 
-  MusclesResponseEntity({this.Id, this.name, this.image});
+  MusclesResponseEntity({this.id, this.name, this.image});
 }

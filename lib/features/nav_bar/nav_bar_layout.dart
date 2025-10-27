@@ -42,11 +42,9 @@ class _NavBarLayoutState extends State<NavBarLayout> {
       padding: EdgeInsets.symmetric(horizontal: 25.w),
       height: 80.h,
       decoration: BoxDecoration(
-        color: Colors.grey[900]?.withOpacity(0.95),
+        color: Colors.grey[900],
         borderRadius: BorderRadius.circular(40.r),
-        boxShadow: [
-          BoxShadow(color: Colors.black.withOpacity(0.4), blurRadius: 10.r),
-        ],
+        boxShadow: [BoxShadow(color: Colors.black, blurRadius: 10.r)],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -103,7 +101,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[900]?.withOpacity(0.70),
+      backgroundColor: Colors.grey[900],
       body: Stack(
         children: [
           _pages[_selectedIndex],
