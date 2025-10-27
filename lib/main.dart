@@ -23,8 +23,10 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.seenOnboarding, this.token});
+
   final bool seenOnboarding;
   final String? token;
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(

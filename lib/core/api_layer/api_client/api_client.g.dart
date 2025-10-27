@@ -198,6 +198,7 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<WorkoutResponse> getWorkOuts() async {
   Future<DailyRecommendationExerciseDto> getDailyRecommendationExercise(
     int limit,
     String targetMuscleGroupId,
@@ -238,6 +239,7 @@ class _ApiClient implements ApiClient {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<WorkoutResponse>(
     final _options = _setStreamType<MusclesGroupDto>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
@@ -249,6 +251,9 @@ class _ApiClient implements ApiClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late WorkoutResponse _value;
+    try {
+      _value = WorkoutResponse.fromJson(_result.data!);
     late MusclesGroupDto _value;
     try {
       _value = MusclesGroupDto.fromJson(_result.data!);
@@ -260,6 +265,17 @@ class _ApiClient implements ApiClient {
   }
 
   @override
+  Future<MusclesResponse> getMuscleGroup(String? muscleGroupId) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'muscleGroupId': muscleGroupId};
+    queryParameters.removeWhere((k, v) => v == null);
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<MusclesResponse>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(
+            _dio.options,
+            '/musclesGroup/by-muscle-group',
   Future<MusclesByGroupResponse> getMusclesByGroup(String id) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -276,6 +292,9 @@ class _ApiClient implements ApiClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MusclesResponse _value;
+    try {
+      _value = MusclesResponse.fromJson(_result.data!);
     late MusclesByGroupResponse _value;
     try {
       _value = MusclesByGroupResponse.fromJson(_result.data!);

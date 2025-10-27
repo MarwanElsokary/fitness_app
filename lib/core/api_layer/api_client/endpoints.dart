@@ -7,6 +7,9 @@ class Endpoints {
   static const String signUp = "/auth/signup";
   static const String resetPassword = "/auth/resetPassword";
   static const String login = "/auth/signin";
+  static const String workout = "/muscles";
+  static const String muscleGroupById = "/musclesGroup/by-muscle-group";
+
   static const String allLevels = "levels";
   static const String getAllDifficultyLevelsByPrimeMoverMuscle =
       "levels/difficulty-levels/by-prime-mover";

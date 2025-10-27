@@ -36,5 +36,6 @@
   "heyThere": "أهلاً",
   "welcomBack": "مرحباً بعودتك",
   "dontHaveAnAccountYet": "ليس لديك حساب بعد",
-  "register": " سجل الآن"
+  "register": " سجل الآن",
+  "noWorkoutsAvailableYet": "لا توجد تمارين متاحة حتى الآن!"
 }

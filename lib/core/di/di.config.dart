@@ -43,6 +43,19 @@ import '../../features/auth/presentation/register/view_model/cubit/register_cubi
     as _i103;
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;
+import '../../features/workouts/data/data_source/muscles_data_source.dart'
+    as _i160;
+import '../../features/workouts/data/data_source/workout_data_source.dart'
+    as _i107;
+import '../../features/workouts/data/repo_impl/muscles_repo_impl.dart' as _i779;
+import '../../features/workouts/data/repo_impl/workouts_repo_impl.dart'
+    as _i383;
+import '../../features/workouts/domain/repo/muscles_repo.dart' as _i423;
+import '../../features/workouts/domain/repo/workouts_repo.dart' as _i301;
+import '../../features/workouts/domain/use_case/muscles_use_case.dart' as _i187;
+import '../../features/workouts/domain/use_case/workout_use_case.dart' as _i28;
+import '../../features/workouts/presentation/view_model/workout_cubit.dart'
+    as _i493;
 import '../../features/home/data/datasources/contract/home_remote_data_source.dart'
     as _i146;
 import '../../features/home/data/datasources/impl/home_remote_data_source_impl.dart'
@@ -63,6 +76,10 @@ import '../api_layer/api_client/api_client.dart' as _i225;
 import '../api_layer/api_client/meals_retrofit_client.dart' as _i450;
 import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
     as _i100;
+import '../api_layer/data_source_impl/workout/muscles_data_source_impl.dart'
+    as _i330;
+import '../api_layer/data_source_impl/workout/workouts_data_source_impl.dart'
+    as _i1002;
 import '../modules/dio_module.dart' as _i948;
 import '../modules/shared_preferences_module.dart' as _i744;
 import '../utils/language_cubit.dart' as _i344;
@@ -98,6 +115,11 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.singleton<_i225.ApiClient>(() => _i225.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i160.MusclesDataSource>(
+      () => _i330.MusclesDataSourceImpl(gh<_i225.ApiClient>()),
+    );
+    gh.factory<_i107.WorkoutDataSource>(
+      () => _i1002.WorkoutsDataSourceImpl(gh<_i225.ApiClient>()),
     gh.factory<_i450.MealsRetrofitClient>(
       () => _i450.MealsRetrofitClient.new(gh<_i361.Dio>()),
     );
@@ -122,6 +144,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i723.AuthRepo>(
       () => _i704.AuthRepoImpl(gh<_i725.AuthRemoteDataSource>()),
     );
+    gh.factory<_i423.MusclesRepo>(
+      () => _i779.MusclesRepoImpl(gh<_i160.MusclesDataSource>()),
+    );
+    gh.factory<_i301.WorkoutsRepo>(
+      () => _i383.WorkoutsRepoImpl(gh<_i107.WorkoutDataSource>()),
+    );
+    gh.factory<_i28.WorkoutUseCase>(
+      () => _i28.WorkoutUseCase(gh<_i301.WorkoutsRepo>()),
     gh.factory<_i1021.HomeRepo>(
       () => _i386.HomeRepoImpl(gh<_i146.HomeRemoteDataSource>()),
     );
@@ -175,6 +205,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i449.Validator>(),
       ),
     );
+    gh.factory<_i187.MusclesUseCase>(
+      () => _i187.MusclesUseCase(gh<_i423.MusclesRepo>()),
+    );
     gh.factory<_i103.RegisterCubit>(
       () => _i103.RegisterCubit(
         gh<_i97.RegisterUseCase>(),
@@ -185,6 +218,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i621.OtpVerificationCubit(
         gh<_i793.OtpVerificationUseCase>(),
         gh<_i591.ForgetPasswordUseCase>(),
+      ),
+    );
+    gh.factory<_i493.WorkoutCubit>(
+      () => _i493.WorkoutCubit(
+        gh<_i187.MusclesUseCase>(),
+        gh<_i28.WorkoutUseCase>(),
       ),
     );
     return this;

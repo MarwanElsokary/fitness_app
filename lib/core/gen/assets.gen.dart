@@ -144,6 +144,8 @@ class $AssetsImageGen {
   AssetGenImage get background5 =>
       const AssetGenImage('assets/image/background_5.png');
 
+  /// File path: assets/image/empty.png
+  AssetGenImage get empty => const AssetGenImage('assets/image/empty.png');
   /// File path: assets/image/facebook.svg
   String get facebook => 'assets/image/facebook.svg';
 
@@ -265,6 +267,9 @@ class $AssetsImageGen {
   AssetGenImage get noRoutes =>
       const AssetGenImage('assets/image/no_routes.png');
 
+  /// File path: assets/image/workout_bg.png
+  AssetGenImage get workoutBg =>
+      const AssetGenImage('assets/image/workout_bg.png');
   /// File path: assets/image/traning.png
   AssetGenImage get traning => const AssetGenImage('assets/image/traning.png');
 
@@ -287,6 +292,7 @@ class $AssetsImageGen {
     background3,
     background4,
     background5,
+    empty,
     facebook,
     fit1Png,
     fit1Png_,
@@ -327,6 +333,7 @@ class $AssetsImageGen {
     fitness9,
     gym,
     noRoutes,
+    workoutBg,
     traning,
     yoga,
   ];
