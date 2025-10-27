@@ -211,4 +211,8 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   // TODO: implement register
   String get register => "Register";
+
+  @override
+  // TODO: implement noWorkoutsAvailableYet
+  String get noWorkoutsAvailableYet => 'No workouts available yet!';
 }

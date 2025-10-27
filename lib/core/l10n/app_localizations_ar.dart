@@ -208,4 +208,8 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get register => " سجل الآن";
+
+  @override
+  // TODO: implement noWorkoutsAvailableYet
+  String get noWorkoutsAvailableYet => 'لا توجد تمارين متاحة حتى الآن!';
 }

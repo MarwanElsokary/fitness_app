@@ -68,5 +68,7 @@
   "heyThere": "Hey There",
   "welcomBack": "WELCOME Back",
   "dontHaveAnAccountYet": "Dont have an account yet ?",
-  "register": "Register"
+  "register": "Register",
+  "noWorkoutsAvailableYet": "No workouts available yet!"
+
 }
