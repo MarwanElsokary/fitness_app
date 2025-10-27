@@ -10,6 +10,7 @@ import 'package:fitness_app/features/auth/presentation/reset_password/view/reset
 import 'package:fitness_app/features/home/presentation/pages/home.dart';
 import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
 import 'package:fitness_app/features/onboadring/presentation/view.dart';
+import 'package:fitness_app/features/workouts/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
 
 abstract class Routes {
@@ -29,11 +30,13 @@ abstract class Routes {
         return MaterialPageRoute(
           builder: (context) => const ForgetPasswordScreen(),
         );
-       case AppRoutes.otpverification:
+      case AppRoutes.otpverification:
         String email = settings.arguments as String;
         return MaterialPageRoute(
           builder: (context) => OtpVerificationScreen(email: email),
         );
+      case AppRoutes.workoutScreen:
+        return MaterialPageRoute(builder: (context) => WorkoutScreen());
       case AppRoutes.resetPassword:
         String email = settings.arguments as String;
         return MaterialPageRoute(
