@@ -32,6 +32,7 @@ class DummyMuscle implements Muscles {
 
   @override
   Map<String, dynamic> toJson() {
+
     throw UnimplementedError();
   }
 }
