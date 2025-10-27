@@ -1,5 +1,5 @@
 import 'package:fitness_app/core/gen/assets.gen.dart';
-import 'package:fitness_app/features/home/presentation/pages/home.dart';
+import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/chat_with_ai/presentation/pages/chat_ai_page.dart';
 import 'package:fitness_app/features/gym/presentation/pages/gym_page.dart';
 import 'package:fitness_app/features/profile/presentation/pages/profile_page.dart';
@@ -21,7 +21,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   @override
   void initState() {
     super.initState();
-    _pages = const [Home(), ChatAiPage(), GymPage(), ProfilePage()];
+    _pages = const [HomeScreen(), ChatAiPage(), GymPage(), ProfilePage()];
   }
 
   void _onItemTapped(int index) {
@@ -32,13 +32,15 @@ class _NavBarLayoutState extends State<NavBarLayout> {
 
   Widget _buildFloatingNavBar() {
     return Container(
-      margin: EdgeInsets.all(32.w), // ✅ تعديل المارجن
+      margin: EdgeInsets.all(32.w),
       padding: EdgeInsets.symmetric(horizontal: 25.w),
       height: 80.h,
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: Colors.grey[900]?.withOpacity(0.95),
         borderRadius: BorderRadius.circular(40.r),
         boxShadow: [
+          // ignore: deprecated_member_use
           BoxShadow(color: Colors.black.withOpacity(0.4), blurRadius: 10.r),
         ],
       ),
@@ -97,6 +99,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: deprecated_member_use
       backgroundColor: Colors.grey[900]?.withOpacity(0.70),
       body: Stack(
         children: [
