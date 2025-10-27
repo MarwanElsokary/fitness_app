@@ -1,5 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:fitness_app/core/api_layer/models/responses/muscles_response.dart';
 import 'package:fitness_app/core/api_layer/models/responses/login_response_dto.dart';
+import 'package:fitness_app/core/api_layer/models/responses/workout_response.dart';
 import 'package:fitness_app/features/auth/data/models/forget_password/request/forget_password_request_dto.dart';
 import 'package:fitness_app/features/auth/data/models/forget_password/response/forget_password_response_dto.dart';
 import 'package:fitness_app/features/auth/data/models/otp_verification/request/otp_verification_request_dto.dart';
@@ -47,4 +49,12 @@ abstract class ApiClient {
   Future<HttpResponse<LoginResponseDto>> login({
     @Body() required LoginRequestDto loginRequestDto,
   });
+
+  @GET(Endpoints.workout)
+  Future<WorkoutResponse> getWorkOuts();
+
+  @GET(Endpoints.muscleGroupById)
+  Future<MusclesResponse> getMuscleGroup(
+    @Query("muscleGroupId") String? muscleGroupId,
+  );
 }
