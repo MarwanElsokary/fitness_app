@@ -58,7 +58,7 @@ import '../../features/home/domain/usecases/get_food_recommendation_use_case.dar
 import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
     as _i399;
 import '../../features/home/presentation/view_model/cubit/home_cubit.dart'
-    as _i499;
+    as _i1039;
 import '../api_layer/api_client/api_client.dart' as _i225;
 import '../api_layer/api_client/meals_retrofit_client.dart' as _i450;
 import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
@@ -155,8 +155,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i793.OtpVerificationUseCase>(
       () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
     );
-    gh.factory<_i499.HomeCubit>(
-      () => _i499.HomeCubit(
+    gh.factory<_i1039.HomeCubit>(
+      () => _i1039.HomeCubit(
         gh<_i535.GetDailyRecommendationExerciseUseCase>(),
         gh<_i283.GetFoodRecommendationUseCase>(),
         gh<_i205.GetAllMusclesUseCase>(),
