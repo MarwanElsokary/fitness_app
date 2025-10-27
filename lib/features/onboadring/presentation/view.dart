@@ -97,7 +97,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   Align(
                     alignment: Alignment.bottomCenter,
                     child: SharedBluredContainer(
-                      child: Container(
+                      child: SizedBox(
                         height: 230.h,
                         width: double.infinity,
                         child: Padding(
@@ -220,6 +220,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                         if (_currentPage ==
                                             onboardingData.length - 1) {
                                           Navigator.pushReplacementNamed(
+                                            // ignore: use_build_context_synchronously
                                             context,
                                             AppRoutes.loginView,
                                           );
@@ -260,6 +261,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 final sharedPref = getIt<SharedPrefHelper>();
                 await sharedPref.setValue('seenOnboarding', true);
 
+                // ignore: use_build_context_synchronously
                 Navigator.pushReplacementNamed(context, AppRoutes.loginView);
               },
 
