@@ -20,9 +20,6 @@ class BuildListOfButtonsItem extends StatelessWidget {
           return ElevatedButton(
             onPressed: () {
               //TODO
-              // context.read<MainLayoutCubit>().doIntent(
-              //   ChangeTabWithWorkoutIndex(MainLayoutTabs.workouts, index),
-              // );
             },
             style: ElevatedButton.styleFrom(
               backgroundColor: index == 0

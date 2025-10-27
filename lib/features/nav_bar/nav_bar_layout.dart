@@ -36,9 +36,11 @@ class _NavBarLayoutState extends State<NavBarLayout> {
       padding: EdgeInsets.symmetric(horizontal: 25.w),
       height: 80.h,
       decoration: BoxDecoration(
+        // ignore: deprecated_member_use
         color: Colors.grey[900]?.withOpacity(0.95),
         borderRadius: BorderRadius.circular(40.r),
         boxShadow: [
+          // ignore: deprecated_member_use
           BoxShadow(color: Colors.black.withOpacity(0.4), blurRadius: 10.r),
         ],
       ),
@@ -97,6 +99,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // ignore: deprecated_member_use
       backgroundColor: Colors.grey[900]?.withOpacity(0.70),
       body: Stack(
         children: [
