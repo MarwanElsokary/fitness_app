@@ -16,10 +16,17 @@ jobs:
 
       - name: Validate Branch Name
         run: |
+          BRANCH_NAME="${{ github.head_ref }}"
+          if [[ "$BRANCH_NAME" == "main" || "$BRANCH_NAME" == "master" || "$BRANCH_NAME" == "development" || "$BRANCH_NAME" == "dev" ]]; then
+            echo "✅ Branch '${BRANCH_NAME}' is exempt from validation."
+            exit 0
+          fi
+
           BRANCH_REGEX='^(feature|hotfix|bugfix|release)\/[A-Z]+-[0-9]+.*$'
-          if [[ ! "${{ github.head_ref }}" =~ $BRANCH_REGEX ]]; then
-            echo "❌ Invalid branch name: '${{ github.head_ref }}'"
+          if [[ ! "$BRANCH_NAME" =~ $BRANCH_REGEX ]]; then
+            echo "❌ Invalid branch name: '${BRANCH_NAME}'"
             echo "Must match: feature/PROJECT-123-description"
             exit 1
           fi
-          echo "✅ Branch name is valid."
+
+          echo "✅ Branch name '${BRANCH_NAME}' is valid."
