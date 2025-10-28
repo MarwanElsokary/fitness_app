@@ -43,19 +43,6 @@ import '../../features/auth/presentation/register/view_model/cubit/register_cubi
     as _i103;
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;
-import '../../features/workouts/data/data_source/muscles_data_source.dart'
-    as _i160;
-import '../../features/workouts/data/data_source/workout_data_source.dart'
-    as _i107;
-import '../../features/workouts/data/repo_impl/muscles_repo_impl.dart' as _i779;
-import '../../features/workouts/data/repo_impl/workouts_repo_impl.dart'
-    as _i383;
-import '../../features/workouts/domain/repo/muscles_repo.dart' as _i423;
-import '../../features/workouts/domain/repo/workouts_repo.dart' as _i301;
-import '../../features/workouts/domain/use_case/muscles_use_case.dart' as _i187;
-import '../../features/workouts/domain/use_case/workout_use_case.dart' as _i28;
-import '../../features/workouts/presentation/view_model/workout_cubit.dart'
-    as _i493;
 import '../../features/home/data/datasources/contract/home_remote_data_source.dart'
     as _i146;
 import '../../features/home/data/datasources/impl/home_remote_data_source_impl.dart'
@@ -72,6 +59,19 @@ import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
     as _i399;
 import '../../features/home/presentation/view_model/cubit/home_cubit.dart'
     as _i1039;
+import '../../features/workouts/data/data_source/muscles_data_source.dart'
+    as _i160;
+import '../../features/workouts/data/data_source/workout_data_source.dart'
+    as _i107;
+import '../../features/workouts/data/repo_impl/muscles_repo_impl.dart' as _i779;
+import '../../features/workouts/data/repo_impl/workouts_repo_impl.dart'
+    as _i383;
+import '../../features/workouts/domain/repo/muscles_repo.dart' as _i423;
+import '../../features/workouts/domain/repo/workouts_repo.dart' as _i301;
+import '../../features/workouts/domain/use_case/muscles_use_case.dart' as _i187;
+import '../../features/workouts/domain/use_case/workout_use_case.dart' as _i28;
+import '../../features/workouts/presentation/view_model/workout_cubit.dart'
+    as _i493;
 import '../api_layer/api_client/api_client.dart' as _i225;
 import '../api_layer/api_client/meals_retrofit_client.dart' as _i450;
 import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
@@ -115,13 +115,14 @@ extension GetItInjectableX on _i174.GetIt {
       ),
     );
     gh.singleton<_i225.ApiClient>(() => _i225.ApiClient.new(gh<_i361.Dio>()));
+    gh.factory<_i450.MealsRetrofitClient>(
+      () => _i450.MealsRetrofitClient.new(gh<_i361.Dio>()),
+    );
     gh.factory<_i160.MusclesDataSource>(
       () => _i330.MusclesDataSourceImpl(gh<_i225.ApiClient>()),
     );
     gh.factory<_i107.WorkoutDataSource>(
       () => _i1002.WorkoutsDataSourceImpl(gh<_i225.ApiClient>()),
-    gh.factory<_i450.MealsRetrofitClient>(
-      () => _i450.MealsRetrofitClient.new(gh<_i361.Dio>()),
     );
     gh.singleton<_i146.HomeRemoteDataSource>(
       () => _i1004.HomeRemoteDataSourceImpl(
@@ -144,6 +145,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i723.AuthRepo>(
       () => _i704.AuthRepoImpl(gh<_i725.AuthRemoteDataSource>()),
     );
+    gh.factory<_i1021.HomeRepo>(
+      () => _i386.HomeRepoImpl(gh<_i146.HomeRemoteDataSource>()),
+    );
     gh.factory<_i423.MusclesRepo>(
       () => _i779.MusclesRepoImpl(gh<_i160.MusclesDataSource>()),
     );
@@ -152,8 +156,6 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i28.WorkoutUseCase>(
       () => _i28.WorkoutUseCase(gh<_i301.WorkoutsRepo>()),
-    gh.factory<_i1021.HomeRepo>(
-      () => _i386.HomeRepoImpl(gh<_i146.HomeRemoteDataSource>()),
     );
     gh.factory<_i205.GetAllMusclesUseCase>(
       () => _i205.GetAllMusclesUseCase(gh<_i1021.HomeRepo>()),
@@ -176,14 +178,14 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i591.ForgetPasswordUseCase>(
       () => _i591.ForgetPasswordUseCase(gh<_i723.AuthRepo>()),
     );
+    gh.factory<_i793.OtpVerificationUseCase>(
+      () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
+    );
     gh.factory<_i97.RegisterUseCase>(
       () => _i97.RegisterUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i825.ResetPasswordUseCase>(
       () => _i825.ResetPasswordUseCase(gh<_i723.AuthRepo>()),
-    );
-    gh.factory<_i793.OtpVerificationUseCase>(
-      () => _i793.OtpVerificationUseCase(gh<_i723.AuthRepo>()),
     );
     gh.factory<_i1039.HomeCubit>(
       () => _i1039.HomeCubit(
