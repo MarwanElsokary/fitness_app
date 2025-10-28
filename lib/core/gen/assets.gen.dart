@@ -14,60 +14,60 @@ import 'package:flutter/widgets.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/Icons/app_logo.svg
-  String get appLogo => 'assets/Icons/app_logo.svg';
+  /// File path: assets/icons/app_logo.svg
+  String get appLogo => 'assets/icons/app_logo.svg';
 
-  /// File path: assets/Icons/apple.svg
-  String get apple => 'assets/Icons/apple.svg';
+  /// File path: assets/icons/apple.svg
+  String get apple => 'assets/icons/apple.svg';
 
-  /// File path: assets/Icons/chat_ai.png
-  AssetGenImage get chatAi => const AssetGenImage('assets/Icons/chat_ai.png');
+  /// File path: assets/icons/chat_ai.png
+  AssetGenImage get chatAi => const AssetGenImage('assets/icons/chat_ai.png');
 
-  /// File path: assets/Icons/chat_icon.svg
-  String get chatIcon => 'assets/Icons/chat_icon.svg';
+  /// File path: assets/icons/chat_icon.svg
+  String get chatIcon => 'assets/icons/chat_icon.svg';
 
-  /// File path: assets/Icons/eye-slash.svg
-  String get eyeSlash => 'assets/Icons/eye-slash.svg';
+  /// File path: assets/icons/eye-slash.svg
+  String get eyeSlash => 'assets/icons/eye-slash.svg';
 
-  /// File path: assets/Icons/eye.svg
-  String get eye => 'assets/Icons/eye.svg';
+  /// File path: assets/icons/eye.svg
+  String get eye => 'assets/icons/eye.svg';
 
-  /// File path: assets/Icons/google.svg
-  String get google => 'assets/Icons/google.svg';
+  /// File path: assets/icons/google.svg
+  String get google => 'assets/icons/google.svg';
 
-  /// File path: assets/Icons/gym.png
-  AssetGenImage get gym => const AssetGenImage('assets/Icons/gym.png');
+  /// File path: assets/icons/gym.png
+  AssetGenImage get gym => const AssetGenImage('assets/icons/gym.png');
 
-  /// File path: assets/Icons/history_icon.svg
-  String get historyIcon => 'assets/Icons/history_icon.svg';
+  /// File path: assets/icons/history_icon.svg
+  String get historyIcon => 'assets/icons/history_icon.svg';
 
-  /// File path: assets/Icons/home.png
-  AssetGenImage get home => const AssetGenImage('assets/Icons/home.png');
+  /// File path: assets/icons/home.png
+  AssetGenImage get home => const AssetGenImage('assets/icons/home.png');
 
-  /// File path: assets/Icons/home_icon.svg
-  String get homeIcon => 'assets/Icons/home_icon.svg';
+  /// File path: assets/icons/home_icon.svg
+  String get homeIcon => 'assets/icons/home_icon.svg';
 
-  /// File path: assets/Icons/lock.svg
-  String get lock => 'assets/Icons/lock.svg';
+  /// File path: assets/icons/lock.svg
+  String get lock => 'assets/icons/lock.svg';
 
-  /// File path: assets/Icons/mail.svg
-  String get mail => 'assets/Icons/mail.svg';
+  /// File path: assets/icons/mail.svg
+  String get mail => 'assets/icons/mail.svg';
 
-  /// File path: assets/Icons/profile.png
-  AssetGenImage get profile => const AssetGenImage('assets/Icons/profile.png');
+  /// File path: assets/icons/profile.png
+  AssetGenImage get profile => const AssetGenImage('assets/icons/profile.png');
 
-  /// File path: assets/Icons/profile_icon.svg
-  String get profileIcon => 'assets/Icons/profile_icon.svg';
+  /// File path: assets/icons/profile_icon.svg
+  String get profileIcon => 'assets/icons/profile_icon.svg';
 
-  /// File path: assets/Icons/super_fit_logo.png
+  /// File path: assets/icons/super_fit_logo.png
   AssetGenImage get superFitLogo =>
-      const AssetGenImage('assets/Icons/super_fit_logo.png');
+      const AssetGenImage('assets/icons/super_fit_logo.png');
 
-  /// File path: assets/Icons/user.svg
-  String get user => 'assets/Icons/user.svg';
+  /// File path: assets/icons/user.svg
+  String get user => 'assets/icons/user.svg';
 
-  /// File path: assets/Icons/workout_icon.svg
-  String get workoutIcon => 'assets/Icons/workout_icon.svg';
+  /// File path: assets/icons/workout_icon.svg
+  String get workoutIcon => 'assets/icons/workout_icon.svg';
 
   /// List of all assets
   List<dynamic> get values => [

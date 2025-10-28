@@ -8,7 +8,7 @@ abstract class AppAssets {
   static const String onBoardingImage3 = "assets/image/O15_29.png";
   static const String workoutBg = "assets/image/workout_bg.png";
 
-  /// Icons
+  /// icons
   // ignore: unused_field
   static const String _baseIconPath = "assets/icon/";
 
