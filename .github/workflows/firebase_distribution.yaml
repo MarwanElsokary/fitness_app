@@ -2,17 +2,9 @@ name: Firebase App Distribution
 
 on:
   push:
-    branches:
-      - main
-      - master
-      - development
-      - dev
+    branches: [ main, master, development, dev ]
   pull_request:
-    branches:
-      - main
-      - master
-      - development
-      - dev
+    branches: [ main, master, development, dev ]
 
 jobs:
   android-build:
@@ -45,12 +37,13 @@ jobs:
       - name: Build Android Debug APK
         run: flutter build apk --debug
 
-      # 🔐 إعداد مفتاح Firebase من الـ Secret
-      - name: Setup Firebase authentication
+      # 🔐 إعداد مفتاح Firebase كملف دائم واستخدامه في باقي الخطوات
+      - name: Configure Firebase Service Account
+        id: firebase-key
         run: |
-          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > $HOME/firebase-key.json
-          export GOOGLE_APPLICATION_CREDENTIALS="$HOME/firebase-key.json"
-          echo "✅ Firebase service account key configured."
+          echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > $GITHUB_WORKSPACE/firebase-key.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/firebase-key.json" >> $GITHUB_ENV
+          echo "✅ Firebase key configured and environment variable set."
 
       # 🔧 تثبيت Firebase CLI
       - name: Install Firebase CLI
