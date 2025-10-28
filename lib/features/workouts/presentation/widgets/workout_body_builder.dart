@@ -49,7 +49,7 @@ class WorkoutBodyBuilder extends StatelessWidget {
                         labelColor: Colors.white,
                         unselectedLabelColor: AppColors.grey,
                         onTap: (index) {
-                          final selectedCategory = state.workouts?[index].Id;
+                          final selectedCategory = state.workouts?[index].id;
                           context.read<WorkoutCubit>().getMuscles(
                             selectedCategory,
                           );

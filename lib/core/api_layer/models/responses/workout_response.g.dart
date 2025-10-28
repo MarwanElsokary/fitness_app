@@ -21,7 +21,7 @@ Map<String, dynamic> _$WorkoutResponseToJson(WorkoutResponse instance) =>
     };
 
 MusclesGroup _$MusclesGroupFromJson(Map<String, dynamic> json) =>
-    MusclesGroup(Id: json['_id'] as String?, name: json['name'] as String?);
+    MusclesGroup(id: json['_id'] as String?, name: json['name'] as String?);
 
 Map<String, dynamic> _$MusclesGroupToJson(MusclesGroup instance) =>
-    <String, dynamic>{'_id': instance.Id, 'name': instance.name};
+    <String, dynamic>{'_id': instance.id, 'name': instance.name};

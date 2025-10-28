@@ -1,6 +1,6 @@
 class WorkoutEntity {
-  final String? Id;
+  final String? id;
   final String? name;
 
-  WorkoutEntity({this.Id, this.name});
+  WorkoutEntity({this.id, this.name});
 }
