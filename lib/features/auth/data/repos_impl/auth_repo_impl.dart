@@ -96,8 +96,10 @@ class AuthRepoImpl implements AuthRepo {
       } else {
         return ApiErrorResult(response.message ?? "Unknown error");
       }
+    } on DioException catch (e) {
+      return ApiErrorResult(e.message ?? "Unknown Dio error");
     } catch (e) {
-      return ApiErrorResult(e.toString());
+      throw Exception("Unexpected error: $e");
     }
   }
 }
