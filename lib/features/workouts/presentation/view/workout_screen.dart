@@ -5,22 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WorkoutScreen extends StatelessWidget {
-  const WorkoutScreen({super.key});
+  final WorkoutCubit? cubit;
+  const WorkoutScreen({super.key, this.cubit});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => getIt<WorkoutCubit>()..getWorkOuts(),
+      create: (context) => cubit ?? getIt<WorkoutCubit>()..getWorkOuts(),
       child: Scaffold(
         body: Stack(
           children: [
-            Image.asset(
-              'assets/image/workout_bg.png',
-              fit: BoxFit.cover,
-              width: double.infinity,
-              height: double.infinity,
+            Container(
+              decoration: const BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/image/workout_bg.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
-            WorkoutBodyBuilder(),
+            const WorkoutBodyBuilder(),
           ],
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

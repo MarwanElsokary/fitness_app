@@ -13,7 +13,7 @@ class WorkoutBodyBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<WorkoutCubit, WorkOutState>(
       buildWhen: (previous, current) =>
-          current is WorkOutLoaded ||
+      current is WorkOutLoaded ||
           current is WorkOutError ||
           current is WorkOutLoading,
       builder: (context, state) {
@@ -24,66 +24,68 @@ class WorkoutBodyBuilder extends StatelessWidget {
             ),
           );
         } else if (state is WorkOutError) {
-          return Center(child: Text(state.message ?? ''));
+          return Center(child: Text(state.message ?? 'Something went wrong'));
         } else if (state is WorkOutLoaded) {
+          final workouts = state.workouts ?? [];
+
           return Padding(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             child: SafeArea(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(child: Text("Workouts", style: AppStyles.bold24white)),
-                  DefaultTabController(
-                    length: state.workouts?.length ?? 0,
-                    // state.categoryList?.length ?? 0,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: TabBar(
-                        isScrollable: true,
-                        indicator: BoxDecoration(
-                          color: AppColors.orange,
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                        indicatorSize: TabBarIndicatorSize.tab,
-                        dividerColor: Colors.transparent,
-                        labelColor: Colors.white,
-                        unselectedLabelColor: AppColors.grey,
-                        onTap: (index) {
-                          final selectedCategory = state.workouts?[index].id;
-                          context.read<WorkoutCubit>().getMuscles(
-                            selectedCategory,
-                          );
-                        },
-                        tabs: state.workouts!.map((category) {
-                          return Tab(
-                            child: Container(
-
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(25),
-
-                              ),
-                              child: Text(
-                                category.name ?? '',
-                                style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.w600,
+                  if (workouts.isEmpty)
+                    const Center(child: Text("No workouts available"))
+                  else
+                    DefaultTabController(
+                      length: workouts.length,
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: TabBar(
+                          isScrollable: true,
+                          indicator: BoxDecoration(
+                            color: AppColors.orange,
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                          indicatorSize: TabBarIndicatorSize.tab,
+                          dividerColor: Colors.transparent,
+                          labelColor: Colors.white,
+                          unselectedLabelColor: AppColors.grey,
+                          onTap: (index) {
+                            final selectedCategory = workouts[index].id;
+                            context.read<WorkoutCubit>().getMuscles(
+                              selectedCategory,
+                            );
+                          },
+                          tabs: workouts.map((category) {
+                            return Tab(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(25),
+                                ),
+                                child: Text(
+                                  category.name ?? '',
+                                  style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
-                            ),
-                          );
-                        }).toList(),
+                            );
+                          }).toList(),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 2),
-                  MusclesGrideByilder(),
+                  const SizedBox(height: 2),
+                  const MusclesGrideByilder(),
                 ],
               ),
             ),
           );
         }
-        return SizedBox.shrink();
+        return const SizedBox.shrink();
       },
     );
   }
