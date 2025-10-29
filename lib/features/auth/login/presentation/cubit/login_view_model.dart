@@ -13,52 +13,82 @@ import 'package:injectable/injectable.dart';
 class LoginViewModel extends Cubit<LoginStates> {
   final LoginUseCase loginUseCase;
   final SharedPrefHelper sharedPrefHelper;
-  final formKey = GlobalKey<FormState>();
+
+  // Final properties for keys and controllers for consistency
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  bool? rememberMe = false;
+  bool rememberMe = false; // Initialize non-nullable bool safely
 
-  LoginViewModel({required this.loginUseCase, required this.sharedPrefHelper})
-    : super(LoginInitState());
+  LoginViewModel({
+    required this.loginUseCase,
+    required this.sharedPrefHelper,
+  }) : super(LoginInitState());
 
   void login() async {
-    if (formKey.currentState!.validate()) {
-      // Check if the cubit is closed before emitting
+    // CRITICAL FIX: Use the safe null check operator (?.) and coalesce (?? false).
+    // This prevents the "Null check operator used on a null value" crash
+    // in unit tests where formKey.currentState is null.
+    final bool isValid = formKey.currentState?.validate() ?? false;
+
+    if (!isValid) {
+      // If validation fails (in UI) or key is unattached (in unit test),
+      // the function simply exits without crashing or making an API call.
+      return;
+    }
+
+    // Check if the cubit is closed before emitting
+    if (isClosed) return;
+
+    emit(LoginLoadingState());
+
+    try {
+      final requestEntity = LoginRequestEntity(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      final response = await loginUseCase.call(
+        loginRequestEntity: requestEntity,
+      );
+
+      // Check if the cubit is closed before emitting after the async call
       if (isClosed) return;
 
-      emit(LoginLoadingState());
+      switch (response) {
+        case ApiSuccessResult<LoginResponseEntity> successResponse:
+        // Use pattern matching alias for clarity (successResponse)
 
-      try {
-        var response = await loginUseCase.call(
-          loginRequestEntity: LoginRequestEntity(
-            email: emailController.text,
-            password: passwordController.text,
-          ),
-        );
+        // 1. Save token (only if rememberMe is true, or always if required)
+        // Assuming we always save the token for session management:
+          await sharedPrefHelper.setValue(
+            AppConstants.tokenKey,
+            successResponse.data.token,
+          );
 
-        // Check if the cubit is closed before emitting
-        if (isClosed) return;
+          emit(LoginSuccessState(successResponse.data));
+          break;
 
-        switch (response) {
-          case ApiSuccessResult<LoginResponseEntity>():
-            // remember me
-            // Save token to SharedPreferences
-            await sharedPrefHelper.setValue(
-              AppConstants.tokenKey,
-              response.data.token,
-            );
-            emit(LoginSuccessState(response.data));
-            break;
-          case ApiErrorResult<LoginResponseEntity>():
-            emit(LoginErrorState(response.errorMessage));
-            break;
-        }
-      } catch (e) {
-        // Check if the cubit is closed before emitting
-        if (isClosed) return;
-        emit(LoginErrorState(e.toString()));
+        case ApiErrorResult<LoginResponseEntity> errorResponse:
+        // Use pattern matching alias for clarity (errorResponse)
+          emit(LoginErrorState(errorResponse.errorMessage));
+          break;
       }
+    } catch (e) {
+      // Check if the cubit is closed before emitting error
+      if (isClosed) return;
+
+      // Use the actual error message
+      emit(LoginErrorState(e.toString()));
+    }
+  }
+
+  /// Toggles the rememberMe state and should be called by the UI.
+  void toggleRememberMe(bool? newValue) {
+    if (newValue != null) {
+      rememberMe = newValue;
+      // Optionally emit a state if the UI needs to react to this change
     }
   }
 
