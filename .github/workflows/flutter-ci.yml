@@ -35,24 +35,16 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y lcov
 
       # 🧹 6. Remove generated and irrelevant files from coverage
-      - name: Clean up coverage report
+      - name: Remove generated and irrelevant files from coverage
         run: |
           lcov --remove coverage/lcov.info \
-            'lib/**/models/*.g.dart' \
-            'lib/**/models/*.freezed.dart' \
-            'lib/**/dto/*.g.dart' \
-            'lib/**/dto/*.freezed.dart' \
-            'lib/**/generated/**' \
-            'lib/**/l10n/**' \
-            'lib/**/translations/**' \
-            'lib/**/constants/**' \
-            'lib/**/theme/**' \
-            'lib/**/modules/**' \
-            'lib/**/core/di/**' \
-            'lib/**/core/route/**' \
-            'lib/**/core/utils/**' \
-            'lib/main.dart' \
-            -o coverage/lcov.info
+            'lib/**.g.dart' \
+            'lib/**.freezed.dart' \
+            'lib/generated/**' \
+            'lib/l10n/**' \
+            'lib/core/di/**' \
+            'lib/**/models/*.dart' \
+            -o coverage/lcov.info || true
 
       # 📊 7. Print coverage summary
       - name: Print coverage summary
