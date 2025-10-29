@@ -30,8 +30,12 @@ jobs:
       - name: Run tests with coverage
         run: flutter test --coverage
 
-      # 🧹 5. Remove generated files from coverage
-      - name: Remove generated and irrelevant files from coverage
+      # ⚙️ 5. Install lcov tool
+      - name: Install lcov
+        run: sudo apt-get update && sudo apt-get install -y lcov
+
+      # 🧹 6. Remove generated and irrelevant files from coverage
+      - name: Clean up coverage report
         run: |
           lcov --remove coverage/lcov.info \
             'lib/**/models/*.g.dart' \
@@ -50,10 +54,11 @@ jobs:
             'lib/main.dart' \
             -o coverage/lcov.info
 
+      # 📊 7. Print coverage summary
       - name: Print coverage summary
         run: lcov --summary coverage/lcov.info
 
-      # ☁️ 6. Upload coverage to Codecov
+      # ☁️ 8. Upload coverage to Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
