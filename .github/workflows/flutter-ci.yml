@@ -32,6 +32,7 @@ jobs:
 
       # 🧹 5. Remove generated files from coverage
       - name: Clean coverage report
+        continue-on-error: true
         run: |
           sudo apt-get install -y lcov
           lcov --remove coverage/lcov.info \
@@ -40,7 +41,8 @@ jobs:
             '**/*.config.dart' \
             '**/*.mocks.dart' \
             '**/generated/**' \
-            -o coverage/lcov.info
+            -o coverage/lcov.info \
+            --ignore-errors unused
 
       # ☁️ 6. Upload coverage to Codecov
       - name: Upload coverage reports to Codecov
