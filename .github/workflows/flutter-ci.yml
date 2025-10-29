@@ -41,6 +41,9 @@ jobs:
             '**/*.config.dart' \
             '**/*.mocks.dart' \
             '**/generated/**' \
+            '**/l10n/**' \
+            '**/localization/**' \
+            '**/models/**' \
             -o coverage/lcov.info \
             --ignore-errors unused
 
