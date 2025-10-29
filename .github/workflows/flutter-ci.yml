@@ -31,21 +31,27 @@ jobs:
         run: flutter test --coverage
 
       # 🧹 5. Remove generated files from coverage
-      - name: Clean coverage report
-        continue-on-error: true
+      - name: Remove generated and irrelevant files from coverage
         run: |
-          sudo apt-get install -y lcov
           lcov --remove coverage/lcov.info \
-            '**/*.g.dart' \
-            '**/*.freezed.dart' \
-            '**/*.config.dart' \
-            '**/*.mocks.dart' \
-            '**/generated/**' \
-            '**/l10n/**' \
-            '**/localization/**' \
-            '**/models/**' \
-            -o coverage/lcov.info \
-            --ignore-errors unused
+            'lib/**/models/*.g.dart' \
+            'lib/**/models/*.freezed.dart' \
+            'lib/**/dto/*.g.dart' \
+            'lib/**/dto/*.freezed.dart' \
+            'lib/**/generated/**' \
+            'lib/**/l10n/**' \
+            'lib/**/translations/**' \
+            'lib/**/constants/**' \
+            'lib/**/theme/**' \
+            'lib/**/modules/**' \
+            'lib/**/core/di/**' \
+            'lib/**/core/route/**' \
+            'lib/**/core/utils/**' \
+            'lib/main.dart' \
+            -o coverage/lcov.info
+
+      - name: Print coverage summary
+        run: lcov --summary coverage/lcov.info
 
       # ☁️ 6. Upload coverage to Codecov
       - name: Upload coverage reports to Codecov
