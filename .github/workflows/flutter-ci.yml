@@ -11,23 +11,43 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 🧩 1. Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 🛠 2. Setup Flutter SDK
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: 3.35.4
+          channel: stable
 
+      # 📦 3. Install dependencies
       - name: Get dependencies
         run: flutter pub get
 
+      # 🧪 4. Run tests and generate coverage
       - name: Run tests with coverage
         run: flutter test --coverage
 
+      # 🧹 5. Remove generated files from coverage
+      - name: Clean coverage report
+        run: |
+          sudo apt-get install -y lcov
+          lcov --remove coverage/lcov.info \
+            '**/*.g.dart' \
+            '**/*.freezed.dart' \
+            '**/*.config.dart' \
+            '**/*.mocks.dart' \
+            '**/generated/**' \
+            -o coverage/lcov.info
+
+      # ☁️ 6. Upload coverage to Codecov
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/lcov.info
           fail_ci_if_error: true
+          flags: unittests
+          verbose: true
