@@ -20,6 +20,7 @@ class MusclesGrideByilder extends StatelessWidget {
       builder: (context, state) {
         if (state is MusclesLoading) {
           return const Center(
+
             child: CircularProgressIndicator.adaptive(
               backgroundColor: AppColors.orange,
             ),
