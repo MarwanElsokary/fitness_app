@@ -18,4 +18,6 @@ class Endpoints {
   static const String allMusclesGroup = "/musclesGroup";
   static const String mealsCategories = "/1/categories.php";
   static const String exercisesByRandom = "/exercises/random";
+  static const String exercisesByMuscleDifficulty =
+      "/exercises/by-muscle-difficulty";
 }
