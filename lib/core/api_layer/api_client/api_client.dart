@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:fitness_app/core/api_layer/models/responses/all_difficulty_level_by_prime_muscle_response.dart';
+import 'package:fitness_app/core/api_layer/models/responses/get_exercise_response.dart';
 import 'package:fitness_app/core/api_layer/models/responses/muscles_response.dart';
 import 'package:fitness_app/core/api_layer/models/responses/login_response_dto.dart';
 import 'package:fitness_app/core/api_layer/models/responses/workout_response.dart';
@@ -60,6 +62,7 @@ abstract class ApiClient {
   Future<MusclesResponse> getMuscleGroup(
     @Query("muscleGroupId") String? muscleGroupId,
   );
+
   //Home
   @GET(Endpoints.exercisesByRandom)
   Future<DailyRecommendationExerciseDto> getDailyRecommendationExercise(
@@ -73,4 +76,16 @@ abstract class ApiClient {
 
   @GET("${Endpoints.allMusclesGroup}/{id}")
   Future<MusclesByGroupResponse> getMusclesByGroup(@Path("id") String id);
+
+  @GET(Endpoints.exercisesByMuscleDifficulty)
+  Future<GetExerciseResponse> getExercisesByMuscleDifficulty(
+    @Query('difficultyLevelId') String? difficultyLevelId,
+    @Query('primeMoverMuscleId') String? primeMoverMuscleId,
+  );
+
+  @GET(Endpoints.getAllDifficultyLevelsByPrimeMoverMuscle)
+  Future<AllDifficultyLevelByPrimeMuscleResponse>
+  getAllDifficultyLevelsByPrimeMoverMuscle(
+    @Query('primeMoverMuscleId') String? primeMoverMuscleId,
+  );
 }
