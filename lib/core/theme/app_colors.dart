@@ -6,6 +6,7 @@ abstract class AppColors {
   static const Color green = Color(0xff0CB359);
   static const Color lightPink = Color(0xffF9ECF0);
   static const Color orange = Color(0xffFF4100);
+  static const Color grayy = Color(0xff242424);
   static const Color transparent = Colors.transparent;
   static const MaterialColor white = MaterialColor(
     0xFFF9F9F9, // BASE
@@ -39,7 +40,8 @@ abstract class AppColors {
       900: Color(0xFFFF541A), // 90%
       950: Color(0xFFFF4100), // 100% (extra)
     },
-  );  static const MaterialColor primaryDark = MaterialColor(
+  );
+  static const MaterialColor primaryDark = MaterialColor(
     0xFFD21E6A, // BASE
     <int, Color>{
       50: Color(0xFFFF4100), // 10%

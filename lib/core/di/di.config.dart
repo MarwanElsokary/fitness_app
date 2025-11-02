@@ -58,6 +58,7 @@ import '../../features/exercise/domain/use_cases/get_all_difficulty_levels_use_c
     as _i240;
 import '../../features/exercise/domain/use_cases/get_exercises_use_case.dart'
     as _i685;
+import '../../features/exercise/presentation/view_model/cubit.dart' as _i862;
 import '../../features/home/data/datasources/contract/home_remote_data_source.dart'
     as _i146;
 import '../../features/home/data/datasources/impl/home_remote_data_source_impl.dart'
@@ -261,6 +262,12 @@ extension GetItInjectableX on _i174.GetIt {
       () => _i621.OtpVerificationCubit(
         gh<_i793.OtpVerificationUseCase>(),
         gh<_i591.ForgetPasswordUseCase>(),
+      ),
+    );
+    gh.factory<_i862.ExerciseCubit>(
+      () => _i862.ExerciseCubit(
+        gh<_i685.GetExercisesUseCase>(),
+        gh<_i240.GetAllDifficultyLevelsUseCase>(),
       ),
     );
     gh.factory<_i493.WorkoutCubit>(

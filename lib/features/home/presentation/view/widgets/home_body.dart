@@ -1,4 +1,5 @@
 import 'package:fitness_app/core/gen/assets.gen.dart';
+import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/features/home/domain/entities/muscle_group_entity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -100,8 +101,10 @@ class HomeBody extends StatelessWidget {
             builder: (context, state) {
               return BuildNewListItems(
                 onSeeAllTap: () {
-                  // TODO
-                  // navigation the screen
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.navBar[2],
+                  );
                 },
                 category: "Recommendation For You",
                 listOfItems: viewModel.foodRecommendation,

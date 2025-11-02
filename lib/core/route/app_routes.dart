@@ -8,4 +8,5 @@ abstract class AppRoutes {
   static const String loginView = "/login";
   static const String register = "/register";
   static const String workoutScreen = "/workout_screen";
+  static const String exerciseScreen = "/exercise_screen";
 }
