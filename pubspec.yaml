@@ -109,7 +109,7 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/image/
-    - assets/Icons/
+    - assets/icons/
     # - assets/svg/
     # - assets/files/
 
