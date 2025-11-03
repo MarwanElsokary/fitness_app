@@ -389,7 +389,7 @@ class _ApiClient implements ApiClient {
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'levels/difficulty-levels/by-prime-mover',
+            '/levels/difficulty-levels/by-prime-mover',
             queryParameters: queryParameters,
             data: _data,
           )

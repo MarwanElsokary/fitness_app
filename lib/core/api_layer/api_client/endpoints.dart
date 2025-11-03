@@ -12,7 +12,7 @@ class Endpoints {
 
   static const String allLevels = "levels";
   static const String getAllDifficultyLevelsByPrimeMoverMuscle =
-      "levels/difficulty-levels/by-prime-mover";
+      "/levels/difficulty-levels/by-prime-mover";
 
   static const String allMuscles = "/muscles";
   static const String allMusclesGroup = "/musclesGroup";

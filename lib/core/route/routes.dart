@@ -7,6 +7,7 @@ import 'package:fitness_app/features/auth/presentation/forget_password/view/forg
 import 'package:fitness_app/features/auth/presentation/otp_verification/view/otp_verification_screen.dart';
 import 'package:fitness_app/features/auth/presentation/register/view/register_screen.dart';
 import 'package:fitness_app/features/auth/presentation/reset_password/view/reset_password_screen.dart';
+import 'package:fitness_app/features/exercise/presentation/view/exercise_screen.dart';
 import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
 import 'package:fitness_app/features/onboadring/presentation/view.dart';
@@ -42,6 +43,13 @@ abstract class Routes {
         return MaterialPageRoute(
           builder: (context) => ResetPasswordScreen(email: email),
         );
+      case AppRoutes.exerciseScreen:
+        final primeMoverMuscleId = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (context) =>
+              ExerciseScreen(primeMoverMuscleId: primeMoverMuscleId),
+        );
+
       case AppRoutes.register:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
       default:

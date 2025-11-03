@@ -20,7 +20,6 @@ class MusclesGrideByilder extends StatelessWidget {
       builder: (context, state) {
         if (state is MusclesLoading) {
           return const Center(
-
             child: CircularProgressIndicator.adaptive(
               backgroundColor: AppColors.orange,
             ),
@@ -70,8 +69,8 @@ class MusclesGrideByilder extends StatelessWidget {
                 onTap: () {
                   Navigator.pushNamed(
                     context,
-                    AppRoutes.onBoardingScreen,
-                    arguments: muscle,
+                    AppRoutes.exerciseScreen,
+                    arguments: muscle.id,
                   );
                 },
                 child: Container(

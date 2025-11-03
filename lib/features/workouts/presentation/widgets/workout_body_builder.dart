@@ -13,7 +13,7 @@ class WorkoutBodyBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<WorkoutCubit, WorkOutState>(
       buildWhen: (previous, current) =>
-      current is WorkOutLoaded ||
+          current is WorkOutLoaded ||
           current is WorkOutError ||
           current is WorkOutLoading,
       builder: (context, state) {

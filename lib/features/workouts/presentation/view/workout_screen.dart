@@ -6,12 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WorkoutScreen extends StatelessWidget {
   final WorkoutCubit? cubit;
+
   const WorkoutScreen({super.key, this.cubit});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => cubit ?? getIt<WorkoutCubit>()..getWorkOuts(),
+      create: (context) => cubit ?? getIt<WorkoutCubit>()
+        ..getWorkOuts(),
       child: Scaffold(
         body: Stack(
           children: [
