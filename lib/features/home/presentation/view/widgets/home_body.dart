@@ -1,6 +1,7 @@
 import 'package:fitness_app/core/gen/assets.gen.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/features/home/domain/entities/muscle_group_entity.dart';
+import 'package:fitness_app/features/home/presentation/view/widgets/shared_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -13,6 +14,33 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> _popularTrainings = [
+      {
+        'name': 'Chest Workout',
+        'image': Assets.image.cat.path,
+        'tasks': '24 Tasks',
+        'level': 'Beginner',
+      },
+      {
+        'name': 'Arm Workout',
+        'image': Assets.image.cat.path,
+        'tasks': '18 Tasks',
+        'level': 'Intermediate',
+      },
+      {
+        'name': 'Leg Day',
+        'image': Assets.image.cat.path,
+        'tasks': '15 Tasks',
+        'level': 'Beginner',
+      },
+      {
+        'name': 'Core Strength',
+        'image': Assets.image.cat.path,
+        'tasks': '30 Tasks',
+        'level': 'Advanced',
+      },
+    ];
+
     var viewModel = context.read<HomeCubit>();
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
@@ -101,15 +129,26 @@ class HomeBody extends StatelessWidget {
             builder: (context, state) {
               return BuildNewListItems(
                 onSeeAllTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    AppRoutes.navBar[2],
-                  );
+                  Navigator.pushNamed(context, AppRoutes.navBar[2]);
                 },
                 category: "Recommendation For You",
                 listOfItems: viewModel.foodRecommendation,
               );
             },
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 20.0)),
+          SliverToBoxAdapter(
+            child: SharedSection(
+              sectionTitle: 'Popular Trainings',
+              showSeeAll: false,
+              isPopularTraining: true,
+              recommendations: _popularTrainings,
+              onItemPressed: (item, index) {
+                debugPrint(
+                  'Popular Training Item pressed: ${item['name']} at index $index',
+                );
+              },
+            ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 75.0)),
         ],

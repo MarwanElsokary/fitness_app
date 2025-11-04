@@ -144,6 +144,9 @@ class $AssetsImageGen {
   AssetGenImage get background5 =>
       const AssetGenImage('assets/image/background_5.png');
 
+  /// File path: assets/image/cat.jpg
+  AssetGenImage get cat => const AssetGenImage('assets/image/cat.jpg');
+
   /// File path: assets/image/empty.png
   AssetGenImage get empty => const AssetGenImage('assets/image/empty.png');
 
@@ -294,6 +297,7 @@ class $AssetsImageGen {
     background3,
     background4,
     background5,
+    cat,
     empty,
     facebook,
     fit1Png,
