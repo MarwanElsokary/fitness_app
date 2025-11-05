@@ -11,6 +11,7 @@ import 'package:fitness_app/features/exercise/presentation/view/exercise_screen.
 import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
 import 'package:fitness_app/features/onboadring/presentation/view.dart';
+import 'package:fitness_app/features/smart_coach/presentation/view/welcome_page.dart';
 import 'package:fitness_app/features/workouts/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,8 @@ abstract class Routes {
         return MaterialPageRoute(builder: (context) => OnBoardingScreen());
       case AppRoutes.loginView:
         return MaterialPageRoute(builder: (context) => LoginView());
+      case AppRoutes.welcomPageAI:
+        return MaterialPageRoute(builder: (context) => WelcomePage());
 
       case AppRoutes.forgetPassword:
         return MaterialPageRoute(
