@@ -83,7 +83,9 @@ class _SharedSectionState extends State<SharedSection> {
               padding: EdgeInsets.only(left: 4.r),
               child: Text(
                 sectionSize?.displayName ?? widget.sectionTitle,
-                style: Theme.of(context).textTheme.titleLarge,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge!.copyWith(color: Colors.white),
               ),
             ),
             if (widget.showSeeAll)
@@ -150,7 +152,7 @@ class _SharedSectionState extends State<SharedSection> {
                                   child: Container(
                                     height: height.r * 0.4,
                                     decoration: BoxDecoration(
-                                      color: AppColors.primary,
+                                      color: Colors.deepOrange,
                                       borderRadius: BorderRadius.all(
                                         Radius.circular(height / 2.r),
                                       ),
@@ -239,7 +241,10 @@ class _SharedSectionState extends State<SharedSection> {
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodyMedium
-                                          ?.copyWith(color: AppColors.primary),
+                                          ?.copyWith(
+                                            color: Colors.deepOrange,
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                       textAlign: TextAlign.center,
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
@@ -288,19 +293,19 @@ class _SharedSectionState extends State<SharedSection> {
           return Skeletonizer(
             enabled: true,
             effect: ShimmerEffect(
-              baseColor: AppColors.lightPink,
-              highlightColor: AppColors.lightPink,
+              baseColor: AppColors.grayy,
+              highlightColor: AppColors.grayy,
             ),
             child: Container(
               width: double.infinity,
               height: double.infinity,
-              color: AppColors.lightPink,
+              color: AppColors.grayy,
             ),
           );
         },
         errorBuilder: (context, error, stackTrace) {
           return Container(
-            color: AppColors.lightPink,
+            color: AppColors.grayy,
             child: Center(child: Icon(Icons.broken_image, size: 40)),
           );
         },
