@@ -128,6 +128,7 @@ class _SharedSectionState extends State<SharedSection> {
                           borderRadius: BorderRadius.circular(20.r),
                           boxShadow: [
                             BoxShadow(
+                              // ignore: deprecated_member_use
                               color: Colors.black.withOpacity(0.2),
                               blurRadius: 8.r,
                               offset: Offset(0, 4.r),

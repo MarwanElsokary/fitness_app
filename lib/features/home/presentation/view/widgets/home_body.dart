@@ -14,7 +14,7 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> _popularTrainings = [
+    List<Map<String, dynamic>> popularTrainings = [
       {
         'name': 'Chest Workout',
         'image': Assets.image.cat.path,
@@ -142,7 +142,7 @@ class HomeBody extends StatelessWidget {
               sectionTitle: 'Popular Trainings',
               showSeeAll: false,
               isPopularTraining: true,
-              recommendations: _popularTrainings,
+              recommendations: popularTrainings,
               onItemPressed: (item, index) {
                 debugPrint(
                   'Popular Training Item pressed: ${item['name']} at index $index',
