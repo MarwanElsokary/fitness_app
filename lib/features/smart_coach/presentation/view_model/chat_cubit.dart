@@ -13,38 +13,30 @@ class ChatCubit extends Cubit<ChatState> {
 
   List<ChatMessage> messages = [];
 
-  /// تحميل كل الرسائل القديمة
   Future<void> loadMessages() async {
     emit(ChatLoading());
     try {
-      messages = await _repository.getMessages();
       emit(ChatLoaded(List.from(messages)));
     } catch (e) {
       emit(ChatError('Failed to load chat history: $e'));
     }
   }
 
-  /// إرسال رسالة جديدة إلى Gemini
   Future<void> sendMessage(String userMessage) async {
     if (userMessage.trim().isEmpty) return;
 
-    // أضف رسالة المستخدم
     final userMsg = ChatMessage(text: userMessage, isUser: true);
     messages.add(userMsg);
     emit(ChatLoaded(List.from(messages)));
 
     try {
-      // خزّن الرسائل الحالية محليًا
       await _repository.saveMessages(messages);
 
-      // أرسل إلى API
       final aiResponse = await _repository.sendMessage(userMessage);
 
-      // أضف رد الذكاء الاصطناعي
       final aiMsg = ChatMessage(text: aiResponse, isUser: false);
       messages.add(aiMsg);
 
-      // خزّن كل المحادثة بعد الرد
       await _repository.saveMessages(messages);
 
       emit(ChatLoaded(List.from(messages)));
@@ -53,7 +45,6 @@ class ChatCubit extends Cubit<ChatState> {
     }
   }
 
-  /// مسح المحادثة بالكامل
   Future<void> clearChat() async {
     messages.clear();
     try {

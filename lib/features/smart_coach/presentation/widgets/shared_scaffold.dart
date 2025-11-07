@@ -9,7 +9,6 @@ class SharedScaffold extends StatelessWidget {
   final Widget body;
   final VoidCallback? onBack;
 
-  // Optional: callback to handle when a chat is selected from drawer
   final Function(String)? onSelectChat;
 
   const SharedScaffold({
@@ -17,7 +16,8 @@ class SharedScaffold extends StatelessWidget {
     required this.title,
     required this.body,
     this.onBack,
-   required Drawer endDrawer,  this.onSelectChat,
+    required Drawer endDrawer,
+    this.onSelectChat,
   });
 
   @override
@@ -51,27 +51,41 @@ class SharedScaffold extends StatelessWidget {
         ],
       ),
 
-      // هنا ضفنا الـ Drawer مباشرة
       endDrawer: Drawer(
+        shadowColor: AppColors.black,
+        surfaceTintColor: AppColors.transparent,
+        backgroundColor: AppColors.transparent,
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: AppColors.orange),
-              child: Text('Previous Chats', style: AppStyles.medium16white),
+              child: Text(
+                'Previous conversations',
+                style: AppStyles.bold20white,
+              ),
             ),
-            // أمثلة ثابتة للشات
-            ...["Hello!", "How are you?", "Tell me a joke"].map((chat) {
+            ...[
+              "Hello!",
+              "Lorem ipsum dolor sit amet",
+              "Lorem ipsum dolor sit amet",
+            ].map((chat) {
               return ListTile(
-                title: Text(
-                  chat,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                title: Row(
+                  children: [
+                    Icon(Icons.arrow_back_ios, color: AppColors.orange),
+                    Spacer(),
+                    Text(
+                      chat,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppStyles.font13WhiteW500,
+                    ),
+                  ],
                 ),
                 onTap: () {
                   if (onSelectChat != null) {
-                    onSelectChat!(chat); // ارجع النص للشاشة الرئيسية لو محتاج
+                    onSelectChat!(chat);
                   }
-                  Navigator.of(context).pop(); // اقفل الـ Drawer
+                  Navigator.of(context).pop();
                 },
               );
             }),

@@ -156,7 +156,7 @@ class _ChatScreenBodyState extends State<ChatScreenBody> {
                       overflow: TextOverflow.ellipsis,
                     ),
                     onTap: () {
-                      cubit.loadMessages(); // تحميل المحادثة
+                      cubit.loadMessages();
                       Navigator.of(context).pop();
                     },
                   );
