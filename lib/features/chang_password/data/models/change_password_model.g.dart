@@ -12,12 +12,3 @@ ChangePasswordModel _$ChangePasswordModelFromJson(Map<String, dynamic> json) =>
       error: json['error'] as String?,
       token: json['token'] as String?,
     );
-
-// ignore: unused_element
-Map<String, dynamic> _$ChangePasswordModelToJson(
-  ChangePasswordModel instance,
-) => <String, dynamic>{
-  'message': instance.message,
-  'token': instance.token,
-  'error': instance.error,
-};
