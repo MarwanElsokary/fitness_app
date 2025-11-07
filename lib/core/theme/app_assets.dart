@@ -11,6 +11,7 @@ abstract class AppAssets {
   static const String aiBg = "assets/image/background_ai.png";
   static const String drawerIcon = "assets/image/drawer_icon.png";
   static const String ai = "assets/image/ai.png";
+  static const String bootChat = "assets/image/boot_chat.png";
 
   /// icons
   // ignore: unused_field

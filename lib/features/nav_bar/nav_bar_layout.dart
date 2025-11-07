@@ -1,6 +1,6 @@
-import 'package:fitness_app/features/chat_with_ai/presentation/pages/chat_ai_page.dart';
 import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/profile/presentation/pages/profile_page.dart';
+import 'package:fitness_app/features/smart_coach/presentation/view/welcome_page.dart';
 import 'package:fitness_app/features/workouts/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,7 +22,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
     super.initState();
     _pages = [
       const HomeScreen(),
-      const ChatAiPage(),
+      const WelcomePage(),
       WorkoutScreen(),
       const ProfilePage(),
     ];

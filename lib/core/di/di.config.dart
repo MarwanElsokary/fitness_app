@@ -75,6 +75,13 @@ import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
     as _i399;
 import '../../features/home/presentation/view_model/cubit/home_cubit.dart'
     as _i1039;
+import '../../features/smart_coach/data/data_source/impl/chat_local_data_source_impl.dart'
+    as _i82;
+import '../../features/smart_coach/data/data_source/interfac/chat_local_datasource.dart'
+    as _i366;
+import '../../features/smart_coach/domain/repo/chat_repository.dart' as _i781;
+import '../../features/smart_coach/presentation/view_model/chat_cubit.dart'
+    as _i686;
 import '../../features/workouts/data/data_source/muscles_data_source.dart'
     as _i160;
 import '../../features/workouts/data/data_source/workout_data_source.dart'
@@ -89,6 +96,7 @@ import '../../features/workouts/domain/use_case/workout_use_case.dart' as _i28;
 import '../../features/workouts/presentation/view_model/workout_cubit.dart'
     as _i493;
 import '../api_layer/api_client/api_client.dart' as _i225;
+import '../api_layer/api_client/gemini_api_service.dart' as _i356;
 import '../api_layer/api_client/meals_retrofit_client.dart' as _i450;
 import '../api_layer/data_source_impl/auth/login/login_data_source_impl.dart'
     as _i100;
@@ -125,18 +133,33 @@ extension GetItInjectableX on _i174.GetIt {
     gh.singleton<_i744.SharedPrefHelper>(
       () => _i744.SharedPrefHelper(gh<_i460.SharedPreferences>()),
     );
-    gh.factory<_i344.LocaleCubit>(
-      () => _i344.LocaleCubit(sharedPrefHelper: gh<_i744.SharedPrefHelper>()),
-    );
     gh.singleton<_i361.Dio>(
       () => dioModule.provideDio(
         gh<_i528.PrettyDioLogger>(),
         gh<_i744.SharedPrefHelper>(),
       ),
     );
+    gh.singleton<_i366.ChatLocalDataSource>(
+      () => _i82.ChatLocalDataSourceImpl(gh<_i744.SharedPrefHelper>()),
+    );
+    gh.lazySingleton<_i356.GeminiApiService>(
+      () => _i356.GeminiApiService(gh<_i744.SharedPrefHelper>()),
+    );
+    gh.factory<_i344.LocaleCubit>(
+      () => _i344.LocaleCubit(sharedPrefHelper: gh<_i744.SharedPrefHelper>()),
+    );
+    gh.singleton<_i781.ChatRepository>(
+      () => _i781.ChatRepository(
+        gh<_i356.GeminiApiService>(),
+        gh<_i366.ChatLocalDataSource>(),
+      ),
+    );
     gh.singleton<_i225.ApiClient>(() => _i225.ApiClient.new(gh<_i361.Dio>()));
     gh.factory<_i450.MealsRetrofitClient>(
       () => _i450.MealsRetrofitClient.new(gh<_i361.Dio>()),
+    );
+    gh.factory<_i686.ChatCubit>(
+      () => _i686.ChatCubit(gh<_i781.ChatRepository>()),
     );
     gh.factory<_i160.MusclesDataSource>(
       () => _i330.MusclesDataSourceImpl(gh<_i225.ApiClient>()),

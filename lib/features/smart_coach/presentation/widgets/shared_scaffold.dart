@@ -8,14 +8,16 @@ class SharedScaffold extends StatelessWidget {
   final String title;
   final Widget body;
   final VoidCallback? onBack;
-  final Widget? endDrawer;
+
+  // Optional: callback to handle when a chat is selected from drawer
+  final Function(String)? onSelectChat;
 
   const SharedScaffold({
     super.key,
     required this.title,
     required this.body,
     this.onBack,
-    this.endDrawer,
+   required Drawer endDrawer,  this.onSelectChat,
   });
 
   @override
@@ -48,7 +50,35 @@ class SharedScaffold extends StatelessWidget {
           ),
         ],
       ),
-      endDrawer: endDrawer ?? const Drawer(),
+
+      // هنا ضفنا الـ Drawer مباشرة
+      endDrawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: AppColors.orange),
+              child: Text('Previous Chats', style: AppStyles.medium16white),
+            ),
+            // أمثلة ثابتة للشات
+            ...["Hello!", "How are you?", "Tell me a joke"].map((chat) {
+              return ListTile(
+                title: Text(
+                  chat,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                onTap: () {
+                  if (onSelectChat != null) {
+                    onSelectChat!(chat); // ارجع النص للشاشة الرئيسية لو محتاج
+                  }
+                  Navigator.of(context).pop(); // اقفل الـ Drawer
+                },
+              );
+            }),
+          ],
+        ),
+      ),
+
       body: Stack(
         fit: StackFit.expand,
         children: [

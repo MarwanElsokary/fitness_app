@@ -60,7 +60,7 @@ dependencies:
   pin_code_fields: ^8.0.1
   wheel_slider: ^1.2.2
   youtube_player_flutter: ^9.0.1
-
+  google_generative_ai: ^0.4.3
 
   # The following adds the Cupertino icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
