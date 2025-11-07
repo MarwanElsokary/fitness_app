@@ -41,19 +41,18 @@ class ChangePasswordScreen extends StatelessWidget {
                             );
                           }
                           if (state is ChangePasswordSuccessState) {
-                            // EasyLoading.dismiss();
-                            // EasyLoading.showSuccess(
-                            //   "Password changed successfully",
-                            // );
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content: Text('Password changed successfully'),
                               ),
                             );
-
+                            final sharedPref = getIt<SharedPrefHelper>();
+                            sharedPref.removePreference(
+                              key: AppConstants.tokenKey,
+                            );
                             Navigator.pushNamedAndRemoveUntil(
                               context,
-                               AppRoutes.loginView,
+                              AppRoutes.loginView,
                               (route) => false,
                             );
                           }
@@ -141,15 +140,12 @@ class ChangePasswordScreen extends StatelessWidget {
                                       elevation: 0,
                                     ),
                                     onPressed: () {
-                                      final sharedPref =
-                                          getIt<SharedPrefHelper>();
-
-                                      var token = sharedPref.getValue(
-                                        AppConstants.tokenKey,
-                                      );
-                                      if (token != null || token != '') {
-                                        token = null;
-                                      }
+                                      // var token = sharedPref.getValue(
+                                      //   AppConstants.tokenKey,
+                                      // );
+                                      // if (token != null || token != '') {
+                                      //   token = null;
+                                      // }
 
                                       if (BlocProvider.of<
                                             ChangePasswordViewModel
