@@ -3,6 +3,7 @@ class Endpoints {
   static const String mealsBaseUrl = "https://www.themealdb.com/api/json/v1/";
   static const String sampleEndpoint = '/sample-endpoint';
   static const String forgotPassword = "/auth/forgotPassword";
+  static const String changePassword = "/auth/change-password";
   static const String verifyResetCode = "/auth/verifyResetCode";
   static const String signUp = "/auth/signup";
   static const String resetPassword = "/auth/resetPassword";

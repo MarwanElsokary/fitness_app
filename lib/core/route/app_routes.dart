@@ -10,4 +10,5 @@ abstract class AppRoutes {
   static const String workoutScreen = "/workout_screen";
   static const String exerciseScreen = "/exercise_screen";
   static const String welcomPageAI = "/welcom_page_ai";
+  static const String changPassword = "/change_password";
 }

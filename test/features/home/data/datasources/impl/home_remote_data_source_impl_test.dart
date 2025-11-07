@@ -139,7 +139,7 @@ void main() {
     });
 
     group('getAllMuscles', () {
-      test('should return MusclesGroupDto when API call succeeds', () async {
+      test('should retu rn MusclesGroupDto when API call succeeds', () async {
         // arrange
         final mockResponse = MusclesGroupDto('message', []);
 

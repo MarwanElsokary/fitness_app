@@ -12,6 +12,8 @@ import 'package:fitness_app/features/auth/data/models/register/request/register_
 import 'package:fitness_app/features/auth/data/models/register/response/register_response_dto.dart';
 import 'package:fitness_app/features/auth/data/models/reset_password/request/reset_password_request_dto.dart';
 import 'package:fitness_app/features/auth/data/models/reset_password/response/reset_password_response_dto.dart';
+import 'package:fitness_app/features/chang_password/data/models/chang_password_request.dart';
+import 'package:fitness_app/features/chang_password/data/models/change_password_model.dart';
 import 'package:fitness_app/features/home/data/models/daily_recommendation_exercise_dto.dart';
 import 'package:fitness_app/features/home/data/models/muscles_by_group_response.dart';
 import 'package:fitness_app/features/home/data/models/muscles_group_dto.dart';
@@ -48,6 +50,11 @@ abstract class ApiClient {
   @PUT(Endpoints.resetPassword)
   Future<ResetPasswordResponseDto> resetPassword(
     @Body() ResetPasswordRequestDto request,
+  );
+
+  @PATCH(Endpoints.changePassword)
+  Future<ChangePasswordModel> changePassword(
+    @Body() ChangePasswordRequestModel data,
   );
 
   @POST(Endpoints.login)

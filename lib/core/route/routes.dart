@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:fitness_app/core/di/di.dart';
 import 'package:fitness_app/core/extensions/project_extensions.dart';
 import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
@@ -7,6 +8,8 @@ import 'package:fitness_app/features/auth/presentation/forget_password/view/forg
 import 'package:fitness_app/features/auth/presentation/otp_verification/view/otp_verification_screen.dart';
 import 'package:fitness_app/features/auth/presentation/register/view/register_screen.dart';
 import 'package:fitness_app/features/auth/presentation/reset_password/view/reset_password_screen.dart';
+import 'package:fitness_app/features/chang_password/presentation/cubit/chang_password_cubit.dart';
+import 'package:fitness_app/features/chang_password/presentation/pages/chang_password_screen.dart';
 import 'package:fitness_app/features/exercise/presentation/view/exercise_screen.dart';
 import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
@@ -14,6 +17,7 @@ import 'package:fitness_app/features/onboadring/presentation/view.dart';
 import 'package:fitness_app/features/smart_coach/presentation/view/welcome_page.dart';
 import 'package:fitness_app/features/workouts/presentation/view/workout_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 abstract class Routes {
   static Route generateRoute(RouteSettings settings) {
@@ -52,7 +56,17 @@ abstract class Routes {
           builder: (context) =>
               ExerciseScreen(primeMoverMuscleId: primeMoverMuscleId),
         );
-
+      // case AppRoutes.changPassword:
+      //   return MaterialPageRoute(
+      //     builder: (context) => const ChangePasswordScreen(),
+      //   );
+      case AppRoutes.changPassword:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ChangePasswordViewModel>(),
+            child: const ChangePasswordScreen(),
+          ),
+        );
       case AppRoutes.register:
         return MaterialPageRoute(builder: (context) => const RegisterScreen());
       default:
