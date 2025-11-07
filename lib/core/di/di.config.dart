@@ -43,6 +43,18 @@ import '../../features/auth/presentation/register/view_model/cubit/register_cubi
     as _i103;
 import '../../features/auth/presentation/reset_password/view_model/cubit/reset_password_cubit.dart'
     as _i1064;
+import '../../features/chang_password/data/datasources/contract/change_password_remote_data_source.dart'
+    as _i625;
+import '../../features/chang_password/data/datasources/impl/chang_password_data_source_impl.dart'
+    as _i599;
+import '../../features/chang_password/data/repos_impl/chang_password_repo_impl.dart'
+    as _i137;
+import '../../features/chang_password/domain/repositories/chang_password_repo.dart'
+    as _i786;
+import '../../features/chang_password/domain/usecases/chang_password_use_case.dart'
+    as _i853;
+import '../../features/chang_password/presentation/cubit/chang_password_cubit.dart'
+    as _i112;
 import '../../features/exercise/data/data_source/get_all_difficulty_levels_data_source.dart'
     as _i484;
 import '../../features/exercise/data/data_source/get_exercises_data_source.dart'
@@ -179,6 +191,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i725.AuthRemoteDataSource>(
       () => _i257.AuthRemoteDataSourceImpl(gh<_i225.ApiClient>()),
     );
+    gh.factory<_i625.ChangePasswordDataSource>(
+      () => _i599.ChangePasswordDataSourceImp(gh<_i225.ApiClient>()),
+    );
     gh.factory<_i137.GetExercisesDataSource>(
       () => _i425.GetExercisesDataSourceImpl(gh<_i225.ApiClient>()),
     );
@@ -187,6 +202,11 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i632.LoginRepo>(
       () => _i216.LoginRepoImpl(gh<_i665.LoginRemoteDataSource>()),
+    );
+    gh.factory<_i786.ChangePasswordRepository>(
+      () => _i137.ChangePasswordRepositoryImp(
+        gh<_i625.ChangePasswordDataSource>(),
+      ),
     );
     gh.factory<_i630.LoginUseCase>(
       () => _i630.LoginUseCase(gh<_i632.LoginRepo>()),
@@ -201,6 +221,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i893.GetAllDifficultyLevelsRepo>(),
       ),
     );
+    gh.factory<_i853.ChangePasswordUseCase>(
+      () => _i853.ChangePasswordUseCase(gh<_i786.ChangePasswordRepository>()),
+    );
     gh.factory<_i723.AuthRepo>(
       () => _i704.AuthRepoImpl(gh<_i725.AuthRemoteDataSource>()),
     );
@@ -212,6 +235,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i301.WorkoutsRepo>(
       () => _i383.WorkoutsRepoImpl(gh<_i107.WorkoutDataSource>()),
+    );
+    gh.factory<_i112.ChangePasswordViewModel>(
+      () => _i112.ChangePasswordViewModel(gh<_i853.ChangePasswordUseCase>()),
     );
     gh.factory<_i28.WorkoutUseCase>(
       () => _i28.WorkoutUseCase(gh<_i301.WorkoutsRepo>()),

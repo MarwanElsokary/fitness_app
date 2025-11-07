@@ -12,9 +12,7 @@ import 'package:fitness_app/features/auth/data/models/otp_verification/response/
 
 import 'auth_remote_data_source_impl_test.mocks.dart';
 
-@GenerateMocks([
-  ApiClient,
-])
+@GenerateMocks([ApiClient])
 void main() {
   late MockApiClient mockApiClient;
   late AuthRemoteDataSourceImpl authRemoteDataSource;
@@ -24,9 +22,7 @@ void main() {
     provideDummy<ForgetPasswordResponseDto>(
       ForgetPasswordResponseDto(message: 'dummy', error: null),
     );
-    provideDummy<RegisterResponseDto>(
-      RegisterResponseDto(message: 'dummy', ),
-    );
+    provideDummy<RegisterResponseDto>(RegisterResponseDto(message: 'dummy'));
     provideDummy<OtpVerificationResponseDto>(
       OtpVerificationResponseDto(status: 'dummy', error: null),
     );
@@ -49,8 +45,9 @@ void main() {
             error: null,
           );
 
-          when(mockApiClient.forgetPassword(requestDto))
-              .thenAnswer((_) async => mockResponse);
+          when(
+            mockApiClient.forgetPassword(requestDto),
+          ).thenAnswer((_) async => mockResponse);
 
           // act
           final result = await authRemoteDataSource.forgetPassword(requestDto);
@@ -62,23 +59,21 @@ void main() {
         },
       );
 
-      test(
-        'should throw exception when API call fails',
-        () async {
-          // arrange
-          final requestDto = ForgetPasswordRequestDto(email: 'test@test.com');
+      test('should throw exception when API call fails', () async {
+        // arrange
+        final requestDto = ForgetPasswordRequestDto(email: 'test@test.com');
 
-          when(mockApiClient.forgetPassword(requestDto))
-              .thenThrow(Exception('Network error'));
+        when(
+          mockApiClient.forgetPassword(requestDto),
+        ).thenThrow(Exception('Network error'));
 
-          // act & assert
-          expect(
-            () async => await authRemoteDataSource.forgetPassword(requestDto),
-            throwsA(isA<Exception>()),
-          );
-          verify(mockApiClient.forgetPassword(requestDto)).called(1);
-        },
-      );
+        // act & assert
+        expect(
+          () async => await authRemoteDataSource.forgetPassword(requestDto),
+          throwsA(isA<Exception>()),
+        );
+        verify(mockApiClient.forgetPassword(requestDto)).called(1);
+      });
     });
 
     group('register', () {
@@ -91,12 +86,11 @@ void main() {
             password: '123456',
             firstName: 'Test User',
           );
-          final mockResponse = RegisterResponseDto(
-            message: 'success',
-          );
+          final mockResponse = RegisterResponseDto(message: 'success');
 
-          when(mockApiClient.register(requestDto))
-              .thenAnswer((_) async => mockResponse);
+          when(
+            mockApiClient.register(requestDto),
+          ).thenAnswer((_) async => mockResponse);
 
           // act
           final result = await authRemoteDataSource.register(requestDto);
@@ -108,27 +102,25 @@ void main() {
         },
       );
 
-      test(
-        'should throw exception when API call fails',
-        () async {
-          // arrange
-          final requestDto = RegisterRequestDto(
-            email: 'test@test.com',
-            password: '123456',
-            firstName: 'Test User',
-          );
+      test('should throw exception when API call fails', () async {
+        // arrange
+        final requestDto = RegisterRequestDto(
+          email: 'test@test.com',
+          password: '123456',
+          firstName: 'Test User',
+        );
 
-          when(mockApiClient.register(requestDto))
-              .thenThrow(Exception('Server error'));
+        when(
+          mockApiClient.register(requestDto),
+        ).thenThrow(Exception('Server error'));
 
-          // act & assert
-          expect(
-            () async => await authRemoteDataSource.register(requestDto),
-            throwsA(isA<Exception>()),
-          );
-          verify(mockApiClient.register(requestDto)).called(1);
-        },
-      );
+        // act & assert
+        expect(
+          () async => await authRemoteDataSource.register(requestDto),
+          throwsA(isA<Exception>()),
+        );
+        verify(mockApiClient.register(requestDto)).called(1);
+      });
     });
 
     group('verifyOtp', () {
@@ -136,17 +128,15 @@ void main() {
         'should return OtpVerificationResponseDto when API call succeeds',
         () async {
           // arrange
-          final requestDto = OtpVerificationRequestDto(
-          
-           resetCode: '123456',
-          );
+          final requestDto = OtpVerificationRequestDto(resetCode: '123456');
           final mockResponse = OtpVerificationResponseDto(
             status: 'success',
             error: null,
           );
 
-          when(mockApiClient.verifyOtp(requestDto))
-              .thenAnswer((_) async => mockResponse);
+          when(
+            mockApiClient.verifyOtp(requestDto),
+          ).thenAnswer((_) async => mockResponse);
 
           // act
           final result = await authRemoteDataSource.verifyOtp(requestDto);
