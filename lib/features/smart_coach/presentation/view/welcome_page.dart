@@ -1,4 +1,4 @@
-import 'package:fitness_app/features/smart_coach/presentation/view/chat_body.dart';
+import 'package:fitness_app/features/smart_coach/presentation/view/chat_screen.dart';
 import 'package:fitness_app/features/smart_coach/presentation/widgets/shared_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,8 +18,6 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage>
     with SingleTickerProviderStateMixin {
-  bool showChat = false;
-
   late final AnimationController _controller;
   late final Animation<double> _scaleAnimation;
   late final Animation<double> _translateAnimation;
@@ -27,7 +25,6 @@ class _WelcomePageState extends State<WelcomePage>
   @override
   void initState() {
     super.initState();
-
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
@@ -54,29 +51,18 @@ class _WelcomePageState extends State<WelcomePage>
   Widget build(BuildContext context) {
     return SharedScaffold(
       title: 'I am your smart coach',
-      onBack: () {
-        if (showChat) {
-          setState(() => showChat = false);
-        } else {
-          Navigator.of(context).pop();
-        }
-      },
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 300),
-        child: showChat ? ChatBody() : _buildWelcomeBody(),
-      ),
+      body: _buildBody(),
+      endDrawer: Drawer(),
     );
   }
 
-  Widget _buildWelcomeBody() {
+  Widget _buildBody() {
     return SingleChildScrollView(
       child: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            16.heightBox,
+            12.heightBox,
             _animatedRobotImage(),
-            16.heightBox,
             SharedBluredContainer(
               child: Column(
                 children: [
@@ -93,13 +79,19 @@ class _WelcomePageState extends State<WelcomePage>
                   CustomButton(
                     size: const Size(double.infinity, 46),
                     backgroundColorButton: AppColors.orange,
-                    onPressed: () => setState(() => showChat = true),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const ChatScreen()),
+                      );
+                    },
                     borderRadius: 100,
                     child: Text("Get Started", style: AppStyles.w80014white),
                   ),
                 ],
               ),
             ),
+            90.heightBox,
           ],
         ),
       ),

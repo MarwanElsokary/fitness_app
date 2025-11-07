@@ -6,6 +6,7 @@ abstract class AppColors {
   static const Color green = Color(0xff0CB359);
   static const Color lightPink = Color(0xffF9ECF0);
   static const Color orange = Color(0xffFF4100);
+  static const Color orangeChat = Color(0xFF6A0080);
   static const Color grayy = Color(0xff242424);
   static const Color transparent = Colors.transparent;
   static const MaterialColor white = MaterialColor(
