@@ -38,7 +38,7 @@ class ChangePasswordScreen extends StatelessWidget {
                   SnackBar(content: Text('Password changed successfully')),
                 );
                 final sharedPref = getIt<SharedPrefHelper>();
-                sharedPref.removePreference(key: AppConstants.tokenKey);
+                sharedPref.remove(AppConstants.tokenKey);
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   AppRoutes.loginView,

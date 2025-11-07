@@ -154,11 +154,12 @@ class $AssetsImageGen {
   AssetGenImage get backgroundAi =>
       const AssetGenImage('assets/image/background_ai.png');
 
-  /// File path: assets/image/cat.jpg
-  AssetGenImage get cat => const AssetGenImage('assets/image/cat.jpg');
   /// File path: assets/image/boot_chat.png
   AssetGenImage get bootChat =>
       const AssetGenImage('assets/image/boot_chat.png');
+
+  /// File path: assets/image/cat.jpg
+  AssetGenImage get cat => const AssetGenImage('assets/image/cat.jpg');
 
   /// File path: assets/image/drawer_icon.png
   AssetGenImage get drawerIcon =>
@@ -317,8 +318,8 @@ class $AssetsImageGen {
     background4,
     background5,
     backgroundAi,
-    cat,
     bootChat,
+    cat,
     drawerIcon,
     empty,
     facebook,
