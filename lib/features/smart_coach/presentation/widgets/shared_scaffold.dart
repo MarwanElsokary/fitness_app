@@ -8,14 +8,16 @@ class SharedScaffold extends StatelessWidget {
   final String title;
   final Widget body;
   final VoidCallback? onBack;
-  final Widget? endDrawer;
+
+  final Function(String)? onSelectChat;
 
   const SharedScaffold({
     super.key,
     required this.title,
     required this.body,
     this.onBack,
-    this.endDrawer,
+    required Drawer endDrawer,
+    this.onSelectChat,
   });
 
   @override
@@ -48,7 +50,49 @@ class SharedScaffold extends StatelessWidget {
           ),
         ],
       ),
-      endDrawer: endDrawer ?? const Drawer(),
+
+      endDrawer: Drawer(
+        shadowColor: AppColors.black,
+        surfaceTintColor: AppColors.transparent,
+        backgroundColor: AppColors.transparent,
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: Text(
+                'Previous conversations',
+                style: AppStyles.bold20white,
+              ),
+            ),
+            ...[
+              "Hello!",
+              "Lorem ipsum dolor sit amet",
+              "Lorem ipsum dolor sit amet",
+            ].map((chat) {
+              return ListTile(
+                title: Row(
+                  children: [
+                    Icon(Icons.arrow_back_ios, color: AppColors.orange),
+                    Spacer(),
+                    Text(
+                      chat,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppStyles.font13WhiteW500,
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  if (onSelectChat != null) {
+                    onSelectChat!(chat);
+                  }
+                  Navigator.of(context).pop();
+                },
+              );
+            }),
+          ],
+        ),
+      ),
+
       body: Stack(
         fit: StackFit.expand,
         children: [
