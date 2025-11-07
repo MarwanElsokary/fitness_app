@@ -1,4 +1,4 @@
-import 'package:fitness_app/features/smart_coach/presentation/view/chat_body.dart';
+import 'package:fitness_app/features/smart_coach/presentation/view/chat_screen.dart';
 import 'package:fitness_app/features/smart_coach/presentation/widgets/shared_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,11 +30,15 @@ class _WelcomePageState extends State<WelcomePage>
       duration: const Duration(seconds: 2),
     )..repeat(reverse: true);
 
-    _scaleAnimation = Tween<double>(begin: 0.95, end: 1.05)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _scaleAnimation = Tween<double>(
+      begin: 0.95,
+      end: 1.05,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
-    _translateAnimation = Tween<double>(begin: 0, end: -16)
-        .animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+    _translateAnimation = Tween<double>(
+      begin: 0,
+      end: -16,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
   }
 
   @override
@@ -47,7 +51,8 @@ class _WelcomePageState extends State<WelcomePage>
   Widget build(BuildContext context) {
     return SharedScaffold(
       title: 'I am your smart coach',
-      body: _buildBody(), endDrawer: Drawer(),
+      body: _buildBody(),
+      endDrawer: Drawer(),
     );
   }
 
@@ -77,9 +82,7 @@ class _WelcomePageState extends State<WelcomePage>
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const ChatScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const ChatScreen()),
                       );
                     },
                     borderRadius: 100,

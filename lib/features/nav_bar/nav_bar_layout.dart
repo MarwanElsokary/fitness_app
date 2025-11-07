@@ -18,6 +18,7 @@ class _NavBarLayoutState extends State<NavBarLayout> {
   late final List<Widget> _pages;
 
   @override
+
   void initState() {
     super.initState();
     _pages = [
