@@ -1,3 +1,5 @@
+import 'package:fitness_app/core/gen/assets.gen.dart';
+import 'package:fitness_app/features/chat_with_ai/presentation/pages/chat_ai_page.dart';
 import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
 import 'package:fitness_app/features/profile/presentation/pages/profile_page.dart';
 import 'package:fitness_app/features/smart_coach/presentation/view/welcome_page.dart';
@@ -47,10 +49,10 @@ class _NavBarLayoutState extends State<NavBarLayout> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _buildNavIcon("assets/Icons/home.png", 0),
-          _buildNavIcon("assets/Icons/chat_ai.png", 1),
-          _buildNavIcon("assets/Icons/gym.png", 2),
-          _buildNavIcon("assets/Icons/profile.png", 3),
+          _buildNavIcon(Assets.icons.home.path, 0),
+          _buildNavIcon(Assets.icons.chatAi.path, 1),
+          _buildNavIcon(Assets.icons.gym.path, 2),
+          _buildNavIcon(Assets.icons.profile.path, 3),
         ],
       ),
     );
