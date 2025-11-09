@@ -18,7 +18,7 @@ void main() async {
   final sharedPrefHelper = getIt<SharedPrefHelper>();
   await sharedPrefHelper.setValue(
     SharedPrefKeys.apiKey,
-    "AIzaSyDYTakQnOUBp6jGKEi2D_mgXh6tfDzp9hU",
+    "AIzaSyCEt1TlFhD--zIojAILuPOC3V9LwAIp5Hk",
   );
 
   final seenOnboarding = sharedPref.getValue('seenOnboarding');

@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/theme/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:fitness_app/core/theme/app_colors.dart';
@@ -35,7 +36,9 @@ class SharedScaffold extends StatelessWidget {
             child: IconButton(
               padding: EdgeInsets.zero,
               icon: Image.asset(AppAssets.aiBack, width: 20.w, height: 20.h),
-              onPressed: onBack ?? () => Navigator.of(context).pop(),
+              onPressed:
+                  onBack ??
+                  () => Navigator.of(context).pushNamed(AppRoutes.navBar),
             ),
           ),
         ),

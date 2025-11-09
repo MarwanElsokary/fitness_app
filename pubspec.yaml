@@ -111,6 +111,7 @@ flutter:
   assets:
     - assets/image/
     - assets/icons/
+    - assets/Icons/
     # - assets/svg/
     # - assets/files/
 
