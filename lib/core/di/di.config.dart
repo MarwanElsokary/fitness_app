@@ -87,6 +87,12 @@ import '../../features/home/domain/usecases/get_muscles_by_group_use_case.dart'
     as _i399;
 import '../../features/home/presentation/view_model/cubit/home_cubit.dart'
     as _i1039;
+import '../../features/profile/data/datasources/profile_remote_data_source.dart'
+    as _i847;
+import '../../features/profile/data/repos_impl/profile_repo_impl.dart' as _i427;
+import '../../features/profile/domain/repositories/profile_repo.dart' as _i790;
+import '../../features/profile/domain/usecases/profile_use_case.dart' as _i510;
+import '../../features/profile/presentation/cubit/profiles_cubit.dart' as _i567;
 import '../../features/smart_coach/data/data_source/impl/chat_local_data_source_impl.dart'
     as _i82;
 import '../../features/smart_coach/data/data_source/interfac/chat_local_datasource.dart'
@@ -194,6 +200,9 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i625.ChangePasswordDataSource>(
       () => _i599.ChangePasswordDataSourceImp(gh<_i225.ApiClient>()),
     );
+    gh.factory<_i847.ProfileRemoteDataSource>(
+      () => _i847.ProfileRemoteDataSourceImpl(gh<_i225.ApiClient>()),
+    );
     gh.factory<_i137.GetExercisesDataSource>(
       () => _i425.GetExercisesDataSourceImpl(gh<_i225.ApiClient>()),
     );
@@ -236,11 +245,17 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i301.WorkoutsRepo>(
       () => _i383.WorkoutsRepoImpl(gh<_i107.WorkoutDataSource>()),
     );
+    gh.factory<_i790.ProfileRepository>(
+      () => _i427.ProfileRepositoryImpl(gh<_i847.ProfileRemoteDataSource>()),
+    );
     gh.factory<_i112.ChangePasswordViewModel>(
       () => _i112.ChangePasswordViewModel(gh<_i853.ChangePasswordUseCase>()),
     );
     gh.factory<_i28.WorkoutUseCase>(
       () => _i28.WorkoutUseCase(gh<_i301.WorkoutsRepo>()),
+    );
+    gh.factory<_i510.ProfileUseCase>(
+      () => _i510.ProfileUseCase(gh<_i790.ProfileRepository>()),
     );
     gh.factory<_i86.GetExercisesRepo>(
       () => _i368.GetExercisesRepoImpl(gh<_i137.GetExercisesDataSource>()),
@@ -312,6 +327,9 @@ extension GetItInjectableX on _i174.GetIt {
         gh<_i793.OtpVerificationUseCase>(),
         gh<_i591.ForgetPasswordUseCase>(),
       ),
+    );
+    gh.factory<_i567.ProfileViewModel>(
+      () => _i567.ProfileViewModel(gh<_i510.ProfileUseCase>()),
     );
     gh.factory<_i862.ExerciseCubit>(
       () => _i862.ExerciseCubit(
