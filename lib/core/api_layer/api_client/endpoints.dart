@@ -21,4 +21,6 @@ class Endpoints {
   static const String exercisesByRandom = "/exercises/random";
   static const String exercisesByMuscleDifficulty =
       "/exercises/by-muscle-difficulty";
+  static const String getProfileData = "/auth/profile-data";
+  static const String logout = "/auth/logout";
 }

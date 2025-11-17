@@ -17,6 +17,7 @@ import 'package:fitness_app/features/chang_password/data/models/change_password_
 import 'package:fitness_app/features/home/data/models/daily_recommendation_exercise_dto.dart';
 import 'package:fitness_app/features/home/data/models/muscles_by_group_response.dart';
 import 'package:fitness_app/features/home/data/models/muscles_group_dto.dart';
+import 'package:fitness_app/features/profile/data/models/profile_dto.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -95,4 +96,10 @@ abstract class ApiClient {
   getAllDifficultyLevelsByPrimeMoverMuscle(
     @Query('primeMoverMuscleId') String? primeMoverMuscleId,
   );
+
+  @GET(Endpoints.getProfileData)
+  Future<ProfileDTO> getProfileData();
+
+  @GET(Endpoints.logout)
+  Future<HttpResponse<void>> logout();
 }
