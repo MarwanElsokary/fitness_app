@@ -1,3 +1,4 @@
+import 'package:fitness_app/core/route/app_routes.dart';
 import 'package:fitness_app/core/utils/shared_blured_container.dart';
 import 'package:fitness_app/features/profile/domain/entities/profile_entity.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,9 @@ class ProfileOptionsSection extends StatelessWidget {
               title: 'Edit Profile',
             ),
             ListTileCustom(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.changPassword);
+              },
               icon: Icons.lock,
               title: 'Change Password',
             ),

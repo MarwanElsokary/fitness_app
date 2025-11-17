@@ -18,7 +18,7 @@ void main() async {
   final sharedPrefHelper = getIt<SharedPrefHelper>();
   await sharedPrefHelper.setValue(
     SharedPrefKeys.apiKey,
-    "AIzaSyCEt1TlFhD--zIojAILuPOC3V9LwAIp5Hk",
+    "AIzaSyDYTakQnOUBp6jGKEi2D_mgXh6tfDzp9hU",
   );
 
   final seenOnboarding = sharedPref.getValue('seenOnboarding');
@@ -39,18 +39,16 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 813),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (context, child) =>
-          MaterialApp(
-            debugShowCheckedModeBanner: false,
-            title: "Fitness App",
-            theme: ThemeData.dark(),
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
-            locale: const Locale('en'),
-            onGenerateRoute: Routes.generateRoute,
-            initialRoute: token != null ? AppRoutes.navBar : AppRoutes
-                .loginView,
-          ),
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "Fitness App",
+        theme: ThemeData.dark(),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        locale: const Locale('en'),
+        onGenerateRoute: Routes.generateRoute,
+        initialRoute: token != null ? AppRoutes.navBar : AppRoutes.loginView,
+      ),
     );
   }
 }
