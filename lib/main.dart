@@ -16,10 +16,7 @@ void main() async {
 
   final sharedPref = getIt<SharedPrefHelper>();
   final sharedPrefHelper = getIt<SharedPrefHelper>();
-  await sharedPrefHelper.setValue(
-    SharedPrefKeys.apiKey,
-    "AIzaSyDYTakQnOUBp6jGKEi2D_mgXh6tfDzp9hU",
-  );
+  await sharedPrefHelper.setValue(SharedPrefKeys.apiKey, "API-KEY");
 
   final seenOnboarding = sharedPref.getValue('seenOnboarding');
   final isSeen = (seenOnboarding is bool) ? seenOnboarding : false;
