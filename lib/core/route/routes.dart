@@ -1,0 +1,151 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:fitness_app/core/di/di.dart';
+import 'package:fitness_app/core/extensions/project_extensions.dart';
+import 'package:fitness_app/core/route/app_routes.dart';
+import 'package:fitness_app/core/theme/app_colors.dart';
+import 'package:fitness_app/features/auth/login/presentation/cubit/login_view.dart';
+import 'package:fitness_app/features/auth/presentation/forget_password/view/forget_password_screen.dart';
+import 'package:fitness_app/features/auth/presentation/otp_verification/view/otp_verification_screen.dart';
+import 'package:fitness_app/features/auth/presentation/register/view/register_screen.dart';
+import 'package:fitness_app/features/auth/presentation/reset_password/view/reset_password_screen.dart';
+import 'package:fitness_app/features/chang_password/presentation/cubit/chang_password_cubit.dart';
+import 'package:fitness_app/features/chang_password/presentation/pages/chang_password_screen.dart';
+import 'package:fitness_app/features/exercise/presentation/view/exercise_screen.dart';
+import 'package:fitness_app/features/home/presentation/view/home_screen.dart';
+import 'package:fitness_app/features/nav_bar/nav_bar_layout.dart';
+import 'package:fitness_app/features/onboadring/presentation/view.dart';
+import 'package:fitness_app/features/smart_coach/presentation/view/welcome_page.dart';
+import 'package:fitness_app/features/workouts/presentation/view/workout_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+abstract class Routes {
+  static Route generateRoute(RouteSettings settings) {
+    final url = Uri.parse(settings.name ?? "/");
+    switch (url.path) {
+      case AppRoutes.homeScreen:
+        return MaterialPageRoute(builder: (context) => const HomeScreen());
+      case AppRoutes.navBar:
+        return MaterialPageRoute(builder: (context) => NavBarLayout());
+      case AppRoutes.onBoardingScreen:
+        return MaterialPageRoute(builder: (context) => OnBoardingScreen());
+      case AppRoutes.loginView:
+        return MaterialPageRoute(builder: (context) => LoginView());
+      case AppRoutes.welcomPageAI:
+        return MaterialPageRoute(builder: (context) => WelcomePage());
+
+      case AppRoutes.forgetPassword:
+        return MaterialPageRoute(
+          builder: (context) => const ForgetPasswordScreen(),
+        );
+      case AppRoutes.otpverification:
+        String email = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (context) => OtpVerificationScreen(email: email),
+        );
+      case AppRoutes.workoutScreen:
+        return MaterialPageRoute(builder: (context) => WorkoutScreen());
+      case AppRoutes.resetPassword:
+        String email = settings.arguments as String;
+        return MaterialPageRoute(
+          builder: (context) => ResetPasswordScreen(email: email),
+        );
+      case AppRoutes.exerciseScreen:
+        final primeMoverMuscleId = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (context) =>
+              ExerciseScreen(primeMoverMuscleId: primeMoverMuscleId),
+        );
+      // case AppRoutes.changPassword:
+      //   return MaterialPageRoute(
+      //     builder: (context) => const ChangePasswordScreen(),
+      //   );
+      case AppRoutes.changPassword:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (_) => getIt<ChangePasswordViewModel>(),
+            child: const ChangePasswordScreen(),
+          ),
+        );
+      case AppRoutes.register:
+        return MaterialPageRoute(builder: (context) => const RegisterScreen());
+      default:
+        return MaterialPageRoute(builder: (context) => const NotFoundScreen());
+    }
+  }
+}
+
+class NotFoundScreen extends StatelessWidget {
+  const NotFoundScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 6,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Text('404'),
+                Positioned(
+                  bottom: 50,
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      FadeAnimatedText(
+                        "404 Not Found ",
+                        textStyle: const TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 50,
+                          color: AppColors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5),
+                  child: Text(
+                    "Oops! We couldn't find the page you're looking for.",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 26,
+                      color: AppColors.black,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+                (context.height * 0.02).heightBox,
+                SizedBox(
+                  width: context.width * 0.6,
+                  child: FilledButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                        context,
+                        AppRoutes.homeScreen,
+                      );
+                    },
+                    child: const Text("Go to Home"),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

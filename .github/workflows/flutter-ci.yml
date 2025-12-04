@@ -1,0 +1,61 @@
+name: Flutter CI
+
+on:
+  push:
+    branches: [ master, development ]
+  pull_request:
+    branches: [ master, development ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 🧩 1. Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 🛠 2. Setup Flutter SDK
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.35.4
+          channel: stable
+
+      # 📦 3. Install dependencies
+      - name: Get dependencies
+        run: flutter pub get
+
+      # 🧪 4. Run tests and generate coverage
+      - name: Run tests with coverage
+        run: flutter test --coverage
+
+      # ⚙️ 5. Install lcov tool
+      - name: Install lcov
+        run: sudo apt-get update && sudo apt-get install -y lcov
+
+      # 🧹 6. Remove generated and irrelevant files from coverage
+      - name: Remove generated and irrelevant files from coverage
+        run: |
+          lcov --remove coverage/lcov.info \
+            'lib/**.g.dart' \
+            'lib/**.freezed.dart' \
+            'lib/generated/**' \
+            'lib/l10n/**' \
+            'lib/core/di/**' \
+            'lib/**/models/*.dart' \
+            -o coverage/lcov.info || true
+
+      # 📊 7. Print coverage summary
+      - name: Print coverage summary
+        run: lcov --summary coverage/lcov.info
+
+      # ☁️ 8. Upload coverage to Codecov
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/lcov.info
+          fail_ci_if_error: true
+          flags: unittests
+          verbose: true
